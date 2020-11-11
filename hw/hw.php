@@ -1,2 +1,2 @@
-git add<?php
+<?php
     echo "Hello, World!";
