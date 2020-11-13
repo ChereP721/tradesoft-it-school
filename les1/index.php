@@ -3,11 +3,11 @@
  <title>Урок №1</title>
  <style>
    h1 {
-    font-size: 250%; /* Размер шрифта в процентах */ 
+    font-size: 250%; 
    } 
    span {
     font-family: Verdana, Arial, Helvetica, sans-serif; 
-    font-size: 21pt; /* Размер шрифта в пунктах */ 
+    font-size: 21pt; 
    }
   </style>
 </head> 
@@ -20,9 +20,9 @@
 	//var_dump($arr_a);
 	//print_r($arr_a);
 	
-foreach ($arr_a as $i => $value) {
-    echo '<span style="font-size:'.$i*6 .'pt; color:#'.str_pad(dechex($i*19),6, "0", STR_PAD_RIGHT).'">'.$i.' - '.$value.'</span> <br>';
-}
+	foreach ($arr_a as $i => $value) {
+		echo '<span style="font-size:'.$i*6 .'pt; color:#'.str_pad(dechex($i*19),6, "0", STR_PAD_RIGHT).'">'.$value.'</span>';
+	}	
 
  ?>
  
