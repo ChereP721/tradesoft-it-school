@@ -2,7 +2,11 @@
 <?php
 	define (LANG,"ru");
 	
-	require_once('generate.php');
+	require_once('generate.php'); /* функции генерации комментариев */
+	
+	require_once('recursion.php'); /* рекурсивные функции */
+	
+	require_once('formprocessing.php'); /* обработчик формы */
 	
 	$author = 'Admin';
 	$you = 'User';
@@ -138,6 +142,10 @@
 		font-size: 16px;
 		line-height: 24px;
 		margin: 10px 0 0 0;
+	}
+	
+	article p b{
+		font-weight: bold;
 	}
 	
 	.time_create, .bt_open, .art_foot, .f_item input[type=submit] {
@@ -342,8 +350,9 @@
 				<a href=""><img src="img/pic1.jpg" width="200" alt="Картинка"></a>
 				<figcaption>Голова оленя: papercraft шаблон для скачивания и пошаговая инструкция</figcaption>
 			</figure>	
-				<p>Для создания 3D головы оленя, вам не обязательно нужен 3D принтер и навыки в дизайне. 
-				Одним из способов является технология паперкрафт, наличие вободного времени и терпение, так как вам придется вырезать и склеивать…</p>
+				<p>Факториал числа: <b><?=factorial(9);?></b></p>
+				<p>Ряд Фибоначчи: <b><?=findRowFibo(20);?></b></p>
+				<p>Случайное имя файла для script.js: <b><?=fileRand('script.js');?></b></p>
 				<button class="bt_open">Читать далее  →</button>
 				<footer class="art_foot">			
 					<ul>
@@ -356,33 +365,13 @@
 				<div class="f_title">Комментарии:</div>
 				<?=gen_comment(rand(1,2),rand(5,20)); /* генерация комментариев, (количество, количество фраз) */?>
 				<hr>
-				<?=create_parser_comment(rand(1,3),rand(5,20));?>				
+				<?=gen_comment(rand(1,3),rand(5,20));?>				
 		</article>
 
 
 <div class="form_wrap">
 	<div class="f_title">Добавить публикацию (комментарий):</div>
-	<form method="POST" name="u_add">
-	<div class="f_item">
-		<label for="f_author">Автор</label>
-		<input type="text" id="f_author" name="u_name">
-	</div>
-	<div class="f_item">
-		<label for="f_mail">E-mail</label>
-		<input type="text" id="f_mail" name="u_mail">
-	</div>
-	<div class="f_item">
-		<label for="f_pic">Иллюстрация</label>
-		<input type="file" id="f_pic" name="u_pic">
-	</div>
-	<div class="f_item">
-		<label for="f_text">Текст публикации</label>
-		<textarea name="u_txt" id="f_text"></textarea>
-	</div>
-	<div class="f_item">
-		<input name="f_send" type="submit" value="Добавить публикацию">
-	</div>
-	</form>
+	<?=formAdd()?>
 </div>
 		
 	</section>

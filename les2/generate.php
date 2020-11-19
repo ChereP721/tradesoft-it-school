@@ -1,6 +1,7 @@
 <?php
 
-function gen_comment($count, $len_comment) {
+function gen_comment(int $count, int $len_comment) :string
+{
 	
 	/* генерация комментариев gen_comment($count, $len_comment) (количество комментов, количество фраз) */
 	
@@ -49,7 +50,8 @@ function gen_comment($count, $len_comment) {
 	return $tmpl;
 };
 
-function create_parser_comment ($count, $len_comment){
+function create_parser_comment (int $count, int $len_comment):string
+{
 	
 	/* генерация комментариев create_parser_comment($count, $len_comment) (количество комментов, количество фраз) */
 	
