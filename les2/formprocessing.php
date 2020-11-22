@@ -26,24 +26,24 @@ function renameDublicate(string $old):string
 function formAdd ():void
 {
 	$form_tmpl ='
-	<form method="POST" name="u_add" action="" enctype="multipart/form-data">
-	<div class="f_item">
+	<form method="POST" name="u_add" action="/" enctype="multipart/form-data">
+	<div class="form__wrap__item">
 		<label for="f_author">Автор</label>
 		<input type="text" id="f_author" name="u_name" required>
 	</div>
-	<div class="f_item">
+	<div class="form__wrap__item">
 		<label for="f_mail">E-mail</label>
 		<input type="text" id="f_mail" name="u_mail">
 	</div>
-	<div class="f_item">
+	<div class="form__wrap__item">
 		<label for="f_pic">Иллюстрация</label>
 		<input multiple="multiple" type="file" id="f_pic" name="u_pic[]">
 	</div>
-	<div class="f_item">
+	<div class="form__wrap__item">
 		<label for="f_text">Текст публикации</label>
 		<textarea name="u_txt" id="f_text"></textarea>
 	</div>
-	<div class="f_item">
+	<div class="form__wrap__item">
 		<input name="f_send" type="submit" value="Добавить публикацию">
 	</div>
 	</form>';
@@ -77,7 +77,7 @@ if (isset($_POST['u_name']))
 				$new_dir = 'upload\\';	
 				$new_name = '';				
 			};
-	echo '<div class="f_item">Ваши файлы загружены!</div>';
+	echo '<div class="form__wrap__item">Ваши файлы загружены!</div>';
 	} 
 } else echo $form_tmpl;
 };

@@ -39,11 +39,11 @@ function gen_comment(int $count, int $len_comment) :string
 		for ($i=1; $i<=$len_comment; $i++) {
 			$comment .= $arr_comment[rand(0,20)];
 		};
-		$tmpl.='<div class="comments_wrap"><p class="c_author">
-							<i class="fas fa-user-circle"></i> <a href="">'.$arr_author[rand(0,4)].'</a>
+		$tmpl.='<div class="section__article__comments">
+					<div class="section__article__comments__author"><i class="fas fa-user-circle"></i> <a href="">'.$arr_author[rand(0,4)].'</a>
 							 <time datetime="'.date('Y\-m\-d').'">('.date('d\.m\.Y').')</time>
-						</p>
-				<p class="">'.$comment.'</p></div>';
+					</div>
+				<div class="section__article__comments__text">'.$comment.'</div></div>';
 		$comment = '';
 	};
 	
