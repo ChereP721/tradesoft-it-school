@@ -26,7 +26,7 @@ function renameDublicate(string $old):string
 function formAdd ():void
 {
 	$form_tmpl ='
-	<form method="POST" name="u_add" action="/" enctype="multipart/form-data">
+	<form method="POST" name="u_add" action="'.$_SERVER['PHP_SELF'].'" enctype="multipart/form-data">
 	<div class="form__wrap__item">
 		<label for="f_author">Автор</label>
 		<input type="text" id="f_author" name="u_name" required>

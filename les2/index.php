@@ -8,6 +8,8 @@
 	
 	require_once('formprocessing.php'); /* обработчик формы */
 	
+	require_once('clear.php'); /* обработчик формы - очистка uploads */
+	
 	$author = 'Admin';
 	$you = 'User';
 	
@@ -52,7 +54,7 @@
 	<div class="header__right">Papercraft - современное оригами</div>
 	</div>
 </header>
-<div class="line"></div>
+
 <main class="main">
 	<section class="section">
 	<h1 class="section__h1">Паперкрафт, развертки, DIY, поделки из бумаги</h1>
@@ -70,8 +72,22 @@
 			<div class="section__article__post">
 				<p><a href="">Факториал</a> числа: <b><?=factorial(9);?></b></p>
 				<p>Ряд Фибоначчи: <b><?=findRowFibo(20);?></b></p>
-				<p>Случайное имя файла для script.js: <b><?=fileRand('script.js');?></b></p>
+				<p>Случайное имя файла для script.js: <b><?=fileRand('script.js');?></b></p>				
 			</div>
+			
+<!-- start форма для удаления устаревших файлов  -->
+
+			<div class="section__article__form">
+				<form method="GET" name="form_clear_day" action="<?=$_SERVER['PHP_SELF']?>">
+					<label class="section__article__form__lbl" for="clear_day">Введи количество дней:</label>
+					<input class="section__article__form__txt" type="text" id="clear_day" name="clear_day" required>
+					<input class="section__article__form__bt"type="submit" value="Очистить">
+				</form>
+				<p><?=clearUploads();?></p>
+			</div>
+			
+<!-- end форма для удаления устаревших файлов  -->
+
 				<a href="" class="section__article__nextlink">Читать далее  →</a>
 				<footer class="section__article__footer">			
 					<ul>
