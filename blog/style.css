@@ -1,0 +1,118 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    padding: 0 30px;
+    font-size: 16px;
+    line-height: 26px;
+    font-family: "Arial", sans-serif;
+    color: #222222;
+    background: #ffffff url("img/bg-page.png") no-repeat top center;
+}
+/* Container*/
+.container {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+
+/* Header */
+.header {
+    padding: 16px 0;
+    background-color: #4470c4;
+}
+
+.header__nav{
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+.header__link{
+    color: #e8e8e8;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+.header__link:not(:last-child) {
+    margin-right: 16px;
+}
+
+.header__link:hover,
+.header__link:focus {
+    color: #ffffff;
+}
+
+/*Main*/
+.main {
+   padding: 40px 0;
+}
+
+.main__heading{
+    margin-bottom: 16px;
+}
+
+.main__heading_level_1 {
+
+}
+
+/*Article*/
+.post {
+
+}
+
+.post_wrapper {
+
+}
+
+.post_title {
+    font-weight: 300;
+    margin-bottom: 16px;
+}
+
+.post__group{
+    display: flex;
+    flex-direction: column;
+}
+
+.post_content{
+display: flex;
+}
+
+.post__more {
+
+}
+
+.post__group {
+    display: flex;
+    flex-direction: column;
+}
+
+.post_img {
+    margin-right: 16px;
+    border: 4px ;
+}
+
+.photo {
+    border-radius: 50%;
+    border-color: #4470c4;
+    text-align: left;
+}
+
+.skills-level {
+   font-size: 12px;
+   text-align: center;
+   color: #4470c4;
+}
+
+.skills-level-ok {
+   background-color: #1de844;
+}
+
+.skills dd {
+    margin: 0;
+    margin-bottom: 10px;
+    background-color: #e8e8e8;
+}
