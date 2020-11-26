@@ -231,6 +231,19 @@
 		text-decoration: underline;
 	}
 	
+	.section__article__figure {
+		margin:0 0 16px;
+	}
+	
+	.section__article__figure__link {
+		display: inline-block;
+		padding: 10px;
+		background: #fff;
+		-webkit-box-shadow: 1px 1px 8px 0px rgba(34, 60, 80, 0.2);
+		-moz-box-shadow: 1px 1px 8px 0px rgba(34, 60, 80, 0.2);
+		box-shadow: 1px 1px 8px 0px rgba(34, 60, 80, 0.2);
+	}
+	
 	.section__article figcaption {
 		display:none;
 	}

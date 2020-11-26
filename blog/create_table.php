@@ -29,6 +29,7 @@
 		`author_id` int(6) NOT NULL,
 		`author` varchar(255),
 		`content` text,
+		`image` varchar(255),
 		`flag_cat` bool,
 		PRIMARY KEY (`id`)
 		) DEFAULT CHARSET = utf8 AUTO_INCREMENT=1;

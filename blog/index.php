@@ -1,10 +1,6 @@
 <!DOCTYPE html>
 <?php
-	define (LANG,'ru');
-	define (SITENAME,'Паперкрафт, развертки, DIY, поделки из бумаги');
-	
-	require('core\core.php');
-	
+	require('core\core.php');	
 ?>
  
 <html lang="<?=LANG;?>">
@@ -22,22 +18,18 @@
 	<?php		
 		$all_post_select = new postWorkDB;
 		$all_post_select->getAllPost();
-		$all_post = $all_post_select->data;
+		$all_post = mysqli_fetch_all($all_post_select->data, MYSQLI_ASSOC);
 		
-		//var_dump ($all_post);
-		
-		if(!(empty($all_post))) {
-			while ($row = mysqli_fetch_assoc($all_post))
-			{
-				$post_out = new Render();
-				$post_out->set('post', $row);
-				$post_out->display('all_post');
-			};
+		if(!(empty($all_post))) {			
+			$post_out = new Render();
+			$post_out->set('post', $all_post);
+			$post_out->display('all_post');			
 		} else 
 			{
 				echo '<h1 class="section__h1">Наш сайт ещё наполняется...</h1>
 					  <article class="section__article"><div class="section__article__post"><p>Sorry =)</p></div></article>';
 			};
+
 	?>
 </section>
 </main>

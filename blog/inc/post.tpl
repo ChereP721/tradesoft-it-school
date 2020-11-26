@@ -6,7 +6,7 @@
 				<i class="fas fa-user-circle"></i> <a href="" class="section__article__author__link"> <?=$this->post['author']; ?></a>
 			</div>
 			<figure class="section__article__figure">
-				<a href=""><img src="<?=$this->post['image']; ?>" width="200" alt="Картинка"></a>
+				<div class="section__article__figure__link"><img src="<?=$this->post['image']; ?>" width="200" alt="<?=$this->post['title']; ?>"></div>
 				<figcaption><?=$this->post['title']; ?></figcaption>
 			</figure>
 			<div class="section__article__post">
@@ -15,7 +15,7 @@
 				<footer class="section__article__footer">			
 					<ul>
 						<li><i class="fas fa-eye"></i> <?=$this->post['view']; ?></li>
-						<li><i class="fas fa-folder-open"></i> <a href="">Категории</a></li>
+						<li><i class="fas fa-folder-open"></i> <a href="category.php?id=<?=$this->post['cat_id']; ?>"><?=$this->post['cat_title']; ?></a></li>
 						<li><i class="fas fa-comments"></i> <a href="">10 комментариев</a></li>
 					</ul>
 				</footer>

@@ -1,9 +1,6 @@
 <!DOCTYPE html>
-<?php
-	define (LANG,"ru");
-	define (SITENAME,'Паперкрафт, развертки, DIY, поделки из бумаги');
-	require('core\core.php');
-	
+<?php	
+	require('core\core.php');	
 ?>
  
 <html lang="<?=LANG;?>">
@@ -25,11 +22,12 @@
 		$post_select = new postWorkDB;
 		$post_select->getPost($post_id);
 		$post = $post_select->data;
-		
+
 		if(!(empty($post))) {
 			$post_out = new Render();
 			$post_out->set('post', $post);
 			$post_out->display('post');
+			$post_select->updateView($post_id);
 		} else 
 			{
 				echo '<h1 class="section__h1">Страницы не существует 404</h1>

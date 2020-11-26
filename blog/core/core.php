@@ -1,5 +1,6 @@
 <?php
 
+require('core\config.php');
 
 class postWorkDb {
 	
@@ -28,6 +29,17 @@ class postWorkDb {
 		$this->connect->close();
 	}
 	
+	public function getCategory(int $id)
+	{
+		$sql = 'SELECT title AS cat_title FROM bl_pages WHERE id = (SELECT cat_id FROM bl_post WHERE id = '.$id.')';
+		
+		if (!$result = $this->connect->query($sql)) {
+			echo self::error;
+			return;
+		};		
+		return $result->fetch_assoc();
+	}
+	
 	public function getPost(int $id)
 	{		
 		$sql = 'SELECT * FROM bl_post WHERE id = '.$id;
@@ -35,9 +47,24 @@ class postWorkDb {
 		if (!$result = $this->connect->query($sql)) {
 			echo self::error;
 			return;
-		};
+		};		
+		$res = $result->fetch_assoc();
 		
-	    return  $this->data = $result->fetch_assoc();		
+		$re1 = $this->getCategory($id);
+		
+		$res = $res + $re1;
+				
+	    return  $this->data = $res;		
+	}
+	
+	public function updateView(int $id)
+	{		
+		$sql = 'UPDATE bl_post SET view = view + 1 WHERE id = '.$id;
+		
+		if (!$result = $this->connect->query($sql)) {
+			echo self::error;
+			return;
+		};
 	}
 
 	public function getAllpost()
