@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <title>Blog-first</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="/"><img src="img/logo.png" alt="logo" height="70px" width="70px"></a>
+            <a href="/">BLOG</a>
+            <a href="/">CATEGORIES</a>
+        </nav>
+    </header>
+    <main>
+        <h1>Blog</h1>
+        <article>
+            <header>
+                <h2 title="first-theme">First theme</h2>
+            </header>
+            <figure>
+                <img src="img/first_theme.png" alt="blog-photo" width="200" height="200">
+                <figcaption>My blog image</figcaption>
+            </figure>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, adipisci dolorum, fugit, itaque iure minus nobis odit perspiciatis quaerat quam recusandae sed sunt voluptates. Fugiat nisi officiis omnis similique temporibus. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet, assumenda eaque facere nesciunt pariatur reiciendis totam velit. Architecto, culpa, cum ea expedita id ipsam magnam officia officiis quae reprehenderit voluptatem.</p>
+            <button type="button">Read more</button>
+        </article>
+        <hr>
+    </main>
+    <footer>
+        <div>
+            <i class="fa fa-calendar"></i>
+            <time datetime="2020-11-15T20:20:30">November 15, 2020gi</time>
+        </div>
+        <div>
+            <i class="fa fa-user">Admin</i>
+        </div>
+        <hr>
+        <div>
+            <i class="fa fa-comment">Comment</i>
+            <ul>
+                <li>First blog comment</li>
+            </ul>
+        </div>
+        <div>
+            <i class="fa fa-eye"> View</i>
+        </div>
+        <hr>
+    </footer>
+    <form action="/" method="post" name="form-comment"></form>
+    <p>
+        <label for="name">Name</label><br>
+        <input type="text" id="name" placeholder="Your name"><br>
+        <label for="email">Email</label><br>
+        <input type="email" id="email" placeholder="Your email"><br>
+        <label for="message">Your message</label><br>
+        <textarea name="message" id="message" cols="50" rows="8" placeholder="Write your message here"></textarea><br>
+        <button type="button">Submit</button>
+    </p>
+</body>
+</html>
