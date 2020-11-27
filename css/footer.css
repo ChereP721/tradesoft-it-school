@@ -1,0 +1,32 @@
+/*   footer   */
+.post_footer {
+    width: 1200px;
+    margin: 0 auto;
+    padding: 32px 0;
+}
+
+.post_info-line {
+    display: flex;
+}
+
+.post_footer_user {
+    padding-left: 10px;
+}
+
+.post_icon, .post_footer_user, .post_footer_comment, .post_footer_eye {
+    color: #87d035;
+    padding-bottom: 10px;
+}
+
+.link {
+    text-decoration: none;
+}
+
+.footer_comment_list{
+    padding-left: 20px;
+}
+
+.post_info-line div{
+    padding-bottom: 16px;
+}
+

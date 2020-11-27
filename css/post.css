@@ -1,0 +1,43 @@
+/* footer Post */
+
+.post{}
+
+.post_wraper{
+    margin-bottom: 16px;
+}
+
+.post_header{}
+
+.post_content{
+    display: flex;
+    align-content: space-between;
+    align-items: center;
+}
+
+.button.post_group{
+    color: #87d035
+}
+
+.post_title{
+    font-weight: 300;
+    margin-bottom: 16px;
+}
+
+.post_group{
+    display: flex;
+    flex-direction: column;
+}
+
+.post_link {
+    background-color: #87d035;
+    margin-top: 16px;
+    border-radius: 4px;
+    color: white;
+    border: none;
+    width: 100px;
+    height: 30px;
+}
+
+.post_link:hover{
+    text-transform: uppercase;
+}

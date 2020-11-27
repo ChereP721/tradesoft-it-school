@@ -1,0 +1,16 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/*contanier*/
+.contanier{
+    width: 1200px;
+    margin: 0 auto;
+    font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+}
+
+/*   form    */
+.form_comment {
+    background-color: #484846;
+}
