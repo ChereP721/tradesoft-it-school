@@ -20,66 +20,6 @@ $firstComment = '';
 $secondComment = '';
 $lastComment = '';
 
-for($i = 0; $i < 120; $i++) {
-    $case = rand(0,5);
-    $symbol = '';
-    switch ($case) {
-        case 0:
-            $symbol .= ' ';
-            break;
-        case 1:
-            $symbol .= chr(rand(97, 122));
-            break;
-        case 2:
-            $symbol .= chr(rand(97, 122));
-            break;
-        case 3:
-            $symbol .= chr(rand(97, 122));
-            break;
-    };
-    $firstComment .= $symbol;
-}
-
-for($i = 0; $i < 120; $i++) {
-    $case = rand(0,5);
-    $symbol = '';
-    switch ($case) {
-        case 0:
-            $symbol .= ' ';
-            break;
-        case 1:
-            $symbol .= chr(rand(97, 122));
-            break;
-        case 2:
-            $symbol .= chr(rand(97, 122));
-            break;
-        case 3:
-            $symbol .= chr(rand(97, 122));
-            break;
-    };
-    $secondComment .= $symbol;
-}
-
-for($i = 0; $i < 120; $i++) {
-    $case = rand(0,5);
-    $symbol = '';
-    switch ($case) {
-        case 0:
-            $symbol .= ' ';
-            break;
-        case 1:
-            $symbol .= chr(rand(97, 122));
-            break;
-        case 2:
-            $symbol .= chr(rand(97, 122));
-            break;
-        case 3:
-            $symbol .= chr(rand(97, 122));
-            break;
-    };
-    $lastComment .= $symbol;
-}
-
 $a = rand(0,4);
 switch ($a) {
     case 0:
@@ -94,12 +34,67 @@ switch ($a) {
 
 }
 
-$year = rand(2000, 3000);
+$year = rand(2000, 2002);
 $month = rand(1, 12);
 $day = rand(1, 31);
 
-if($month == 2) {
-    $day = rand(1,28);
-};
-
 $date = Date("F", mktime(0, 0, 0, $month, 0)).' '.$day.', '.$year;
+
+$commentAutor = [
+    'Admin',
+    'Dexter',
+    'Bilbo',
+    'SuperDed'
+];
+
+$firstWord = [
+    'Солнечный',
+    'Траурный',
+    'Плюшевый',
+    'Бешеный',
+    'Памятный',
+    'Трепетный'
+    ];
+$secondWord = [
+    'зайчик',
+    'Верник',
+    'глобус',
+    'шарик',
+    'щавель',
+    'песик'
+];
+$thirdWord = [
+    'стеклянного',
+    'ванильного',
+    'резонного',
+    'широкого',
+    'дешёвого',
+    'горбатого'
+];
+$fourthWord = [
+    'глаза',
+    'плова',
+    'Пельша',
+    'мира',
+    'деда',
+    'жира'
+];
+
+$first = array_rand($firstWord);
+$second = array_rand($firstWord);
+$third = array_rand($firstWord);
+$fourth = array_rand($fourthWord);
+
+$firsta = array_rand($firstWord);
+$seconda = array_rand($firstWord);
+$thirda = array_rand($firstWord);
+$fourtha = array_rand($fourthWord);
+
+$firstb = array_rand($firstWord);
+$secondb = array_rand($firstWord);
+$thirdb= array_rand($firstWord);
+$fourthb = array_rand($fourthWord);
+
+$firstComment =  $firstWord[$first].' '.$secondWord[$second].' '.$thirdWord[$third].' '.$fourthWord[$fourth];
+$secondComment =  $firstWord[$firsta].' '.$secondWord[$seconda].' '.$thirdWord[$thirda].' '.$fourthWord[$fourtha];
+$lastComment =  $firstWord[$firstb].' '.$secondWord[$secondb].' '.$thirdWord[$thirdb].' '.$fourthWord[$fourthb];
