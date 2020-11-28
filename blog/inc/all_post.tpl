@@ -1,4 +1,4 @@
-<?php foreach ($this->post as $post) { ?>
+<?php foreach ($this->allPost as $post) { ?>
 <h2 class="section__article__h2"><a href="post.php?id=<?=$post['id']; ?>" class="section__article__h2__link"><?=$post['title']; ?></a></h2>
 		<article class="section__article">
 			<div class="section__article__author">

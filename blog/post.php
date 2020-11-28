@@ -17,22 +17,22 @@
 	
 	<?php	
 	
-		$post_id = (int)$_GET['id'];
+		$postId = (int)$_GET['id'];
 		
-		$post_select = new postWorkDB;
-		$post_select->getPost($post_id);
-		$post = $post_select->data;
+		$singlePostSelect = new postWorkDB;
+		$singlePostSelect->getPost($postId);
+		$singlePost = $singlePostSelect->data;
 
-		if(!(empty($post))) {
-			$post_out = new Render();
-			$post_out->set('post', $post);
-			$post_out->display('post');
-			$post_select->updateView($post_id);
+		if(!(empty($singlePost))) {
+			$singlePostOut = new tplRender();
+			$singlePostOut->set('post', $singlePost);
+			$singlePostOut->displayTemplate('post');
+			$singlePostSelect->updateView($postId);
 		} else 
 			{
 				echo '<h1 class="section__h1">Страницы не существует 404</h1>
 					  <article class="section__article"><div class="section__article__post"><p>Вы попали не туда =)</p></div></article>';
-			};
+			}
 	?>
 		
 	<div class="section__commment">

@@ -11,17 +11,17 @@ class postWorkDb {
 	
 	public function __construct() 
 	{			
-		$db_host = '127.0.0.1';
-		$db_user = 'blog_base';
-		$db_pass = 'blog_base';
-		$db_name = 'blog_base';
+		$dbHost = '127.0.0.1';
+		$dbUser = 'blog_base';
+		$dbPass = 'blog_base';
+		$dbName = 'blog_base';
 		
-		$this->connect = new mysqli($db_host, $db_user, $db_pass, $db_name);
+		$this->connect = new mysqli($dbHost, $dbUser, $dbPass, $dbName);
 		
 		if (!$this->connect) {
 			echo self::error;
 			return;		
-		};	
+		}
 	}
 	
 	public function __destruct()
@@ -29,59 +29,58 @@ class postWorkDb {
 		$this->connect->close();
 	}
 	
-	public function getCategory(int $id)
+	public function getCategory(int $postId)
 	{
-		$sql = 'SELECT title AS cat_title FROM bl_pages WHERE id = (SELECT cat_id FROM bl_post WHERE id = '.$id.')';
+		$sql = 'SELECT title AS cat_title FROM bl_pages WHERE id = (SELECT cat_id FROM bl_post WHERE id = '.$postId.')';
 		
-		if (!$result = $this->connect->query($sql)) {
+		if (!$postCategoryArr = $this->connect->query($sql)) {
 			echo self::error;
 			return;
-		};		
-		return $result->fetch_assoc();
+		}
+		return $postCategoryArr->fetch_assoc();
 	}
 	
-	public function getPost(int $id)
+	public function getPost(int $postId)
 	{		
-		$sql = 'SELECT * FROM bl_post WHERE id = '.$id;
+		$sql = 'SELECT * FROM bl_post WHERE id = '.$postId;
 		
-		if (!$result = $this->connect->query($sql)) {
+		if (!$postArr = $this->connect->query($sql)) {
 			echo self::error;
 			return;
-		};		
-		$res = $result->fetch_assoc();
-		
-		$re1 = $this->getCategory($id);
-		
-		$res = $res + $re1;
-				
-	    return  $this->data = $res;		
+		}
+
+		$resultPostArr = $postArr->fetch_assoc();
+		$categoryArr = $this->getCategory($postId);
+        $resultPostArr = $resultPostArr + $categoryArr;
+	    return  $this->data = $resultPostArr;
 	}
 	
-	public function updateView(int $id)
+	public function updateView(int $postId)
 	{		
-		$sql = 'UPDATE bl_post SET view = view + 1 WHERE id = '.$id;
+		$sql = 'UPDATE bl_post SET view = view + 1 WHERE id = '.$postId;
 		
 		if (!$result = $this->connect->query($sql)) {
 			echo self::error;
 			return;
-		};
+		}
 	}
 
-	public function getAllpost()
+	public function getAllPost()
 	{		
 		$sql = 'SELECT * FROM bl_post';
 		
-		if (!$result = $this->connect->query($sql)) {
+		if (!$allPostArr = $this->connect->query($sql)) {
 			echo self::error;
 			return;
-		};
-		return  $this->data = $result;		
+		}
+
+   		return  $this->data = $allPostArr->fetch_all(MYSQLI_ASSOC);
 	}	
 }
 
 
 
-class Render {
+class tplRender {
 
   private $data = array();
 
@@ -102,12 +101,11 @@ class Render {
     unset($this->data[$name]);
   }
 
-  public function display($template) {
+  public function displayTemplate($template) {
     $template = 'inc'.DIRECTORY_SEPARATOR.$template.'.tpl';
     ob_start();
     include ($template);
     echo ob_get_clean();
   }
-};
+}
 
-?>

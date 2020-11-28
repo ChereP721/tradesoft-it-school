@@ -1,7 +1,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <title><?=SITENAME;?></title>
+  <title><?=SITE_NAME;?></title>
   <link rel="stylesheet" href="_css/reset.css">
   <link rel="stylesheet" href="_css/style.css">
   <link rel="preconnect" href="https://fonts.gstatic.com">
