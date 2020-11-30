@@ -10,18 +10,14 @@ class FormatException extends Exception {
 
 class PostWorkDb {
 
-    private $connect, $host, $user, $pass, $name;
+    private $connect;
     private const DB_ERROR = 'Извините, что-то пошло не так...';
 
     public $data = array();
 
     public function __construct($dbHost, $dbUser, $dbPass, $dbName)
     {
-        $this->host = $dbHost;
-        $this->user = $dbUser;
-        $this->pass = $dbPass;
-        $this->name = $dbName;
-
+       
         try {
             $this->connect = new mysqli($dbHost, $dbUser, $dbPass, $dbName);
             if ($this->connect->connect_error) {
