@@ -42,7 +42,7 @@
 		`author_id` int(6) NOT NULL,
 		`view` int(6) NOT NULL,
 		`author` varchar(255),
-		`post_date` date NOT NULL,
+		`post_date` TIMESTAMP NOT NULL,
 		`intro` text,
 		`content` text,
 		`cat_id` int(6) NOT NULL,
@@ -56,7 +56,7 @@
 		`post_id` int(6),
 		`parent_id` int(6),
 		`content` text,
-		`comment_date` date NOT NULL,
+		`comment_date` TIMESTAMP NOT NULL,
 		PRIMARY KEY (`id`)
 		) DEFAULT CHARSET = utf8 AUTO_INCREMENT=1;
 		

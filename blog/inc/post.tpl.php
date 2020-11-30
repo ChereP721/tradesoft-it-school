@@ -2,7 +2,7 @@
 		<article class="section__article">
 			<div class="section__article__author">
 				<i class="far fa-calendar-alt"></i> 
-				<time datetime="<?=$this->post['post_date']; ?>"><?=$this->post['post_date']; ?></time> опубликовал: 
+				<time datetime="<?=$this->post['post_date']; ?>"><?=strftime('%e %B %G',strtotime($this->post['post_date'])); ?></time> опубликовал:
 				<i class="fas fa-user-circle"></i> <a href="" class="section__article__author__link"> <?=$this->post['author']; ?></a>
 			</div>
 			<figure class="section__article__figure">

@@ -1,15 +1,17 @@
 <!DOCTYPE html>
-<?php	
-	require('core\core.php');	
+<?php
+require_once('core\config.php');
+require_once('core\postworkdb.class.php');
+require_once('core\tplrender.class.php');
 ?>
  
 <html lang="<?=LANG;?>">
 
-<?php require('inc\head.php.inc'); ?>
+<?php require('inc\head.php'); ?>
 
 <body>
 
-<?php require('inc\header.php.inc'); ?>
+<?php require('inc\header.php'); ?>
 
 <div class="wrapper wrapper_mob">
 <main class="main main_mob">
@@ -19,13 +21,13 @@
 	
 		$postId = (int)$_GET['id'];
 		
-		$singlePostSelect = new postWorkDB;
+		$singlePostSelect = new PostWorkDB($dbHost, $dbUser, $dbPass, $dbName);
 		$singlePostSelect->getPost($postId);
 		$singlePost = $singlePostSelect->data;
 
 		if(!(empty($singlePost))) {
-			$singlePostOut = new tplRender();
-			$singlePostOut->set('post', $singlePost);
+			$singlePostOut = new TplRender();
+			$singlePostOut->post = $singlePost;
 			$singlePostOut->displayTemplate('post');
 			$singlePostSelect->updateView($postId);
 		} else 
@@ -46,13 +48,13 @@
 </section>
 </main>
 
-<?php require('inc\aside.php.inc'); ?>
+<?php require('inc\aside.php'); ?>
 
 </div>
 
 <div class="line"></div>
 
-<?php require('inc\footer.php.inc'); ?>
+<?php require('inc\footer.php'); ?>
 
 </body>
 </html>

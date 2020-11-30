@@ -3,7 +3,7 @@
 		<article class="section__article">
 			<div class="section__article__author">
 				<i class="far fa-calendar-alt"></i> 
-				<time datetime="<?=$post['post_date']; ?>"><?=$post['post_date']; ?></time> опубликовал: 
+				<time datetime="<?=$post['post_date']; ?>"><?=strftime('%e %B %G',strtotime($post['post_date'])); ?></time> опубликовал:
 				<i class="fas fa-user-circle"></i> <a href="" class="section__article__author__link"> <?=$post['author']; ?></a>
 			</div>
 			<figure class="section__article__figure">

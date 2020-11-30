@@ -1,0 +1,6 @@
+/blog/upload/*
+/blog/.idea/
+/blog_img/
+/blog/core/index.html
+/blog/inc/index.html
+!.gitignore
