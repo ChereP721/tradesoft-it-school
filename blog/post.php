@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <?php
-require_once('core\config.php');
-require_once('core\postworkdb.class.php');
-require_once('core\tplrender.class.php');
+require_once('core'.DIRECTORY_SEPARATOR.'config.php');
+require_once('core'.DIRECTORY_SEPARATOR.'postworkdb.class.php');
+require_once('core'.DIRECTORY_SEPARATOR.'tplrender.class.php');
 ?>
  
 <html lang="<?=LANG;?>">
 
-<?php require('inc\head.php'); ?>
+<?php require('inc'.DIRECTORY_SEPARATOR.'head.php'); ?>
 
 <body>
 
-<?php require('inc\header.php'); ?>
+<?php require('inc'.DIRECTORY_SEPARATOR.'header.php'); ?>
 
 <div class="wrapper wrapper_mob">
 <main class="main main_mob">
@@ -22,7 +22,7 @@ require_once('core\tplrender.class.php');
 		$postId = (int)$_GET['id'];
 		
 		$singlePostSelect = new PostWorkDB($dbHost, $dbUser, $dbPass, $dbName);
-		$singlePostSelect->getPost($postId);
+		$singlePostSelect->postQuery($postId);
 		$singlePost = $singlePostSelect->data;
 
 		if(!(empty($singlePost))) {
@@ -37,24 +37,25 @@ require_once('core\tplrender.class.php');
 			}
 	?>
 		
-	<div class="section__commment">
+<!--	<div class="section__commment">
 		<div class="section__blockname">Комментарии:</div>					
-	</div>	
+	</div>
+
 		
 	<div class="form__wrap">
 		<div class="form__wrap__title">Добавить публикацию (комментарий):</div>
 	</div>
-		
+-->
 </section>
 </main>
 
-<?php require('inc\aside.php'); ?>
+<?php require('inc'.DIRECTORY_SEPARATOR.'aside.php'); ?>
 
 </div>
 
 <div class="line"></div>
 
-<?php require('inc\footer.php'); ?>
+<?php require('inc'.DIRECTORY_SEPARATOR.'footer.php'); ?>
 
 </body>
 </html>

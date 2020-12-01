@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 
 <?php
-    require_once('core\config.php');
-	require_once('core\postworkdb.class.php');
-    require_once('core\tplrender.class.php');
+    require_once('core'.DIRECTORY_SEPARATOR.'config.php');
+	require_once('core'.DIRECTORY_SEPARATOR.'postworkdb.class.php');
+    require_once('core'.DIRECTORY_SEPARATOR.'tplrender.class.php');
 ?>
  
 <html lang="<?=LANG;?>">
 
-<?php require('inc\head.php'); ?>
+<?php require('inc'.DIRECTORY_SEPARATOR.'head.php'); ?>
 
 <body>
 
-<?php require('inc\header.php'); ?>
+<?php require('inc'.DIRECTORY_SEPARATOR.'header.php'); ?>
 
 <div class="wrapper wrapper_mob">
 <main class="main main_mob">
@@ -21,7 +21,7 @@
 	<?php	
 	
 		$allPostSelect = new PostWorkDB($dbHost, $dbUser, $dbPass, $dbName);
-		$allPostSelect->getAllPost();
+		$allPostSelect->postQuery();
 
 		if(!(empty($allPostSelect->data))) {
 			$allPostOut = new TplRender();
@@ -36,13 +36,13 @@
 </section>
 </main>
 
-<?php require('inc\aside.php'); ?>
+<?php require('inc'.DIRECTORY_SEPARATOR.'aside.php'); ?>
 
 </div>
 
 <div class="line"></div>
 
-<?php require('inc\footer.php'); ?>
+<?php require('inc'.DIRECTORY_SEPARATOR.'footer.php'); ?>
 
 </body>
 </html>
