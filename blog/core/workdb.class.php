@@ -1,18 +1,14 @@
 <?php
 
-class FormatException extends Exception {
+require_once('formatexception.class.php');
 
-    public function errorMessage()
-    {
-        $errorMsg = '<article class="section__article"><div class="section__article__post"><p>'.$this->getMessage().'</p></div></article>';
-        return $errorMsg;
-    }
-}
-
-class PostWorkDb {
+class WorkDb {
 
     private $connect, $host, $user, $pass, $name;
+
     private const DB_ERROR = 'Извините, что-то пошло не так...';
+    private const DB_ERROR1 ='Наш сайт еще наполняется.';
+    private const DB_ERROR3 ='Не хулиганьте!';
 
     public $data = array();
 
@@ -22,11 +18,11 @@ class PostWorkDb {
         $this->user = $dbUser;
         $this->pass = $dbPass;
         $this->name = $dbName;
-       
+
         try {
             $this->connect = new mysqli($this->host, $this->user, $this->pass, $this->name);
-            if ($this->connect->connect_error) {
-               throw new FormatException(self::DB_ERROR);
+           if ($this->connect->connect_error) {
+               throw new FormatException(self::DB_ERROR) ;
             }
         }
         catch (FormatException $e) {
@@ -47,6 +43,7 @@ class PostWorkDb {
     public function postQuery(int $postId = 0)
     {
         $where = '';
+        $resultPostArr = [];
         if (!$postId == 0) $where = 'WHERE p.id = '.$postId;
 
         $sql = 'SELECT p.*, c.title AS cat_title, c.id AS cat_id, u.name AS user_name, u.id AS user_id FROM bl_post p
@@ -54,17 +51,44 @@ class PostWorkDb {
                     LEFT JOIN bl_users u ON p.author_id = u.id '.$where;
 
         try {
-            $postArr = $this->connect->query($sql);
+            $postObj = $this->connect->query($sql);
             if ($this->connect->connect_error) {
-                throw new FormatException(self::DB_ERROR);
+                throw new FormatException(self::DB_ERROR1);
             }
+            $resultPostArr = $postObj->fetch_all(MYSQLI_ASSOC);
         }
         catch (FormatException $e) {
             echo $e->errorMessage();
         }
 
-
-        $resultPostArr = $postArr->fetch_all(MYSQLI_ASSOC);
         return  $this->data = $resultPostArr;
+    }
+
+/*
+ * Проверка существования пользователя
+ * 0 - Пользователя не существует
+ * 1 - Пароль не верный
+ * 2 - Success!
+ * */
+
+    public function checkUser(string $login, string $passw):int
+    {
+        $sql = 'SELECT * FROM bl_users WHERE login = \''.$login.'\'';
+
+        try {
+            $userObj = $this->connect->query($sql);
+            if ($this->connect->connect_error) {
+                throw new FormatException(self::DB_ERROR2);
+            }
+            $userArr = $userObj->fetch_array();
+        }
+        catch (FormatException $e) {
+            echo $e->errorMessage();
+        };
+
+        if (empty($userArr))  return 0;
+        if ($userArr['passw'] === $passw) {
+            return 2;
+        } else return 1;
     }
 }

@@ -1,10 +1,11 @@
-<!DOCTYPE html>
 <?php
+session_start();
 require_once('core'.DIRECTORY_SEPARATOR.'config.php');
-require_once('core'.DIRECTORY_SEPARATOR.'postworkdb.class.php');
+require_once('core'.DIRECTORY_SEPARATOR.'workdb.class.php');
 require_once('core'.DIRECTORY_SEPARATOR.'tplrender.class.php');
+require_once('core'.DIRECTORY_SEPARATOR.'siteauth.class.php');
 ?>
- 
+<!DOCTYPE html>
 <html lang="<?=LANG;?>">
 
 <?php require('inc'.DIRECTORY_SEPARATOR.'head.php'); ?>
@@ -17,24 +18,16 @@ require_once('core'.DIRECTORY_SEPARATOR.'tplrender.class.php');
 <main class="main main_mob">
 	<section class="section">
 	
-	<?php	
-	
+	<?php
 		$postId = (int)$_GET['id'];
-		
-		$singlePostSelect = new PostWorkDB($dbHost, $dbUser, $dbPass, $dbName);
-		$singlePostSelect->postQuery($postId);
-		$singlePost = $singlePostSelect->data;
+		$postOut = new WorkDB($dbHost, $dbUser, $dbPass, $dbName);
+		$postOut->postQuery($postId);
+        $postOut->updateView($postId);
 
-		if(!(empty($singlePost))) {
-			$singlePostOut = new TplRender();
-			$singlePostOut->post = $singlePost;
-			$singlePostOut->displayTemplate('post');
-			$singlePostSelect->updateView($postId);
-		} else 
-			{
-				echo '<h1 class="section__h1">Страницы не существует 404</h1>
-					  <article class="section__article"><div class="section__article__post"><p>Вы попали не туда =)</p></div></article>';
-			}
+		$postId == 0 ? $tpl = 'all_post' : $tpl = 'post';
+
+		$out = new TplRender();
+		$out->outRenderedTemplate($postOut->data, $tpl);
 	?>
 		
 <!--	<div class="section__commment">

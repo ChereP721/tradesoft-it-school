@@ -369,7 +369,7 @@
 		color:#5b666a;
 	}
 	
-	.form__wrap__item input[type=text], .section__article__form__txt {
+	.form__wrap__item input[type=text], .form__wrap__item input[type=password], .section__article__form__txt {
 		width: 40%;
 		padding: 0 8px;
 		font-size: 15px;
@@ -387,11 +387,11 @@
 		height:200px;
 	}
 	
-	.form__wrap__item input[type=text]:hover, .form__wrap__item textarea:hover, .section__article__form__txt:hover {
+	.form__wrap__item input[type=text]:hover, .form__wrap__item input[type=password]:hover, .form__wrap__item textarea:hover, .section__article__form__txt:hover {
 		border: 1px solid #717171;
 	}
 	
-	.form__wrap__item input[type=text]:active, .form__wrap__item input[type=text]:focus {
+	.form__wrap__item input[type=text]:active, .form__wrap__item input[type=text]:focus, .form__wrap__item input[type=password]:active, .form__wrap__item input[type=password]:focus {
 		border: 2px solid #717171;
 		height:28px;
 	}
@@ -492,4 +492,16 @@
 		overflow: hidden;
 		max-height:500px;
 		margin: 0 8px 8px;
+	}
+
+	.aside__block__content .form__wrap__item .wid_60
+	{
+		width: 60%;
+	}
+
+	.aside__block__content__mess
+	{
+		margin: 0 0 16px 20px;
+		font-size: 16px;
+		line-height: 25px;
 	}

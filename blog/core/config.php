@@ -1,5 +1,5 @@
 <?
-ini_set('display_errors', 0);
+ini_set('display_errors', 1);
 
 define ('LANG','ru');
 define ('SITE_NAME','Паперкрафт, развертки, DIY, поделки из бумаги');
@@ -10,4 +10,3 @@ $dbHost = '127.0.0.1';
 $dbUser = 'blog_base';
 $dbPass = 'blog_base';
 $dbName = 'blog_base';
-

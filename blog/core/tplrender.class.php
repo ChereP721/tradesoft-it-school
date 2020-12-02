@@ -23,11 +23,19 @@ class TplRender {
         $this->data[$name] = $value;
     }
 
-  public function displayTemplate($template)
+  public function displayTemplate($template):void
     {
         $template = 'inc'.DIRECTORY_SEPARATOR.$template.'.tpl.php';
         ob_start();
         include ($template);
         echo ob_get_clean();
+    }
+
+    public function outRenderedTemplate(array $postAr, string $nameTemplate):void
+    {
+        if(!(empty($postAr))) {
+            $this->post = $postAr;
+            $this->displayTemplate($nameTemplate);
+        }
     }
 }
