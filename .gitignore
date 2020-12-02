@@ -1,0 +1,7 @@
+/blog/upload/*
+/blog/.idea/
+/blog_img/
+/blog/core/index.html
+/blog/inc/index.html
+/blog/create_table.php
+!.gitignore
