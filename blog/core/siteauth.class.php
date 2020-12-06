@@ -42,8 +42,9 @@ class SiteAuth
         {
             require('config.php');
             $checkU = new WorkDB($dbHost, $dbUser, $dbPass, $dbName);
-
-            switch ($checkU->checkUser($_POST['f_login'], $_POST['f_passw']))
+            $f_login = htmlspecialchars($_POST['f_login']);
+            $f_passw = htmlspecialchars($_POST['f_passw']);
+            switch ($checkU->checkUser($f_login, $f_passw))
             {
                 case 0:
                     $auth_message = 'Указанный пользователь не зарегистрирован';
@@ -65,7 +66,7 @@ class SiteAuth
         if (isset($_SESSION['user']))
         {
             $auth_message = 'Добро пожаловать, '.$_SESSION['user'];
-            require_once('inc'.DIRECTORY_SEPARATOR.$meassageTpl.'.tpl');
-        } else require_once('inc'.DIRECTORY_SEPARATOR.$meassageTpl.'.tpl');
+        };
+        require_once('inc'.DIRECTORY_SEPARATOR.$meassageTpl.'.tpl');
     }
 }

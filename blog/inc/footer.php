@@ -13,3 +13,4 @@
 		PaperCraft.com © 2020 | TradeSoft IT-School | <a href="">Политика защиты персональных данных</a>
 	</div>
 </footer>
+<script src="_js/script.js"></script>

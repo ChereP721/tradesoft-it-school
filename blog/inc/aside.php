@@ -11,11 +11,18 @@
     </div>
 	<div class="aside__blockwrap">
 		<div class="aside__block__title">Топ просмотров</div>
-		<div class="aside__block__content"><a href="/"><img src="upload/jpg/3.png" width="300" alt="Картинка"></a></div>
+        <?php
+            $postOut = new WorkDB($dbHost, $dbUser, $dbPass, $dbName);
+            $postOut->postQuery(2);
+            $out->outRenderedTemplate($postOut->data, 'once_post');
+        ?>
 	</div>
 	<div class="aside__blockwrap">
 		<div class="aside__block__title">Скидка дня %</div>
-		<div class="aside__block__content"><a href="/"><img src="upload/jpg/4.jpg" width="300" alt="Картинка1"></a></div>
+        <?php
+            $postOut->postQuery(1);
+            $out->outRenderedTemplate($postOut->data, 'once_post');
+        ?>
 	</div>
 	<div class="aside__blockwrap">
 		<div class="aside__block__title">Категории</div>

@@ -4,7 +4,7 @@ require_once('formatexception.class.php');
 
 class WorkDb {
 
-    private $connect, $host, $user, $pass, $name;
+    public $connect, $host, $user, $pass, $name;
 
     private const DB_ERROR = 'Извините, что-то пошло не так...';
     private const DB_ERROR1 ='Наш сайт еще наполняется.';
@@ -40,28 +40,40 @@ class WorkDb {
         }
     }
 
-    public function postQuery(int $postId = 0)
+    public function getQuery (string $sql):array
     {
-        $where = '';
-        $resultPostArr = [];
-        if (!$postId == 0) $where = 'WHERE p.id = '.$postId;
-
-        $sql = 'SELECT p.*, c.title AS cat_title, c.id AS cat_id, u.name AS user_name, u.id AS user_id FROM bl_post p
-                    LEFT JOIN bl_pages c ON p.cat_id = c.id
-                    LEFT JOIN bl_users u ON p.author_id = u.id '.$where;
-
+        $resultArr = [];
         try {
-            $postObj = $this->connect->query($sql);
+            $resultObj = $this->connect->query($sql);
             if ($this->connect->connect_error) {
                 throw new FormatException(self::DB_ERROR1);
             }
-            $resultPostArr = $postObj->fetch_all(MYSQLI_ASSOC);
+            $resultArr = $resultObj->fetch_all(MYSQLI_ASSOC);
         }
         catch (FormatException $e) {
             echo $e->errorMessage();
         }
 
-        return  $this->data = $resultPostArr;
+        return $resultArr;
+    }
+
+    public function postQuery(int $postId = 0):array
+    {
+        $where = '';
+        if (!$postId == 0) $where = 'WHERE p.id = '.$postId;
+
+        $sql = '
+            SELECT
+                p.*, c.title AS cat_title, c.id AS cat_id, u.name AS user_name, u.id AS user_id, COUNT(bc.id) AS count
+            FROM bl_post p
+            LEFT JOIN bl_pages c ON p.cat_id = c.id
+            LEFT JOIN bl_users u ON p.author_id = u.id
+            LEFT JOIN bl_comment bc ON bc.post_id = p.id
+            '.$where.'
+            GROUP BY p.id
+        ';
+
+        return $this->data = $this->getQuery($sql);
     }
 
 /*
@@ -75,20 +87,46 @@ class WorkDb {
     {
         $sql = 'SELECT * FROM bl_users WHERE login = \''.$login.'\'';
 
-        try {
-            $userObj = $this->connect->query($sql);
-            if ($this->connect->connect_error) {
-                throw new FormatException(self::DB_ERROR2);
-            }
-            $userArr = $userObj->fetch_array();
-        }
-        catch (FormatException $e) {
-            echo $e->errorMessage();
-        };
+        $userArr = $this->getQuery($sql);
 
         if (empty($userArr))  return 0;
         if ($userArr['passw'] === $passw) {
             return 2;
         } else return 1;
+    }
+
+    public function commentOut(int $postId = 0):array
+    {
+        if ($postId == 0) return $this->data = [];
+
+        $where = 'WHERE post_id = '.$postId;
+        $sql = 'SELECT c.*, u.name AS user_name FROM bl_comment c 
+                LEFT JOIN bl_users u ON u.id = c.author_id '.$where;
+
+       return  $this->data = $this->getQuery($sql);
+    }
+
+    public function categoryQuery():array
+    {
+        $sql = 'SELECT * FROM bl_pages WHERE flag_cat = 1';
+        return  $this->data = $this->getQuery($sql);
+    }
+
+    public function postQueryCat(int $catId):array
+    {
+        $where = 'WHERE p.cat_id = '.$catId;
+
+        $sql = '
+            SELECT
+                p.*, c.title AS cat_title, c.id AS cat_id, u.name AS user_name, u.id AS user_id, COUNT(bc.id) AS count
+            FROM bl_post p
+            LEFT JOIN bl_pages c ON p.cat_id = c.id
+            LEFT JOIN bl_users u ON p.author_id = u.id
+            LEFT JOIN bl_comment bc ON bc.post_id = p.id
+            '.$where.'
+            GROUP BY p.id
+        ';
+
+        return  $this->data = $this->getQuery($sql);
     }
 }
