@@ -1,0 +1,1 @@
+<div class="aside__block__content__mess"><?=$auth_message;?> </div>
