@@ -2,7 +2,9 @@
 /blog/.idea/
 /blog/_img/
 /blog/_css/
+/blog/_shop-img/
 /blog/core/index.html
 /blog/inc/index.html
 /blog/create_table.php
+/blog/shop.php
 !.gitignore

@@ -1,9 +1,5 @@
 <?php
-session_start();
-require_once('core'.DIRECTORY_SEPARATOR.'config.php');
-require_once('core'.DIRECTORY_SEPARATOR.'workdb.class.php');
-require_once('core'.DIRECTORY_SEPARATOR.'tplrender.class.php');
-require_once('core'.DIRECTORY_SEPARATOR.'siteauth.class.php');
+    require_once('core'.DIRECTORY_SEPARATOR.'config.php');
 ?>
 <!DOCTYPE html>
 <html lang="<?=LANG;?>">

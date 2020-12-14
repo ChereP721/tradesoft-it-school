@@ -1,9 +1,5 @@
 <?php
-session_start();
-require_once('core'.DIRECTORY_SEPARATOR.'config.php');
-require_once('core'.DIRECTORY_SEPARATOR.'workdb.class.php');
-require_once('core'.DIRECTORY_SEPARATOR.'tplrender.class.php');
-require_once('core'.DIRECTORY_SEPARATOR.'siteauth.class.php');
+    require_once('core'.DIRECTORY_SEPARATOR.'config.php');
 ?>
 <!DOCTYPE html>
 <html lang="<?=LANG;?>">
@@ -20,9 +16,13 @@ require_once('core'.DIRECTORY_SEPARATOR.'siteauth.class.php');
 	
 	<?php
 		$postId = (int)$_GET['id'];
+		$delCommentId = (int)$_GET['del'];
+        $delCommentUser = (string)$_GET['user'];
 		$postOut = new WorkDB($dbHost, $dbUser, $dbPass, $dbName);
 		$postOut->postQuery($postId);
         $postOut->updateView($postId);
+
+        if ((isset($delCommentId))&&($_SESSION['user'] === $delCommentUser)) { $postOut->deleteComment($delCommentId); }
 
 		$postId == 0 ? $tpl = 'all_post' : $tpl = 'post';
 
@@ -53,7 +53,15 @@ require_once('core'.DIRECTORY_SEPARATOR.'siteauth.class.php');
             <form method="POST" name="comment_add" action="<?=$_SERVER['REQUEST_URI']?>" enctype="multipart/form-data">
                 <div class="form__wrap__item">
                     <label for="uname">Ваше имя</label>
-                    <input type="text" id="uname" name="u_name" data-required >
+                    <?php
+                    if (isset($_SESSION['user']))
+                    {
+                        echo ('<input type="text" id="uname" name="u_name" data-required value="'.$_SESSION['user'].'"><input type="hidden" name="u_id" value="'.$_SESSION['user_id'].'">');
+                    } else {
+                        echo ('<input type="text" id="uname" name="u_name" data-required value="Гость"><input type="hidden" name="u_id" value="3">');
+                    };
+                    ?>
+
                     <span data-msg='Введите имя'></span>
                     <div class="form__dot"></div>
                 </div>
@@ -72,6 +80,8 @@ require_once('core'.DIRECTORY_SEPARATOR.'siteauth.class.php');
                 <div class="form__wrap__item">
                     <button class="button_send" type="button">Отправить</button>
                 </div>
+
+                <input type="hidden" name="p_id" value="<?=$postId?>">
             </form>
             <div class="loader__wrapper">
                 <i class="loader__icon fa fa-spinner"></i>

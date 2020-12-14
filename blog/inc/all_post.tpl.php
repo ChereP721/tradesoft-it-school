@@ -4,10 +4,10 @@
         <div class="section__article__author">
             <i class="far fa-calendar-alt"></i>
             <time datetime="<?=$post['post_date']; ?>"><?=strftime('%e %B %G',strtotime($post['post_date'])); ?></time> опубликовал:
-            <i class="fas fa-user-circle"></i> <a href="<?=$post['user_id']; ?>" class="section__article__author__link"> <?=$post['user_name']; ?></a>
+            <i class="fas fa-user-circle"></i> <a href="user.php?id=<?=$post['user_id']; ?>" class="section__article__author__link"> <?=$post['user_name']; ?></a>
         </div>
         <figure class="section__article__figure">
-            <div class="section__article__figure__link"><img src="<?=$post['image']; ?>" width="200" alt="<?=$post['title']; ?>"></div>
+            <div class="section__article__figure__link"><a href="post.php?id=<?=$post['id']; ?>"><img src="<?=$post['image']; ?>" width="200" alt="<?=$post['title']; ?>"></a></div>
             <figcaption><?=$post['title']; ?></figcaption>
         </figure>
 			<div class="section__article__post">

@@ -1,0 +1,8 @@
+/upload/
+/.idea/
+.idea/
+_img/
+/_img/
+/core/index.html
+/inc/index.html
+!.gitignore

@@ -1,7 +1,5 @@
 <?php
 
-require_once('formatexception.class.php');
-
 class WorkDb {
 
     public $connect, $host, $user, $pass, $name;
@@ -30,6 +28,11 @@ class WorkDb {
         }
     }
 
+    public function doQuery (string $sql):void
+    {
+        $this->connect->query($sql);
+    }
+
     public function updateView(int $postId):void
     {
         $sql = 'UPDATE bl_post SET view = view + 1 WHERE id = '.$postId;
@@ -40,7 +43,7 @@ class WorkDb {
         }
     }
 
-    public function getQuery (string $sql):array
+    public function getQueryResult(string $sql):array
     {
         $resultArr = [];
         try {
@@ -73,7 +76,7 @@ class WorkDb {
             GROUP BY p.id
         ';
 
-        return $this->data = $this->getQuery($sql);
+        return $this->data = $this->getQueryResult($sql);
     }
 
 /*
@@ -87,12 +90,22 @@ class WorkDb {
     {
         $sql = 'SELECT * FROM bl_users WHERE login = \''.$login.'\'';
 
-        $userArr = $this->getQuery($sql);
+        $userArr = $this->getQueryResult($sql);
 
         if (empty($userArr))  return 0;
-        if ($userArr['passw'] === $passw) {
+        if ($userArr[0]['passw'] === $passw) {
             return 2;
         } else return 1;
+    }
+
+    public function getUserId(string $login):int
+    {
+        $sql = 'SELECT id FROM bl_users WHERE login = \''.$login.'\'';
+
+        $userArr = $this->getQueryResult($sql);
+
+        if (empty($userArr))  return 0;
+        return $userArr[0]['id'];
     }
 
     public function commentOut(int $postId = 0):array
@@ -100,16 +113,25 @@ class WorkDb {
         if ($postId == 0) return $this->data = [];
 
         $where = 'WHERE post_id = '.$postId;
-        $sql = 'SELECT c.*, u.name AS user_name FROM bl_comment c 
+        $sql = 'SELECT c.*, u.name AS user_name, u.login AS user_login FROM bl_comment c 
                 LEFT JOIN bl_users u ON u.id = c.author_id '.$where;
 
-       return  $this->data = $this->getQuery($sql);
+       return  $this->data = $this->getQueryResult($sql);
+    }
+
+    public function oneCommentOut(int $comentId = 0):array
+    {
+        if ($comentId == 0) return $this->data = [];
+
+        $sql = 'SELECT * FROM bl_comment WHERE id = '.$comentId;
+
+        return  $this->data = $this->getQueryResult($sql);
     }
 
     public function categoryQuery():array
     {
         $sql = 'SELECT * FROM bl_pages WHERE flag_cat = 1';
-        return  $this->data = $this->getQuery($sql);
+        return  $this->data = $this->getQueryResult($sql);
     }
 
     public function postQueryCat(int $catId):array
@@ -127,6 +149,12 @@ class WorkDb {
             GROUP BY p.id
         ';
 
-        return  $this->data = $this->getQuery($sql);
+        return  $this->data = $this->getQueryResult($sql);
+    }
+
+    public function deleteComment(int $commentId):void
+    {
+        $sql = 'DELETE FROM bl_comment WHERE id='.$commentId;
+        $this->doQuery($sql);
     }
 }

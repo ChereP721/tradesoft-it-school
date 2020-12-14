@@ -135,7 +135,7 @@ document.addEventListener('DOMContentLoaded', function(){
         setTimeout(function() {
             hideModal();
             notification.classList.remove('notification__show');
-        }, 5000);
+        }, 2000);
     }
 
     xhr.onerror = function() {

@@ -1,4 +1,14 @@
-<?
+<?php
+
+session_start();
+
+require_once('core'.DIRECTORY_SEPARATOR.'config.php');
+
+spl_autoload_register(function($class) {
+    $filename = 'core/'.$class.'.class.php';
+    if (file_exists($filename)) require $filename;
+});
+
 ini_set('display_errors', 1);
 
 define ('LANG','ru');

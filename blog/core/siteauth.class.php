@@ -36,7 +36,7 @@ class SiteAuth
  * *
  * */
 
-    public function checkAuth(string $meassageTpl = 'authmessage'):void
+    public function processAuth(string $messageTpl = 'authmessage'):void
     {
         if (isset($_POST['f_send']))
         {
@@ -44,6 +44,7 @@ class SiteAuth
             $checkU = new WorkDB($dbHost, $dbUser, $dbPass, $dbName);
             $f_login = htmlspecialchars($_POST['f_login']);
             $f_passw = htmlspecialchars($_POST['f_passw']);
+            //echo $f_login.'<br>'.$f_passw;
             switch ($checkU->checkUser($f_login, $f_passw))
             {
                 case 0:
@@ -53,20 +54,21 @@ class SiteAuth
                     $auth_message = 'Пароль не верный';
                     break;
                 case 2:
+                    $_SESSION['user_id'] = $checkU->getUserId($f_login);
                     $_SESSION['user'] = $_POST['f_login'];
                     break;
             }
-        };
+        }
 
        if (isset($_POST['f_out_send']))
         {
             unset($_SESSION['user']);
-        };
+        }
 
         if (isset($_SESSION['user']))
         {
             $auth_message = 'Добро пожаловать, '.$_SESSION['user'];
-        };
-        require_once('inc'.DIRECTORY_SEPARATOR.$meassageTpl.'.tpl');
+        }
+        require_once('inc'.DIRECTORY_SEPARATOR.$messageTpl.'.tpl');
     }
 }

@@ -1,9 +1,5 @@
 <?php
-session_start();
-require_once('core'.DIRECTORY_SEPARATOR.'config.php');
-require_once('core'.DIRECTORY_SEPARATOR.'workdb.class.php');
-require_once('core'.DIRECTORY_SEPARATOR.'tplrender.class.php');
-require_once('core'.DIRECTORY_SEPARATOR.'siteauth.class.php');
+    require_once('core'.DIRECTORY_SEPARATOR.'config.php');
 ?>
 <!DOCTYPE html>
 <html lang="<?=LANG;?>">
@@ -25,13 +21,13 @@ require_once('core'.DIRECTORY_SEPARATOR.'siteauth.class.php');
 
         $categoryOut = new WorkDB($dbHost, $dbUser, $dbPass, $dbName);
 
-        if ($categoryId == 0) {
+        if ($categoryId === 0) {
             $tpl = 'category';
             $categoryOut->categoryQuery();
         } else {
             $tpl = 'all_post';
             $categoryOut->postQueryCat($categoryId);
-        };
+        }
 
 		$out = new TplRender();
 		$out->outRenderedTemplate($categoryOut->data, $tpl);
