@@ -85,7 +85,7 @@ function generateComments(int $commentCount, int $level = 0): array
             if ($i == $v) {
                 continue;  
             }
-            if ($commentAr[$i]['author'] == $commentAr[$v]['author'] && $commentAr[$i]['text'] == $commentAr[$v]['text']) {
+            if ($commentAr[$i]['author'] == $commentAr[$v]['author'] && $commentAr[$i]['text'] == $commentAr[$v]['text'] || $commentAr[$i]['author'] == $commentAr[$v]['author'] && $commentAr[$i]['date'] == $commentAr[$v]['date']) {
                 $a = [
                     'author' => $commentAr[$i]['author'],
                     'text' => $commentAr[$i]['text'],
