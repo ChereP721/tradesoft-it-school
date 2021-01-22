@@ -1,2 +1,1 @@
-echo 2111
-3423423423
+<?php echo "Hello World"; ?>
