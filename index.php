@@ -1,7 +1,11 @@
+<?php
 
-<head>
-    <title>first php</title>
-</head>
-<body>
-    <?php echo 'Hello world'; ?>
-</body>
+function hello()
+{
+    $hello = "Hello World!";
+    echo $hello;
+}
+
+hello();
+
+?>
