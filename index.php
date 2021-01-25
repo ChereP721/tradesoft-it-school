@@ -1,3 +1,10 @@
+<<<<<<< Updated upstream
+=======
+<?php
+echo 'Hello world!';
+echo 'konflikt';
+?>
+>>>>>>> Stashed changes
 
 <head>
     <title>first php</title>
