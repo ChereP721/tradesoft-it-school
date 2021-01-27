@@ -52,13 +52,37 @@
                                 </div>
                                 <div>
                                     <i class="fa fa-comment"></i>
-                                    <span>Количество коментариев</span>
+                                    <a href="/" title="Comment on Mauris posuere">No comments</a> 
                                 </div>
                             </div>
                             <hr>
-                            <div>
+                            <div title="Количество просмотров">
                                 <i class="fa fa-eye"></i>
-                                <span>Количество просмотров</span>
+                                <span>0</span>
+                            </div>
+                            <hr>
+                             <!--Выводятся списком комментарии к статье-->
+                            <div title="Комментарии">
+                                <span>Комментарии</span>
+                            </div>
+                            <div>
+                                <button type="button">
+                                    <span>Показать комментарии</span>
+                                </button>
+                                <ul>
+                                    <li>
+                                        <img src="/" alt="Avatar admin">
+                                        <div>
+                                            <div>
+                                                <span>Admin</span>
+                                                <time datetime="2021-01-26T20:28:57">January 26, 2021</time>
+                                            </div>
+                                            <p>
+                                                Текст комментария
+                                            </p>
+                                        </div>
+                                    </li>
+                                </ul>
                             </div>
                         </footer> 
                     </figure>    
@@ -66,10 +90,10 @@
                 
         </main>
 
-    <footer>
+    <footer> <!--Подвал страницы-->
         <span>Моя первая страница 2021 © </span>
-    </footer> <!--Подвал страницы-->
-
+    </footer>
+<!--заготовка формы комментария-->
     <div class="modal">
         <form action="#" method="POST" ="multipart/form-data" name="form-comment">
         <fieldset> <!--Оборачивает в рамку, группирует элементы в форме-->
