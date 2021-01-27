@@ -2,3 +2,5 @@
 https://www.templatemonsterpreview.com/ru/demo/50742.html
 Ссылка на презентацию
 https://docs.google.com/presentation/d/13I8Eqf-wi95u6KTu9JigyAmVtFWJpM4709PQf__iK98/edit?usp=drivesdk
+Ссылка на проверку валидации кода
+http://validator.w3.org/#validate_by_input
