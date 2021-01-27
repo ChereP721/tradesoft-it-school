@@ -2,18 +2,18 @@
 <html lang="en">
 <head>
        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	    <link rel="stylesheet" href="css/styleReset.cssssss" type = "text/css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+	    <link rel="stylesheet" href="css/styleReset.cssssss" type = "text/css"> <!--Очистка стилей-->
 
-        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet"> <!--подключение иконок-->
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap" rel="stylesheet">
             
     <title>Document</title>
     
 </head>
 <body>
-    <header>Шапка
-        <Nav>Навигация
+    <header><!--Шапка-->
+        <Nav><!--Навигация-->
             <a href="#">Ссылка 1</a>
             <a href="#">Ссылка 2</a>
 
@@ -21,59 +21,75 @@
     </header>
 
 
-        <main>Основной контент сайта
+        <main><!--Основной контент сайта-->
             <h1>Блог</h1>
-            <article>Блок который можнобезпроблем изъять из контента
+            <article><!--Блок который можнобезпроблем изъять из контента-->
                 <header>
                     <h2 title="first-theme">First theme</h2>
                 </header>
-                    <figure>Блок в который оборачиваем контент, можно заменить дивом
+                    <figure><!-- Блок в который оборачиваем контент, можно заменить дивомг-->
                         <img src="#" alt="ссылка на картинку">
                     
-                    <div>
-                        <p>описание блога</p>
-                    </div>
-                        <button type="button">Прочитать статью</button>
-                    <div>
-                        <i class="fa fa-calendar"></i>
-                        <time datetime="2020-11-15T20:20:30">November 15, 2020gi</time>
-                    </div>
-                    <div>
+                        <div>
+                            <p>Статья</p>
+                        </div>
 
-                    </div>
-                    <div>
-                        <i class="fa fa-comment"></i>
-                    </div>
+                        <button type="button">Прочитать статью</button>
+                        <hr>
+                    <footer> <!--Подвал статьи-->                       
+                        <div>
+                            <i class="fa fa-calendar"></i>
+                            <time datetime="2021-01-26T20:20:30">Январь 26, 2021gi</time>
+                        </div>
+                        <div>
+                            <i class="fa fa-comment"></i>
+                            <span>Количество коментариев</span>
+                        </div>
+                        <div>
+                            <i class="fa fa-eye"></i>
+                            <span>Количество просмотров</span>
+                        </div>
+                    </footer> 
                 </figure>    
             </article>
         </main>
-    <footer>Подвал</footer>
+
+    <footer>Подвал</footer> <!--Подвал страницы-->
 
     <div class="modal">
-        <form action="/" method="POST" ="multipart/form-data" name="form-comment">
+        <form action="#" method="POST" ="multipart/form-data" name="form-comment">
         <fieldset>
-            <legend></legend>
-            <label for="name">
-                <span>name</span>
-                <input type="text id=name">
-            </label>
-            <label for="E-mail">
-                <span>E-mail</span>
-                <input type="text id=E-mail" placeholder="Your e-mail">
-            </label>
-            <label for="File">
-                <span>File</span>
-                <input type="File" id="File">
-            </label>
-            <label for="content">
-                <textarea name="content" id="content" cols="30" rows="10"></textarea>
-            </label>            
-            <button class="main_btn" type="button">Submit Comment</button>
+            <legend>Форма комментария</legend>
+           <p>
+                <label for="name">
+                    <span>Name</span>
+                    <input type="text id=name" placeholder="Введите ваше имя">
+                </label>
+            </p>
+            <p>
+                <label for="E-mail">
+                    <span>E-mail</span>
+                    <input type="text id=E-mail" placeholder="Введите ваш e-mail адрес">
+                </label>
+            </p>
+            <p>
+                <label for="File">
+                    <span>File</span>
+                    <input type="File" id="File">
+                </label>
+            </p>
+            <p>
+                <label for="content">
+                    <textarea name="content" id="content" cols="30" rows="10" placeholder="Добавьте комментарий"></textarea>
+                </label>
+            </p>
+            <p>   
+                <button class="main_btn" type="button">Submit Comment</button>
+            </p> 
         </fieldset>
         </form>
-<form action=""></form>
 
     </div>
-    <link rel="stylesheet" href="css/style.csssssss" type = "text/css">
+    <link rel="stylesheet" href="css/style.csssssss" type = "text/css"> <!--Подключение стилей-->
 </body>
 </html>
