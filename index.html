@@ -8,7 +8,7 @@
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet"> <!--подключение иконок-->
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap" rel="stylesheet">
             
-    <title>Document</title>
+    <title>Blog</title>
     
 </head>
 <body>
@@ -16,49 +16,47 @@
         <Nav><!--Навигация-->
             <a href="#">Ссылка 1</a>
             <a href="#">Ссылка 2</a>
-
         </Nav>
+        
     </header>
-
 
         <main><!--Основной контент сайта-->
             <h1>Блог</h1>
-            <article><!--Блок который можнобезпроблем изъять из контента-->
+            <article><!--Блок который можнобез проблем изъять из контента-->
                 <header>
-                    <h2 title="first-theme">First theme</h2>
+                    <h2 title="first-theme">Название статьи</h2>
                 </header>
-                    <figure><!-- Блок в который оборачиваем контент, можно заменить дивомг-->
-                        <img src="#" alt="ссылка на картинку">
-                    
-                        <div>
-                            <p>Статья</p>
-                        </div>
-
-                        <button type="button">Прочитать статью</button>
-                        <hr>
-                    <footer> <!--Подвал статьи-->                       
-                        <div>
-                            <i class="fa fa-calendar"></i>
-                            <time datetime="2021-01-26T20:20:30">Январь 26, 2021gi</time>
-                        </div>
-                        <div>
-                            <i class="fa fa-comment"></i>
-                            <span>Количество коментариев</span>
-                        </div>
-                        <div>
-                            <i class="fa fa-eye"></i>
-                            <span>Количество просмотров</span>
-                        </div>
-                    </footer> 
-                </figure>    
+                    <figure><!-- Блок в который оборачиваем контент, можно заменить дивом-->
+                            <img src="#" alt="ссылка на картинку">
+                            <div>
+                                <p>Текст статьи</p>
+                            </div>
+                            <button type="button">Прочитать статью</button>
+                            <hr>
+                        <footer> <!--Подвал статьи-->                       
+                            <div>
+                                <i class="fa fa-calendar"></i>
+                                <time datetime="2021-01-26T20:20:30">Январь 26, 2021gi</time>
+                            </div>
+                            <div>
+                                <i class="fa fa-comment"></i>
+                                <span>Количество коментариев</span>
+                            </div>
+                            <div>
+                                <i class="fa fa-eye"></i>
+                                <span>Количество просмотров</span>
+                            </div>
+                        </footer> 
+                    </figure>    
             </article>
+                
         </main>
 
-    <footer>Подвал</footer> <!--Подвал страницы-->
+    <footer>Подвал страницы</footer> <!--Подвал страницы-->
 
     <div class="modal">
         <form action="#" method="POST" ="multipart/form-data" name="form-comment">
-        <fieldset>
+        <fieldset> <!--Оборачивает в рамку, группирует элементы в форме-->
             <legend>Форма комментария</legend>
            <p>
                 <label for="name">
@@ -88,8 +86,8 @@
             </p> 
         </fieldset>
         </form>
-
     </div>
-    <link rel="stylesheet" href="css/style.csssssss" type = "text/css"> <!--Подключение стилей-->
+
+        <link rel="stylesheet" href="css/style.csssssss" type = "text/css"> <!--Подключение стилей-->
 </body>
 </html>
