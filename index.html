@@ -14,10 +14,10 @@
 <body>
     <header><!--Шапка-->
         <Nav><!--Навигация-->
-            <a href="#">Ссылка 1</a>
-            <a href="#">Ссылка 2</a>
+            <a href="#">Блог</a>
+            <a href="#">Категории</a>
         </Nav>
-        
+
     </header>
 
         <main><!--Основной контент сайта-->
@@ -33,15 +33,29 @@
                             </div>
                             <button type="button">Прочитать статью</button>
                             <hr>
-                        <footer> <!--Подвал статьи-->                       
-                            <div>
-                                <i class="fa fa-calendar"></i>
-                                <time datetime="2021-01-26T20:20:30">Январь 26, 2021gi</time>
+                        <footer> <!--Подвал статьи-->
+                            <div></div>                       
+                                <div>
+                                    <i class="fa fa-calendar"></i>
+                                    <time datetime="2021-01-26T20:20:30">Январь 26, 2021gi</time>
+                                </div>
+                                <div>
+                                    <i class="fa fa-user"></i>
+                                    <a href="/" title="Posts by Author">Author</a>
+                                </div>
                             </div>
-                            <div>
-                                <i class="fa fa-comment"></i>
-                                <span>Количество коментариев</span>
+                            <hr>
+                            <div></div>
+                                <div title="View all posts in Uncategorized">
+                                    <i class="fa fa-bookmark"></i>
+                                    <a href="/">Uncategorized</a>
+                                </div>
+                                <div>
+                                    <i class="fa fa-comment"></i>
+                                    <span>Количество коментариев</span>
+                                </div>
                             </div>
+                            <hr>
                             <div>
                                 <i class="fa fa-eye"></i>
                                 <span>Количество просмотров</span>
@@ -52,7 +66,9 @@
                 
         </main>
 
-    <footer>Подвал страницы</footer> <!--Подвал страницы-->
+    <footer>
+        <span>Моя первая страница 2021 © </span>
+    </footer> <!--Подвал страницы-->
 
     <div class="modal">
         <form action="#" method="POST" ="multipart/form-data" name="form-comment">
