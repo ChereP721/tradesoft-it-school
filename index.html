@@ -3,7 +3,7 @@
 <head>
        <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-	    <link rel="stylesheet" href="css/styleReset.cssssss" type = "text/css"> <!--Очистка стилей-->
+	    <link rel="stylesheet" href="css/styleReset.css" type = "text/css"> <!--Очистка стилей-->
 
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet"> <!--подключение иконок-->
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap" rel="stylesheet">
@@ -13,8 +13,10 @@
 </head>
 <body>
     <header><!--Шапка-->
-        <img src="img/Logo_FJS.jpg" alt="Logotip">
-        <Nav><!--Навигация-->
+        <div class="logo">
+            <img src="img/Logo_FJS.jpg" alt="Logotip">
+        </div>
+        <Nav class="nav"><!--Навигация-->
             <a href="#">Блог</a>
             <a href="#">Категории</a>
         </Nav>
@@ -24,13 +26,13 @@
         <main><!--Основной контент сайта-->
             <h1>Изделия ручной работы</h1>
 
-            <article><!--Блок который можнобез проблем изъять из контента-->
-                <header>
+            <article class="articl"><!--Блок который можнобез проблем изъять из контента-->
+                <header class="arthed">
                     <h2 title="first-theme">Кукла Azazel</h2>
                 </header>
-                    <figure><!-- Блок в который оборачиваем контент, можно заменить дивом-->
-                            <img src="img/dolls/Azazel.jpg" alt="mini-doll_Azazel_Red" height="150">
-                            <figcaption>Кукла Azazel</figcaption>
+                    <figure class="artfig"><!-- Блок в который оборачиваем контент, можно заменить дивом-->
+                            <img src="img/dolls/Azazel.jpg" alt="mini-doll_Azazel_Red">
+                            <figcaption>Azazel</figcaption>
                                 <p>Мини-кукла "Азазель" (Черно-красный окрас)
                                     Азазель — это один из первых падших ангелов, который не побоялся Бога и его воли, после чего Архангелам было приказано убить его, но никто не был сильней, чем он...
                                     <br><br>                                  
@@ -44,9 +46,9 @@
                                     Можно использовать как подвеску в машине или просто как интерьер.
                                 </p>
                             <button type="button">Прочитать статью</button>
-                            <hr>
-                        <footer> <!--Подвал статьи-->
-                            <div></div>                       
+                            
+                        <footer class="artfoot"> <!--Подвал статьи-->
+                            <div>                       
                                 <div>
                                     <i class="fa fa-calendar"></i>
                                     <time datetime="2021-01-26T20:20:30">Январь 26, 2021gi</time>
@@ -57,7 +59,7 @@
                                 </div>
                             </div>
                             <hr>
-                            <div></div>
+                            <div>
                                 <div title="Показать все посты данной категории">
                                     <i class="fa fa-bookmark"></i>
                                     <a href="#">dolls</a>
@@ -100,12 +102,12 @@
                     </figure>    
             </article>
 
-            <article><!--Блок который можнобез проблем изъять из контента-->
-                <header>
+            <article class="articl"><!--Блок который можнобез проблем изъять из контента-->
+                <header class="arthed">
                     <h2 title="second-theme">Кулон "Следы леса"</h2>
                 </header>
-                    <figure><!-- Блок в который оборачиваем контент, можно заменить дивом-->
-                            <img src="img/pendants/Traces_forest.jpg" alt="pendant_Traces_forest" height="150">
+                    <figure class="artfig"><!-- Блок в который оборачиваем контент, можно заменить дивом-->
+                            <img src="img/pendants/Traces_forest.jpg" alt="pendant_Traces_forest">
                             <figcaption>Кулон "Следы леса"</figcaption>
                                 <p>
                                     Артефакт на шею "Следы леса"<br>
@@ -115,8 +117,8 @@
                                 </p>
                             <button type="button">Прочитать статью</button>
                             <hr>
-                        <footer> <!--Подвал статьи-->
-                            <div></div>                       
+                        <footer class="artfoot"> <!--Подвал статьи-->
+                                <div>                     
                                 <div>
                                     <i class="fa fa-calendar"></i>
                                     <time datetime="2021-01-26T20:20:30">Январь 26, 2021gi</time>
@@ -127,7 +129,7 @@
                                 </div>
                             </div>
                             <hr>
-                            <div></div>
+                            <div>
                                 <div title="Показать все посты данной категории">
                                     <i class="fa fa-bookmark"></i>
                                     <a href="#">pendants</a>
@@ -170,12 +172,12 @@
                     </figure>    
             </article>
 
-            <article><!--Блок который можнобез проблем изъять из контента-->
-                <header>
+            <article class="articl"><!--Блок который можнобез проблем изъять из контента-->
+                <header class="arthed">
                     <h2 title="second-theme">Кулон "Следы леса"</h2>
                 </header>
-                    <figure><!-- Блок в который оборачиваем контент, можно заменить дивом-->
-                            <img src="img/brooches/brooches_2.jpg" alt="brooches_brooches_2" height="150">
+                    <figure class="artfig"><!-- Блок в который оборачиваем контент, можно заменить дивом-->
+                            <img src="img/brooches/brooches_2.jpg" alt="brooches_brooches_2" >
                             <figcaption>Брошь-оберег</figcaption>
                                 <p>
                                     Брошь-оберег от сглаза<br>
@@ -184,8 +186,8 @@
                                 </p>
                             <button type="button">Прочитать статью</button>
                             <hr>
-                        <footer> <!--Подвал статьи-->
-                            <div></div>                       
+                        <<footer class="artfoot"> <!--Подвал статьи-->
+                            <div>                     
                                 <div>
                                     <i class="fa fa-calendar"></i>
                                     <time datetime="2021-01-26T20:20:30">Январь 26, 2021gi</time>
@@ -196,7 +198,7 @@
                                 </div>
                             </div>
                             <hr>
-                            <div></div>
+                            <div>
                                 <div title="Показать все посты данной категории">
                                     <i class="fa fa-bookmark"></i>
                                     <a href="#">pendants</a>
@@ -280,6 +282,6 @@
         </form>
     </div>
 
-        <link rel="stylesheet" href="css/style.csssssss" type = "text/css"> <!--Подключение стилей-->
+        <link rel="stylesheet" href="css/MyStyle.css" type = "text/css"> <!--Подключение стилей-->
 </body>
 </html>

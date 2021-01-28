@@ -1,0 +1,75 @@
+
+/* разобраться с логотипом на ширину экрана*/   
+.logo {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.nav {
+    margin: auto;
+    width: 795px;
+    height: 50px;
+}
+
+.nav a {
+    margin: auto;
+    color: black;
+    text-transform:uppercase;
+    text-align: center;
+    padding: 1rem 1rem;
+    text-decoration:  none;
+}
+
+.nav a:hover {
+    border-bottom: 1.5px solid #afafaf;
+}
+
+h1 {
+    text-align: center;
+}
+
+/*разобраться с отступами*/
+
+.articl {
+    background: #ffffff;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.4) 2px 3px 5px 1px;
+    font-weight: 100;
+    margin: 0 auto;
+    width: 65rem;
+}
+
+.arthed {
+    text-align: center;
+    padding-top: 0.05rem;
+}
+
+
+/*Разобраться с выравниванием картинок*/
+.artfig img {
+    background-size: cover;
+    border-radius: 7px 7px 7px 7px;
+    margin: 15px auto 15px;
+    display:block;
+}
+
+.artfig p {
+    text-align:justify;
+    color: #4d4d4d;
+    margin: 0.5rem 0.5rem;
+}
+
+/*
+.artfig button {
+ 
+}
+*/
+
+.artfoot {
+    border-top: 2px solid #afafaf;
+    margin: 0 auto;
+    padding-bottom: 0.5rem;
+}
+
+
