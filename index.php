@@ -12,7 +12,7 @@
     
 </head>
 <body>
-    <header><!--Шапка-->
+    <header class="header"><!--Шапка-->
         <div class="logo">
             <img src="img/Logo_FJS.jpg" alt="Logotip">
         </div>
@@ -21,9 +21,11 @@
             <a href="#">Категории</a>
         </Nav>
 
+
+
     </header>
 
-        <main><!--Основной контент сайта-->
+        <main class="main"><!--Основной контент сайта-->
             <h1>Изделия ручной работы</h1>
 
             <article class="articl"><!--Блок который можнобез проблем изъять из контента-->
