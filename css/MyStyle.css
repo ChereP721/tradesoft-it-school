@@ -1,4 +1,9 @@
 
+body {
+    
+}
+
+
 /* разобраться с логотипом на ширину экрана*/   
 
 .header {
@@ -7,6 +12,12 @@
     justify-content: center;
 }
    
+
+.logo {
+
+}
+
+
 
 
 .nav {
@@ -44,8 +55,8 @@ h1 {
     border-radius: 5px;
     box-shadow: rgba(0, 0, 0, 0.4) 2px 3px 5px 1px;
     font-weight: 100;
-    margin: 0 auto;
     width: 800px;
+    margin: 500px;
 }
 
 .arthed {
@@ -57,6 +68,7 @@ h1 {
 
 /*Разобраться с выравниванием картинок*/
 .artfig img {
+    max-width: 500px;
     background-size: cover;
     border-radius: 7px 7px 7px 7px;
     margin: 15px auto 15px;
