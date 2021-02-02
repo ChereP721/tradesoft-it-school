@@ -3,7 +3,7 @@
 <head>
        <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-	    <link rel="stylesheet" href="css/styleReset.cssssss" type = "text/css"> <!--Очистка стилей-->
+	    <link rel="stylesheet" href="css/styleReset.css" type = "text/css"> <!--Очистка стилей-->
 
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet"> <!--подключение иконок-->
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap" rel="stylesheet">
@@ -11,26 +11,27 @@
     <title>Blog</title>
     
 </head>
-<body>
-    <header><!--Шапка-->
-        <img src="img/Logo_FJS.jpg" alt="Logotip">
-        <Nav><!--Навигация-->
+<body class="body">
+    <header class="body__header"><!--Шапка-->
+        <div class="header__logo">
+            <img src="img/Logo_FJS.jpg" alt="Logotip">
+        </div>
+        <Nav class="header__nav"><!--Навигация-->
             <a href="#">Блог</a>
             <a href="#">Категории</a>
         </Nav>
 
     </header>
 
-        <main><!--Основной контент сайта-->
+        <main class="body__main"><!--Основной контент сайта-->
             <h1>Изделия ручной работы</h1>
-
-            <article><!--Блок который можнобез проблем изъять из контента-->
-                <header>
+            <article class="main__articl"><!--Блок который можнобез проблем изъять из контента-->
+                <header class="main__arthed">
                     <h2 title="first-theme">Кукла Azazel</h2>
                 </header>
-                    <figure><!-- Блок в который оборачиваем контент, можно заменить дивом-->
-                            <img src="img/dolls/Azazel.jpg" alt="mini-doll_Azazel_Red" height="150">
-                            <figcaption>Кукла Azazel</figcaption>
+                    <figure class="main__artfig"><!-- Блок в который оборачиваем контент, можно заменить дивом-->
+                            <img src="img/dolls/Azazel.jpg" alt="mini-doll_Azazel_Redeq">
+                            <figcaption>Azazel</figcaption>
                                 <p>Мини-кукла "Азазель" (Черно-красный окрас)
                                     Азазель — это один из первых падших ангелов, который не побоялся Бога и его воли, после чего Архангелам было приказано убить его, но никто не был сильней, чем он...
                                     <br><br>                                  
@@ -44,9 +45,9 @@
                                     Можно использовать как подвеску в машине или просто как интерьер.
                                 </p>
                             <button type="button">Прочитать статью</button>
-                            <hr>
-                        <footer> <!--Подвал статьи-->
-                            <div></div>                       
+                            
+                        <footer class="main__artfoot"> <!--Подвал статьи-->
+                            <div>                       
                                 <div>
                                     <i class="fa fa-calendar"></i>
                                     <time datetime="2021-01-26T20:20:30">Январь 26, 2021gi</time>
@@ -57,7 +58,7 @@
                                 </div>
                             </div>
                             <hr>
-                            <div></div>
+                            <div>
                                 <div title="Показать все посты данной категории">
                                     <i class="fa fa-bookmark"></i>
                                     <a href="#">dolls</a>
@@ -100,10 +101,9 @@
                     </figure>    
             </article>
 
-                           
         </main>
 
-    <footer> <!--Подвал страницы-->
+    <footer class="body__footer"> <!--Подвал страницы-->
         <span>Frion & Jane studio (Куклы и украшения ручной работы) 2021 © </span>
     </footer>
 <!--заготовка формы комментария-->
@@ -141,6 +141,6 @@
         </form>
     </div>
 
-        <link rel="stylesheet" href="css/style.csssssss" type = "text/css"> <!--Подключение стилей-->
+        <link rel="stylesheet" href="css/MyStyle.css" type = "text/css"> <!--Подключение стилей-->
 </body>
 </html>

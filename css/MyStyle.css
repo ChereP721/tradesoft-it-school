@@ -38,30 +38,31 @@ border: 5px solid #5e5373;
     text-decoration:  none;
     padding-left: 1rem;
     padding-right: 1rem;
-
 }
-
 .header__nav a:hover {
     border-bottom: 1.5px solid #afafaf;
 }
 
 
-/*разобраться с отступами*/
-
 .body__main {
     border: 5px solid #5e5373;
-    flex: 1 1 auto;
-    width: 800px;
     text-align: center;
+    display: flex;
+    flex-direction:column;
+    justify-content:center;
+    width: auto;
+
 }
 
 .main__articl {
     background: #ffffff;
+
     border-radius: 5px;
     box-shadow: rgba(0, 0, 0, 0.4) 2px 3px 5px 1px;
     font-weight: 100;
     width: 800px;
-    margin: 500px;
+    margin: 1rem;
+ 
 }
 
 .main__arthed {
