@@ -1,56 +1,61 @@
 
-body {
-    
-}
-
+/*
+border: 10px solid #ece89d; блок
+border: 5px solid #5e5373; элемент
+background-color: #18b5a4; контент
+*/
 
 /* разобраться с логотипом на ширину экрана*/   
 
-.header {
-    width: 800px;
-    display: wrap;
+.body {
+    border: 10px solid #ece89d; 
+    display: flex;
+    flex-direction:column;    
+
+}
+
+
+.body__header {
+border: 5px solid #5e5373;
+}
+
+.header__logo {
+    text-align: center;
+}
+
+.header__nav {
+    display: flex;
     justify-content: center;
-}
-   
-
-.logo {
-
-}
-
-
-
-
-.nav {
-    margin: auto;
+    align-items: center;
     width: 100%;
     height: 50px;
-}
+    text-align: center;
+  }
 
-.nav a {
-    margin: auto;
+.header__nav a {
     color: black;
     text-transform:uppercase;
-    text-align: center;
-    padding: 0,1rem 0,1rem;
     text-decoration:  none;
+    padding-left: 1rem;
+    padding-right: 1rem;
+
 }
 
-.nav a:hover {
+.header__nav a:hover {
     border-bottom: 1.5px solid #afafaf;
 }
 
-h1 {
-    text-align: center;
-}
 
 /*разобраться с отступами*/
 
-.main {
+.body__main {
+    border: 5px solid #5e5373;
+    flex: 1 1 auto;
     width: 800px;
-
+    text-align: center;
 }
 
-.articl {
+.main__articl {
     background: #ffffff;
     border-radius: 5px;
     box-shadow: rgba(0, 0, 0, 0.4) 2px 3px 5px 1px;
@@ -59,7 +64,7 @@ h1 {
     margin: 500px;
 }
 
-.arthed {
+.main__arthed {
     text-align: center;
     padding-top: 0.05rem;
     
@@ -67,7 +72,7 @@ h1 {
 
 
 /*Разобраться с выравниванием картинок*/
-.artfig img {
+.main__artfig img {
     max-width: 500px;
     background-size: cover;
     border-radius: 7px 7px 7px 7px;
@@ -75,7 +80,7 @@ h1 {
     display:block;
 }
 
-.artfig p {
+.main__artfig p {
     text-align:justify;
     color: #4d4d4d;
     margin: 0.5rem 0.5rem;
@@ -87,10 +92,15 @@ h1 {
 }
 */
 
-.artfoot {
+.main__artfoot {
     border-top: 2px solid #afafaf;
     margin: 0 auto;
     padding-bottom: 0.5rem;
 }
 
+
+.body__footer {
+    border: 5px solid #5e5373;
+
+}
 
