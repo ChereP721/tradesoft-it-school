@@ -1,4 +1,131 @@
 <?php
-echo 'Hello world!';
+include 'data.php';
 ?>
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>A Great Demo on CodePen</title>
+</head>
+<body>
+
+<header class="header">
+    <nav class="header__nav">
+        <a class="header__link header__link_active" href="/">BLOG</a>
+        <a class="header__link" href="/categories.php">CATEGORIES</a>
+    </nav>
+</header>
+
+<main class="main container">
+    <h1 class="main__heading main__heading_level_1">Blog</h1>
+    <article class="post">
+        <header class="post__header">
+            <h2 title="Mauris posuere" class="post__title"><?= $h2Title; ?></h2>
+        </header>
+        <div class="post__wrapper">
+            <figure class="post_link">
+                <img src="https://livedemo00.template-help.com/wordpress_50742/wp-content/uploads/2014/07/Depositphotos_12240275_original-200x150.jpg"
+                     alt="Mauris posuere"/>
+            </figure>
+            <div>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown
+                    printer took
+                    a galley of type and scrambled it to make a type specimen book. It has survived not only five
+                    centuries, but also the leap into electronic typesetting,
+                    remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets
+                    containing Lorem Ipsum passages, and more recently
+                    with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                <a href="/" class="post_img">Read more</a>
+            </div>
+        </div>
+        <footer>
+            <div>
+                <div class="post_item">
+                    <i class="post_icon fa fa-calendar"></i>
+                    <time datetime="2013-03-14T20:28:57" class="post_text"><?=$rand_date?></time>
+                </div>
+                <div class="post_item">
+                    <i class="post_icon fa fa-user"></i>
+                    <a href="/" class="post_icon"><?=$rand_auth?></a>
+                </div>
+                <div class="post_item" title="categories">
+                    <i class="post_icon fa fa-bookmark"></i>
+                    <a href="/" class="post_icon">Categories</a>
+                </div>
+                <div class="post_item">
+                    <i class="post_icon fa fa-comment"></i>
+                    <a href="/" class="post_icon" title="Comment"><?=$rand_comment?></a>
+                </div>
+            </div>
+
+            <div title="Number of view.">
+                <i class="fa fa-eye"></i>
+                <span><?= $viewCount; ?></span>
+            </div>
+
+            <div title="3 response">
+                <span>Comments</span>
+            </div>
+
+            <div>
+                <button class="comments_btn" type="button" data-cout="1">
+                    <span>Show comment</span>
+                </button>
+            </div>
+            <ul>
+                <li>
+                    <img src="https://c7.hotpng.com/preview/627/514/557/police-clip-art-sticker-portable-network-graphics-telegram-police-thumbnail.jpg"
+                         alt="Avatar admin"/>
+                    <div class="comments_content">
+                        <i class="post_icon fa fa-calendar"></i>
+                        <time datetime="2013-03-14T20:28:57" class="post_text"><?= $rand_date ?></time>
+                        <a href="/" class="post_icon"><?= $rand_auth ?></a>
+                    </div>
+                    <p class="comment">
+                        <?= $rand_comment ?>
+                    </p>
+                </li>
+            </ul>
+        </footer>
+    </article>
+</main>
+
+<footer>
+    <span>My First Blog &#169; 2020</span>
+</footer>
+
+<!---modal-->
+<div class="modal">
+    <form action="/" method="post" name="form-comment" enctype="multipart/form-data">
+        <fieldset>
+            <legend>Leave a comment</legend>
+            <p>
+                <label for="name">Name</label>
+            </p>
+            <input type="text" id="name" placeholder="name">
+            <p>
+                <label for="email">Email</label>
+                <input type="text" id="email" placeholder="e-mail">
+            </p>
+            <p>
+                <label for="myfile">File</label>
+                <input type="file" name="myImage" id="myfile" accept="image/*"/>
+            </p>
+            <p>
+                <label for="comment">Comment</label>
+                <textarea name="comment " id="comment" cols="30" rows="10"></textarea>
+            </p>
+            <p>
+                <button class="modal_btn" type="button" data-cout="1">Show comment</button>
+            </p>
+        </fieldset>
+    </form>
+</div>
+</body>
+</html>
