@@ -98,7 +98,7 @@ include 'php/comments.php';
                                                         <time datetime="2021-01-26T20:28:57">January 26, 2021</time>
                                                     </div>
                                                     <p>
-                                                        Текст комментария
+                                                         <?php echo $comments;?>
                                                     </p>
                                                 </div>
                                             </li>
