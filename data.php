@@ -17,35 +17,33 @@ if ($useIncView && $viewCount < 50) {
 }
 
 //random comments//
-$r = array(
+$r = [
     'привет',
     'это tradesoft',
     'web-программирование',
     'it-школа',
     'мы выводим рандомный комментарий',
     'все просто',
-);
+];
 $rand_comment = $r[array_rand($r)];
 
 //random_date//
-$rand_date =  date('d.m.Y', strtotime('+'.rand(0,90).' day')); // берем текущую дату и прибавляем к ней 90 дней рандомно
+$rand_date =  date('d.m.Y', strtotime('+'.rand(0,90).' day'));
 
 //random_author
-$ra = array(
-    'A.Norin',
-    'D.Elkin',
-    'D.Druzhko',
-    'S.Pupochkina',
-    'I.Ivanov',
-    'N.Petrova',
+$ra = [
+    'aNorin',
+    'dElkin',
+    'dDruzhko',
+    'sPupochkina',
+    'iIvanov',
+    'nPetrova',
     'admin',
-);
+];
 $rand_auth = $ra[array_rand($ra)];
 
-switch ($rand_auth) {
-    case 'D.Elkin':
-        $rand_auth = "D.Elkin (это вы)";
-        break;
+if ($rand_auth === 'dElkin') {
+        $rand_auth = "dElkinЭтоВы";
 }
 
 
