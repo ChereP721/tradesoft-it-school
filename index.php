@@ -1,6 +1,6 @@
 
 <?php
-include 'php/comments.php';
+include 'php/scripts.php';
 
 ?>
 
@@ -83,7 +83,7 @@ include 'php/comments.php';
                                     <hr>
                                     <!--Выводятся списком комментарии к статье-->
                                     <div class="comments" title="Комментарии">
-                                    <?php echo $comments;?>
+                                    <? echo $comments;?>
                                     </div>
                                     <div>
                                         <button type="button">
@@ -91,12 +91,13 @@ include 'php/comments.php';
                                         </button>
                                         <ul>
                                             <li>
-                                                <img src="#" alt="Avatar admin">
+                                                <img src="#" alt="Avatar">
                                                 <div>
                                                     <div>
-                                                        <span>Admin</span>
-                                                        <time datetime="2021-01-26T20:28:57">January 26, 2021</time>
+                                                        <span>Автор комментария: <?echo $authorComments [$random_auyor];?>, </span>
+                                                        <time>Дата создания: <?=DateTime();?></time>                                                        
                                                     </div>
+
                                                 </div>
                                             </li>
                                         </ul>

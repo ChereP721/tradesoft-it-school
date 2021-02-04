@@ -10,11 +10,13 @@ background-color: #18b5a4; контент
    
     .wrapper {
         border: 5px solid #ece89d; 
+        background-color: #edeef0;
         min-height: 100%;
         overflow: hidden;
 
         display: flex;
         flex-direction: column;
+
 
 
  }
@@ -35,6 +37,7 @@ background-color: #18b5a4; контент
    }
    
    .header__nav {
+    background-color: #ffffff;
        display: flex;
        justify-content: center;
        align-items: center;
