@@ -97,9 +97,6 @@ include 'php/comments.php';
                                                         <span>Admin</span>
                                                         <time datetime="2021-01-26T20:28:57">January 26, 2021</time>
                                                     </div>
-                                                    <p>
-                                                         <?php echo $comments;?>
-                                                    </p>
                                                 </div>
                                             </li>
                                         </ul>
