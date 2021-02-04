@@ -1,9 +1,27 @@
 <?php
 
+/*
+$word1 = array("Здравствуйте. ", "Привет! ", "Добрый день. ", "Шалом! ");
+$rand_keys = array_rand($word1,1);
+
+
+$word2 = array("Прекрасная работа. ","Потрясающее изделие. ", "Милая вещичка.. ", "");
+$rand_keys = array_rand($word2,1);
+
+$word3 = array ("Подарите? :) ", "Сколько стоит?", "Можно мне такую? ", "Возьму за любые деньги. ", "");
+$rand_keys = array_rand($word3,1);
+
+$comments = array ([$word1],[$word2],[$word3]);
+
+
+echo date('d-m-y H:i:s');
+*/
+
+
+
 $word_1 = array ("Здравствуйте. ","Привет! ","Добрый день. ","Шалом! ");
 $max_mas_W1 = count($word_1, COUNT_RECURSIVE) - 1;
 $random_word_1 = rand(0, $max_mas_W1);
-
 
 $word_2 = array ("Прекрасная работа. ","Потрясающее изделие. ", "Милая вещичка.. ", "");
 $max_mas_W2 = count($word_2, COUNT_RECURSIVE) - 1;
@@ -14,12 +32,12 @@ $max_mas_W3 = count($word_3, COUNT_RECURSIVE) - 1;
 $random_word_3 = rand(0, $max_mas_W3);
 
 $comments = $word_1 [$random_word_1] . $word_2 [$random_word_2] . $word_3 [$random_word_3];
-echo $comments;
+
 
 $authorComments = array("Admin", "Сергей", "Ульяна", "Иван", "Алексей", "Дарья");
 $max_mas_auyor = count($authorComments, COUNT_RECURSIVE) - 1;
 $random_auyor = rand(0, $max_mas_auyor);
-print $authorComments [$random_auyor];
+
 
 function DateTime() 
 {
@@ -27,6 +45,5 @@ function DateTime()
     $month = rand(1,12);
     $day = rand(1,31);
    return "{$year}-{$month}-{$day}";
-}
 
-?>
+}
