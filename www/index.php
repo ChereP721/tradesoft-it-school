@@ -1,26 +1,5 @@
 <?php 
-$h2Title = 'Some title';
-
-define('MY_DOC_TITLE', 'title from const');
-
-$h3title='3 title';
-
-$viewcount=0;
-$viewcount++;
-
-$viewcount--;
-$viewcount +=  rand(10,100);
-
-
-/*if ($viewcount < 50) {
-    echo 'мало!!!!!!!!!!!!!!!!';
-    $viewcount *= 2;
-}*/
-//some comment
-# 1 more comment
-/*
-* long comment
-*/
+include 'code.php'; 
 ?>
 
 <!DOCTYPE html>
@@ -97,20 +76,33 @@ $viewcount +=  rand(10,100);
                         <li>
                             <img src="" alt="No IMG">
                             <div>
-                                <span>Admin</span>
-                                <time>2021-01-02</time>
+                                <span><?=GenName();?></span>
+                                <time><?=GenTime();?></time>
                             </div>
-                            <p>good</p>
+                            <p>
+                            <?=GenComment(); ?>
+                            </p>
                         </li>
                         <li>
                             <img src="" alt="No IMG">
                             <div>
-                                <span>NotAdmin</span>
-                                <time>2021-01-03</time>
+                                <span><?=GenName(); ?></span>
+                                <time><?=GenTime();?></time>
                             </div>
-                            <p>no good</p>
+                            <p>
+                            <?=GenComment(); ?>
+                            </p>
                         </li>
-                        <li></li>
+                        <li>
+                            <img src="" alt="No IMG">
+                            <div>
+                                <span><?=GenName(); ?></span>
+                                <time><?=GenTime();?></time>
+                            </div>
+                            <p>
+                            <?=GenComment(); ?>
+                            </p>
+                        </li>
                     </ul>
                 </div>
             </footer>
