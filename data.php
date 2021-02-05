@@ -8,6 +8,13 @@ $h2Title = 'My best second title';
 $randomDateComment='';
 $randomDateISO='';
 
+function isYouAuthor(string $author, string $you) : bool{
+    return $author===$you;
+}
+
+
+
+
 function generateWord(int $wordLength, bool $firstUp=true, string $chars='abcdefghijklmnopqrstuvwxyz'): string{
     $word='';
     $countChars=strlen($chars);;
