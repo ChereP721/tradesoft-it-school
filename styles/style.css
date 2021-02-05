@@ -1,0 +1,53 @@
+body,div,header,article,main{
+    margin:0;
+    padding: 0;
+}
+
+.container{
+    width: 1200px;
+    margin:0 auto;
+}
+/* header.css */
+.header{
+    padding: 32px 0;
+    background-color: #484846;
+}
+.header__nav{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+.header__link{
+    color: #fff;
+    text-transform: uppercase;
+    transition: color .2s ease-in-out;
+}
+.header__link_active{
+    color: #87d035;
+}
+.header__link:hover{
+    color: #87d035;
+}
+.header__link:not(:last-child){
+    margin-right: 16px;
+}
+
+/* post.css */
+.post{}
+.post__wrapper{
+    margin-bottom: 16px;
+}
+.post__header{
+    font-weight: 300;
+    margin-bottom: 16px;
+}
+
+.modal{
+    position: static;
+    width: 50%;
+    left: 25%;
+    top:20%;
+    margin:0 auto;
+    background-color: #eee;
+
+}

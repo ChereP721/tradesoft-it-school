@@ -12,21 +12,24 @@ include_once 'data.php';
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap"
           rel="stylesheet">
+    <link href="styles/style.css" rel="stylesheet" />
 
 </head>
 <body>
-<header>
-    <nav>
-        <a href="/">BLOG</a>
-        <a href="/">Categiries</a>
+<header class="header">
+    <nav class="header__nav">
+        <a href="/" class="header__link">BLOG</a>
+        <a href="/" class="header__link">Categiries</a>
     </nav>
 </header>
-<main>
-    <h1>Blog</h1>
-    <article>
-        <header>
-            <h2><?=$h2Title?></h2>
+<main class="main container">
+    <h1 class="main__heading main__heading_level_1">Blog</h1>
+    <article class="post">
+        <div class="post__wrapper">
+        <header class="post__header">
+            <h2 class="post__title" title="<?=$h2Title?>"><?=$h2Title?></h2>
         </header>
+        </div>
         <div>
             <figure>
                 <img src="https://livedemo00.template-help.com/wordpress_50742/wp-content/uploads/2014/07/Depositphotos_12240275_original-200x150.jpg" alt="img of article 1"/>
@@ -93,8 +96,23 @@ include_once 'data.php';
                             <p><?=generatePhraze(mt_rand(5,10))?></p>
                         </div>
                     </li>
-                    <li><?=generatePhraze(mt_rand(5,10))?></li>
-                    <li><?=generatePhraze(mt_rand(5,10))?></li>
+                    <!-- первый вариант -->
+                    <?php for($i=0;$i<2;$i++){?>
+                    <li>
+                        <?=generatePhraze(mt_rand(5,10))?>
+                    </li>
+                    <?php }?>
+
+                    <!-- второй вариант -->
+                    <?php
+                    for($i=0;$i<2;$i++){
+                       echo "<li>";
+                       echo generatePhraze(mt_rand(5,10));
+                       echo "</li>";
+                     }
+                    ?>
+
+
                 </ul>
             </div>
         </footer>

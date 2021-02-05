@@ -8,11 +8,9 @@ $h2Title = 'My best second title';
 $randomDateComment='';
 $randomDateISO='';
 
-
-function generateWord($wordLength, $firstUp=true): string{
+function generateWord(int $wordLength, bool $firstUp=true, string $chars='abcdefghijklmnopqrstuvwxyz'): string{
     $word='';
-    global $chars;
-    global $countChars;
+    $countChars=strlen($chars);;
     for($i=0;$i<$wordLength;$i++){
         $randChar=$chars[mt_rand(0,$countChars)];
         $word.= ($firstUp==true && $i==0) ? strtoupper($randChar) : $randChar;
@@ -21,7 +19,7 @@ function generateWord($wordLength, $firstUp=true): string{
     return $word;
 }
 
-function generatePhraze($countWord) : string{
+function generatePhraze(int $countWord) : string{
     $phraze='';
     for($i=1;$i<=$countWord;$i++){
         $phraze.= ($i==1) ? generateWord(mt_rand(3,9)) : generateWord(mt_rand(3,9),false);
@@ -34,7 +32,7 @@ function generatePhraze($countWord) : string{
 function generateUser() : string{
     global $adminName;
     $i=mt_rand(0,5); // вероятность встретить админка 1:6
-    return ($i==0) ? $adminName.'(Админ)' : generateWord(mt_rand(3,7));
+    return ($i===0) ? $adminName.'(Админ)' : generateWord(mt_rand(3,7));
 
 }
 
@@ -45,9 +43,5 @@ $randomDateComment = date("F d, Y", $timestamp );
 
 
 
-
-//echo generateWord(mt_rand(3,9));
-
-//echo generatePhraze(mt_rand(5,10));
-
+//для отладки, удалять не буду, чтобы не писать заново :)
 //exit;
