@@ -1,4 +1,9 @@
 
+<?php
+include 'php/scripts.php';
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -78,7 +83,7 @@
                                     <hr>
                                     <!--Выводятся списком комментарии к статье-->
                                     <div class="comments" title="Комментарии">
-                                    Комментарий к статье
+                                    <? echo $comments;?>
                                     </div>
                                     <div>
                                         <button type="button">
@@ -89,8 +94,8 @@
                                                 <img src="#" alt="Avatar">
                                                 <div>
                                                     <div>
-                                                        <span>Автор комментария: Admin </span>
-                                                        <time>Дата создания: 01.01.2021</time>                                                        
+                                                        <span>Автор комментария: <?echo $authorComments [$random_auyor];?>, </span>
+                                                        <time>Дата создания: <?=DateTime();?></time>                                                        
                                                     </div>
 
                                                 </div>
