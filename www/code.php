@@ -15,36 +15,32 @@ $randStringLength = 0;
 $randomCharId = 0;
 $string = "";
 
-$arraySize = 5;
-$arrayNames = array("Petya", "Vasya", "Siroja", "Maniasha", "ZlojAdmin");
+$arrayNames = ["Petya", "Vasya", "Siroja", "Maniasha", "ZlojAdmin"];
 
 
-function GenComment() 
+function genComment(): string
 {
     $string = "";
     $randStringLength = rand(10,300);
-    for ($i = 1; $i <= $randStringLength; $i++) {
+    for ($i = 0; $i <= $randStringLength; $i++) {
         $randomCharId = rand(32,122);
         $commentString .= chr($randomCharId);
     }
     return $commentString;
 }
 
-function GenName() 
+function genName(array &$arrayNames): string
 {
-    global $arrayNames, $arraySize;
-    $string = $arrayNames[rand(0,$arraySize-1)];
-    if ($string === "ZlojAdmin") { $string .= " (me)";} 
+    $string = $arrayNames[array_rand($arrayNames)];
+    if ($string === "ZlojAdmin") { 
+        $string .= " (me)";
+        } 
     return $string;
 }
 
-function GenTime() 
+function genTime(): string
 {
     // format 2021-01-02
-    $year = 2000 + rand(0,21);
-    $month = rand(1,12);
-    $monthString = $month < 10 ? "0" . $month :  $month;
-    $day = rand(1,31);
-    $dayString = $day < 10 ? "0" . $day :  $day;
-    return "{$year}-{$monthString}-{$dayString}";
+    $randDate = rand(946674000,time());
+    return date("Y-m-d", $randDate);
 }
