@@ -6,17 +6,9 @@ define('MY_DOC_TITLE', 'title from const');
 $h3title='3 title';
 
 $viewcount=0;
-$viewcount++;
-
-$viewcount--;
 $viewcount +=  rand(10,100);
 
-$randStringLength = 0;
-$randomCharId = 0;
-$string = "";
-
 $arrayNames = ["Petya", "Vasya", "Siroja", "Maniasha", "ZlojAdmin"];
-
 
 function genComment(): string
 {
