@@ -9,33 +9,27 @@ background-color: #18b5a4; контент
 
    
     .wrapper {
-        border: 5px solid #ece89d; 
+       border: 5px solid #ece89d; 
         background-color: #edeef0;
         min-height: 100%;
         overflow: hidden;
 
         display: flex;
         flex-direction: column;
+     }
 
-
-
- }
    .container {
-    border: 2px solid #5e5373;
        max-width: 800px;
        margin: 0px auto;
-
    }
 
-   .header {
-   /*border: 5px solid #5e5373; */
-   
-   }
    
    .header__logo {
        text-align: center;
    }
    
+
+
    .header__nav {
     background-color: #ffffff;
        display: flex;
@@ -65,6 +59,12 @@ background-color: #18b5a4; контент
        text-align: center;
    }
 
+   h1 {
+    font-weight: bold;
+    font-size: x-large;
+    margin: 0.5rem;
+       
+   }
 
    .main__articl {
        padding: 0.5rem;
@@ -85,11 +85,17 @@ background-color: #18b5a4; контент
        padding-top: 0.05rem;
        }
    
+    h2 {
+        font-weight: bold;
+        font-size: large;
+        margin: 0.2rem;
+    }
+
    .main__articl__figure img {
        max-width: 500px;
        max-height: 300px;
        background-size: cover;
-       border-radius: 7px 7px 7px 7px;
+       border-radius: 7px;
        margin: 15px auto 15px;
        display:block;
    }
@@ -97,17 +103,20 @@ background-color: #18b5a4; контент
    .main__articl__description p {
        text-align: justify;
        color: #4d4d4d;
-       margin: 0.5rem 0.5rem;
+       margin: 0.5rem;
+       padding: 0 0.5rem;
        line-height: 18px;
    }
+
+   .main__articl__description button {
+       float: right;
+       margin-bottom: 0.5rem;
+    }
+
    
-   /*
-   .artfig button {
-    
-   }
-   */
-   
-   .mmain__articl__footer {
+   .main__articl__footer {
+       border: 2px solid #b60155;
+       width: 100%;
        border-top: 2px solid #afafaf;
        margin: 0 auto;
        padding-bottom: 0.5rem;
@@ -122,4 +131,69 @@ background-color: #18b5a4; контент
    
    }
    
-   
+
+
+.modal{
+/*border: 2px solid #b60155;*/
+position: absolute;
+display: flex;
+justify-content: center;
+align-items: center;
+height: 50vh;
+
+}
+
+.modal__form__comments {
+    width: 300px;
+    padding: 1rem;
+    background: #ffffff;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.4) 2px 3px 5px 1px;
+
+  
+}
+
+.form__comments__title {
+    text-align: center;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    font-size: x-large;
+}
+.modal__form__comments__input {
+    width: 100%;
+    clear:both;
+    float:left;
+}
+
+.modal__form__comments__input p {
+    padding-bottom: 2rem;
+}
+
+
+.modal__form__comments__input span {
+    float:left;
+    width: 20%;
+    font-weight: bold;
+}
+
+.modal__form__comments__input input {
+    float:left;
+    width: 75%;
+}
+
+
+
+.modal__form__comments__input textarea {
+width: 100%;
+height: 150px;
+padding: 0.5rem;
+box-sizing: border-box;
+border: 2px solid #afafaf;
+border-radius: 4px;
+background-color: #f8f8f8;
+resize: none;
+}
+.modal__form__comments__input button {
+    float: right;
+    margin: 0.2rem;
+}

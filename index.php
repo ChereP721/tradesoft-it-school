@@ -14,7 +14,7 @@
 </head>
 <body class="body">
     <div class="wrapper">
-        <div class="container">        
+        <div class="container">   
             <header class="header"><!--Шапка-->
                 <div class="header__logo">
                     <img src="img/Logo_FJS.jpg" alt="Logotip">
@@ -26,8 +26,8 @@
             </header>
         </div>
 
-            <main class="main"><!--Основной контент сайта-->
-                <div class="container">
+            <div class="container">
+                <main class="main"><!--Основной контент сайта-->                
                     <h1>Изделия ручной работы</h1>
                     <article class="main__articl"><!--Блок который можнобез проблем изъять из контента-->
                         <header class="main__articl__header">
@@ -35,7 +35,7 @@
                         </header>
                             <figure class="main__articl__figure"><!-- Блок в который оборачиваем контент, можно заменить дивом-->
                                 <img src="img/dolls/doll.jpg" alt="doll">
-                                <figcaption>Подарочный Набор на День Всех Святых</figcaption>
+                                <figcaption></figcaption>
                             </figure>                               
                                 <div class="main__articl__description">  
                                         <p> Необычный, уникальный набор не оставит никого равнодушным!
@@ -47,7 +47,8 @@
                                         Состав - ароматный, высококачественный воск, хлопковый фитиль. 
                                     </p>    
                                     <button type="button">Прочитать статью</button>             
-                                </div>                 
+                                </div>        
+                                         
                              <footer class="main__articl__footer"> <!--Подвал статьи-->
                                     <div>                       
                                         <div>
@@ -99,50 +100,55 @@
                                     </div>
                                 </footer> 
                     </article>
-                </div>    
-            </main>
+                </main>
+            </div>
+
+
 
         <footer class="footer"> <!--Подвал страницы-->
             <div class="container">
                 <span>Frion & Jane studio (Куклы и украшения ручной работы) 2021 © </span>
             </div> 
         </footer>
-    <!--заготовка формы комментария
-        <div class="modal">
-            <form action="#" method="POST" ="multipart/form-data" name="form-comment">
-            <fieldset> <!--Оборачивает в рамку, группирует элементы в форме
-                <legend>Форма комментария</legend>
-            <p>
-                    <label for="name">
-                        <span>Name</span>
-                        <input type="text id=name" placeholder="Введите ваше имя">
-                    </label>
-                </p>
-                <p>
-                    <label for="E-mail">
-                        <span>E-mail</span>
-                        <input type="text id=E-mail" placeholder="Введите ваш e-mail адрес">
-                    </label>
-                </p>
-                <p>
-                    <label for="File">
-                        <span>File</span>
-                        <input type="File" id="File">
-                    </label>
-                </p>
-                <p>
-                    <label for="content">
-                        <textarea name="content" id="content" cols="30" rows="10" placeholder="Добавьте комментарий"></textarea>
-                    </label>
-                </p>
-                <p>   
-                    <button class="main_btn" type="button">Submit Comment</button>
-                </p> 
-            </fieldset>
-            </form>
-        </div>-->
-    </div>
 
+
+
+        
+    <!--заготовка формы комментария-->
+        <div class="modal">
+            <form action="#" method="POST" ="multipart/form-data" name="form-comment" class="modal__form__comments">
+                    <h3 class="form__comments__title">Оставить комментарий</h3>
+                    <div class="modal__form__comments__input"> 
+                        <p>
+                            <label for="name">
+                                <span>Name</span>
+                                <input type="text id=name" placeholder="Введите ваше имя">
+                            </label>
+                        </p>
+                        <p>
+                            <label for="E-mail">
+                                <span>E-mail</span>
+                                <input type="text id=E-mail" placeholder="Введите ваш e-mail адрес">
+                            </label>
+                        </p>
+                        <p>
+                            <label for="File">
+                                <span>File</span>
+                                <input type="File" id="File">
+                            </label>
+                        </p>
+                        <p>
+                            <label for="content">
+                                <textarea name="content" id="content" cols="30" rows="10" placeholder="Напишите комментарий"></textarea>
+                                <button class="main_btn" type="button">Отправить комментарий</button>
+                            </label>
+                        </p>
+
+                    </div>  
+            </form>
+        </div>
+   
+    </div>
     
     <link rel="stylesheet" href="css/MyStyle.css" type = "text/css"> <!--Подключение стилей-->
 </body>
