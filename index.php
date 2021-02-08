@@ -112,6 +112,41 @@
         </footer>
 
 
+
+        
+    <!--заготовка формы комментария-->
+        <div class="modal">
+            <form action="#" method="POST" ="multipart/form-data" name="form-comment" class="modal__form__comments">
+                    <h3 class="form__comments__title">Оставить комментарий</h3>
+                    <div class="modal__form__comments__input"> 
+                        <p>
+                            <label for="name">
+                                <span>Name</span>
+                                <input type="text id=name" placeholder="Введите ваше имя">
+                            </label>
+                        </p>
+                        <p>
+                            <label for="E-mail">
+                                <span>E-mail</span>
+                                <input type="text id=E-mail" placeholder="Введите ваш e-mail адрес">
+                            </label>
+                        </p>
+                        <p>
+                            <label for="File">
+                                <span>File</span>
+                                <input type="File" id="File">
+                            </label>
+                        </p>
+                        <p>
+                            <label for="content">
+                                <textarea name="content" id="content" cols="30" rows="10" placeholder="Напишите комментарий"></textarea>
+                                <button class="main_btn" type="button">Отправить комментарий</button>
+                            </label>
+                        </p>
+
+                    </div>  
+            </form>
+        </div>
    
     </div>
     
