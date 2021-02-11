@@ -42,12 +42,14 @@ $song = 'Пластмассовый мир победил
 $song = preg_replace("/\s+/u", " ", $song);
 //делим строку на массив
 $arrayWord = explode(" ", $song);
+define ("WORDS",$arrayWord);
 
 $name=preg_replace("/\s+/u", " ", $name);
 $arrayName = explode(", ",$name);
+define ("NAMES", $arrayName);
 
 //функция генерирует рандомное число полноценных комментов (дата+автор+комментарий)
-function createRandomComments(int $x, int $y, array $arrayWords, array $arrayNames)
+function createRandomComments(int $x, int $y, array $arrayWords=WORDS, array $arrayNames=NAMES): array
 {
     $countComments = rand($x, $y);
     $arrayComments = [];
@@ -61,7 +63,7 @@ function createRandomComments(int $x, int $y, array $arrayWords, array $arrayNam
 
 
 //функция генерирует коммент из массива со строками
-function genComment(array $mas)
+function genComment(array $mas): string
 {
     $comment = '';
     $countWord = rand(3, 10);
@@ -82,7 +84,7 @@ function genDate()
 }
 
 //функция генерирует имя автора
-function genAutor(array $mas)
+function genAutor(array $mas): string
 {
     return $mas[rand(0, count($mas))];
 }
