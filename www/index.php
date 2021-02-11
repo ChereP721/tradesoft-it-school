@@ -73,6 +73,12 @@ include 'code.php';
 
                 </div>
                 <div>
+                    <button id='add-comment'>
+                        <span>Add comments</span>
+                    </button>
+
+                </div>
+                <div>
                 <p>Comments</p>
                     <ul>
                         <li>
@@ -117,6 +123,7 @@ include 'code.php';
     </footer>
 
     <div class="modal">
+        <button class="modal__btn-close">X</button>
         <form action="/" method="post" name="form-comment" enctype="multipart/form-data">
             <fieldset>
                 <legend>Leave a comment</legend>
@@ -150,4 +157,5 @@ include 'code.php';
             </fieldset>
         </form>
     </div>
+    <script src="index.js"></script>
 </body>
