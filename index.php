@@ -48,11 +48,11 @@ include 'data.php';
             <div>
                 <div class="post_item">
                     <i class="post_icon fa fa-calendar"></i>
-                    <time datetime="2013-03-14T20:28:57" class="post_text"><?=$rand_date?></time>
+                    <time datetime="2013-03-14T20:28:57" class="post_text"><?=$randDate?></time>
                 </div>
                 <div class="post_item">
                     <i class="post_icon fa fa-user"></i>
-                    <a href="/" class="post_icon"><?=$rand_auth?></a>
+                    <a href="/" class="post_icon"><?=$randAuth?></a>
                 </div>
                 <div class="post_item" title="categories">
                     <i class="post_icon fa fa-bookmark"></i>
@@ -60,7 +60,7 @@ include 'data.php';
                 </div>
                 <div class="post_item">
                     <i class="post_icon fa fa-comment"></i>
-                    <a href="/" class="post_icon" title="Comment"><?=$rand_comment?></a>
+                    <a href="/" class="post_icon" title="Comment"><?=$randComment?></a>
                 </div>
             </div>
 
@@ -84,11 +84,11 @@ include 'data.php';
                          alt="Avatar admin"/>
                     <div class="comments_content">
                         <i class="post_icon fa fa-calendar"></i>
-                        <time datetime="2013-03-14T20:28:57" class="post_text"><?= $rand_date ?></time>
-                        <a href="/" class="post_icon"><?= $rand_auth ?></a>
+                        <time datetime="2013-03-14T20:28:57" class="post_text"><?= $randDate ?></time>
+                        <a href="/" class="post_icon"><?= $randAuth ?></a>
                     </div>
                     <p class="comment">
-                        <?= $rand_comment ?>
+                        <?= $randComment ?>
                     </p>
                 </li>
             </ul>
@@ -102,29 +102,27 @@ include 'data.php';
 
 <!---modal-->
 <div class="modal">
-    <form action="/" method="post" name="form-comment" enctype="multipart/form-data">
-        <fieldset>
-            <legend>Leave a comment</legend>
+    <form class="modal__form" action="/" method="post" name="form-comment" enctype="multipart/form-data">
+        <legend class="modal__title">Leave a comment</legend>
             <p>
-                <label for="name">Name</label>
-            </p>
-            <input type="text" id="name" placeholder="name">
-            <p>
-                <label for="email">Email</label>
-                <input type="text" id="email" placeholder="e-mail">
+                <label class="modal__label" for="Name" >Name</label>
+                <input class="modal__input" type="text" id="name" placeholder="Name">
             </p>
             <p>
-                <label for="myfile">File</label>
-                <input type="file" name="myImage" id="myfile" accept="image/*"/>
+                <label class="modal__label" for="email" >E-mail</label>
+                <input class="modal__input" type="text" id="email" placeholder="E-mail">
             </p>
             <p>
-                <label for="comment">Comment</label>
-                <textarea name="comment " id="comment" cols="30" rows="10"></textarea>
+                <input class="modal__input" type="file" name="myImage" id="myfile" accept="image/*"/>
+                <label class="modal__label" for="myfile"></label>
             </p>
             <p>
-                <button class="modal_btn" type="button" data-cout="1">Show comment</button>
+                <label class="modal__label" for="" >Comment</label>
+                <textarea class="modal__input" name="comment " id="comment" cols="30" rows="10" placeholder="Comment"></textarea>
             </p>
-        </fieldset>
+            <p>
+                <button class="modal__btn" type="button" data-cout="1">Show comment</button>
+            </p>
     </form>
 </div>
 </body>
