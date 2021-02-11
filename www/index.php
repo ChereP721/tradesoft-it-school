@@ -1,18 +1,16 @@
 <?php
-$h2Title="my best 2title";
+include_once "comments.php";
 
-define ('MY_DOCUMENT_TITLE','document title for thic project');
+$h2Title = "my best 2title";
 
-$viewCount=0;
+define('MY_DOCUMENT_TITLE', 'document title for thic project');
+
+$viewCount = 0;
 $viewCount++;
 $viewCount--;
 
-$viewCount+=rand(10,100);
+$viewCount += rand(10, 100);
 
-
-if($viewCount<50){
-    echo "less";
-}
 
 
 
@@ -22,18 +20,20 @@ if($viewCount<50){
 
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <title><?=MY_DOCUMENT_TITLE?></title>
+    <title><?= MY_DOCUMENT_TITLE ?></title>
 </head>
+
 <body>
-<header class="header">
+    <header class="header">
         <nav class="header__nav">
-        <a href="/blog.php" class = "header__link_active">BLOG</a>
-            <a href="/categories.php" class = "header__link">CATEGORIES</a>
+            <a href="/blog.php" class="header__link">BLOG</a>
+            <a href="/categories.php" class="header__link">CATEGORIES</a>
         </nav>
     </header>
     <main class="main container">
@@ -41,20 +41,16 @@ if($viewCount<50){
         <article class="post">
             <div class="post__wrapper">
 
-            <header class="post__header">
-                <h2 class="post__title" title="Mauris posuere"></h2>
-            </header>
-            <figure>
-                <img src="https://livedemo00.template-help.com/wordpress_50742/wp-content/uploads/2014/07/Depositphotos_12240275_original-200x150.jpg" alt="">
-            </figure>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-            Sed blandit massa vel mauris sollicitudin dignissim. Phasellus ultrices tellus eget
-            ipsum ornare molestie scelerisque eros dignissim. Phasellus fringilla hendrerit lectus nec vehicula.
-            Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In faucibus, 
-            risus eu volutpat pellentesque, massa felis feugiat velit, nec...</p>
-            <button type="button">Read more</button>
-            
-</div>
+                <header class="post__header">
+                    <h2 class="post__title">Как тестировать ВАР и не сойти с ума...</h2>
+                </header>
+                <figure>
+                    <img src="http://risovach.ru/upload/2014/12/mem/trudnyy-rebenok_68830785_orig_.jpg" width=400px alt="">
+                </figure>
+                <p>Спокойствие и только спокойствие. 5 стадий принятия неизбежного. </p>
+                <button type="button" class="btn btn-primary">Читать полностью</button>
+
+            </div>
             <hr>
             <footer>
                 <div>
@@ -75,7 +71,7 @@ if($viewCount<50){
                     </div>
                     <div>
                         <i class="fa fa-comment"></i>
-                        <a href="/" title="Comment on Mauris posuere">No comments</a>                 
+                        <a href="/" title="Comment on Mauris posuere">No comments</a>
                     </div>
                 </div>
                 <hr>
@@ -85,54 +81,66 @@ if($viewCount<50){
                 </div>
                 <hr>
                 <div title="3 response">
-                    <span>Comments</span>
+                    <span>Комментарии</span>
                 </div>
                 <div>
-                    <button type="button">
-                        <span>Show Comments</span>
+                    <button type="button" class="btn btn-primary">
+                        <span>Показать комментарии</span>
                     </button>
-                    <ul>
-                        <li>
-                            <img src="/" alt="Avatar admin">
-                            <div>
+                    <?php
+                    $comments = createRandomComments(3, 15);
+                    for ($i = 0; $i < count($comments); $i++) {
+                    ?>
+                        <ul>
+                            <li>
+                                <!--<img src="/" alt="Avatar admin">-->
                                 <div>
-                                    <span>Admin</span>
-                                    <time datetime="2013-03-14T20:28:57">March 14, 2013</time>
+                                    <div>
+                                        <time class="fa fa-calendar"><?= $comments[$i][0] ?></time>
+                                        <span class="comment_span_author fa fa-user"><?= $comments[$i][1] ?></span>
+                                    </div>
+                                    <p class="fa fa-comment">
+                                        <?= $comments[$i][2] ?>
+                                    </p>
                                 </div>
-                                <p>
-                                    Lorem ipsum dolor sit amet
-                                </p>
-                            </div>
-                        </li>
-                    </ul>
+                            </li>
+                            <hr>
+                        </ul>
+                    <?php } ?>
                 </div>
             </footer>
+            <button type="submit" id="addComment" class="btn btn-primary">Добавить комментарий</button>
         </article>
     </main>
     <footer>
-        <span>My First Blog &#169; 2020</span>
+        <span>Моя первая страничка&#169; 2020</span>
     </footer>
 
     <!-- Подготовка формы для добавления комментариев  -->
-    <form action="/" method="post" name="form-comment">
-        <fieldset>
-            <legend>Leave a comment</legend>
-            <p>
-                <label for="name">Name</label>
-                <input type="text" id="name" placeholder="name">
-            </p>
-            <p>
-                <label for="email">E-mail</label>
-                <input type="text" id="email" placeholder="e-mail">
-            </p>
-            <p>
-                <label for="comment">Your comment</label>
-                <textarea name="comment " id="comment" cols="30" rows="10"></textarea>
-            </p>
-            <p>
-                <button type="submit">Submit Comment</button>
-            </p>
-        </fieldset>
-    </form>
+    <div class="modal">
+        <form action="/" method="post" name="form-comment">
+            <fieldset>
+                <p>
+                    <label for="name" class="label_f">Имя</label>
+                    <input type="text" id="name" class="input_f" placeholder="name">
+                </p>
+                <p>
+                    <label for="email" class="label_f">E-mail</label>
+                    <input type="text" id="email" class="input_f" placeholder="e-mail">
+                </p>
+                <p>
+                    <label for="comment" class="label_f">Комментарий</label>
+                    <textarea name="comment" id="comment" class="input_f" cols="30" rows="10"></textarea>
+                </p>
+                <p>
+                    <button id="btnSubm" type="submit" class="btn btn-primary">Отправить</button>
+                </p>
+            </fieldset>
+        </form>
+    </div>
+
+
+    <script src="scr2.js"></script>
 </body>
+
 </html>
