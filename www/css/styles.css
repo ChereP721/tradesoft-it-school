@@ -131,11 +131,12 @@ body {
 
 .modal {
     position: absolute;
+    display: none;
 }
 
 .modal_show {
-    display: none;
-    position: absolute;
+    display: block;
+    /*position: absolute; */
 }
 
 
@@ -147,3 +148,4 @@ body {
     margin: 0;
     padding: 6px;
     width: 288px;
+}

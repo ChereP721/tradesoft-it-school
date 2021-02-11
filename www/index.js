@@ -1,12 +1,11 @@
 document.addEventListener('DOMContentLoaded', function() {
  const btnAddComment = document.getElementById('add-comment');
- const modal = document.querySelector('#modal');
+ const modal = document.querySelector('.modal');
  const modalBtnClose = document.querySelector('.modal__btn-close');
  const modalBtnSubmit = document.querySelector('.modal__btn-submit');
- const notification = document.querySelector('.modal__btn-submit');
+ const notification = document.querySelector('.modal__notification');
  //const btnAddComment = document.getElementById('');
  //const btnAddComment = document.getElementById('');
-
  const xhr = new XMLHttpRequest();
 
     function initModal() {
@@ -14,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
             btnAddComment.addEventListener('click', showModal);
         }
         if (modalBtnClose) {
-            btnAddComment.addEventListener('click', hideModal);
+            modalBtnClose.addEventListener('click', hideModal);
         }
     }
 
@@ -47,6 +46,7 @@ document.addEventListener('DOMContentLoaded', function() {
             noticeTitle.classList.add('error');
             noticeTitle.textContent= 'Беда';
             noticeText.textContent= 'не принято';
+        }
     }
 
     modalBtnSubmit.addEventListener('click', function() {
@@ -65,16 +65,16 @@ document.addEventListener('DOMContentLoaded', function() {
             } else {
                 setNotification(true);
             }
-        }
-        
-        setTimeout(function() {
-             hideModal();
-         },3000);
+                
+            setTimeout(function() {
+                hideModal();
+            },3000);
         }
 
         xhr.onerror = function() {
             alert('фигня какая-то случилась');
         }
-    }
-});
-
+    });
+    
+    initModal();
+})

@@ -152,7 +152,7 @@ include 'code.php';
                             <textarea name="textarea" id="textarea" cols="30" rows="2"></textarea>
                         </label>
                     </div>
-                    <button class="modal_btn" type="button">Send comment</button>
+                    <button class="modal__btn-submit modalBtnSubmit" type="button">Send comment</button>
                 </div>
             </fieldset>
         </form>
