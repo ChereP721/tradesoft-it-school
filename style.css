@@ -93,7 +93,6 @@
     transition: 0.3s;
     margin-bottom: 10px;
     padding-bottom: 10px;
-
 }
 
 .modal__input:focus {
@@ -134,4 +133,51 @@
     display: block;
 }
 
-.validation
+.validation {
+
+}
+
+
+.notification {
+
+}
+
+.notification__show {
+
+}
+
+.success {
+    color: #87d035;
+    text-align: center;
+}
+
+.error {
+    color: darkred;
+    text-align: center;
+
+}
+
+.validate-error[data-required] {
+}
+
+.validate-ready[data-required] {
+}
+
+.modal__btn-close {
+    position: absolute;
+    background: none;
+    outline: none;
+    border-radius: 20px;
+    border: none;
+    color: #000000;
+    cursor: pointer;
+    right: 0;
+    bottom: -70px;
+    width: 68%;
+    height: 0;
+
+}
+
+.modal__btn-close:hover {
+    cursor: pointer;
+}

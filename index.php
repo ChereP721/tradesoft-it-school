@@ -102,8 +102,10 @@ include 'data.php';
 
 <!---modal-->
 <div class="modal">
-    <button class="modal__btn-close">X</button>
     <form class="modal__form" action="/" method="post" name="form-comment" enctype="multipart/form-data">
+        <button type="button" class="modal__btn-close">
+            <i class="fa fa-close"></i>
+        </button>
         <legend class="modal__title">Leave a comment</legend>
             <p>
                 <label class="modal__label" for="Name" >Name</label>
@@ -121,8 +123,14 @@ include 'data.php';
                 <label class="modal__label" for="" >Comment</label>
                 <textarea class="modal__input" name="comment " id="comment" cols="30" rows="10" placeholder="Comment"></textarea>
             </p>
+        <div class="loader__wrapper">
+        </div>
+        <div class="notification">
+            <p class="notification__title"></p>
+            <p class="notification__text"></p>
+        </div>
             <p>
-                <button class="modal__btn" type="button" id="modal_btn" data-cout="1">Show comment</button>
+                <button class="modal__btn" type="button" id="btnAddComment" data-cout="1">Show comment</button>
             </p>
     </form>
 </div>

@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded',function () {
-    const btnAddComments = document.getElementById('add-comment');
+    const btnAddComment = document.getElementById('add-comment');
     const modal = document.querySelector('.modal__form');
     const modalBtnClose = document.querySelector('.modal__btn-close');
     const btnSubmit = document.querySelector('.modal__btn');
@@ -9,8 +9,8 @@ document.addEventListener('DOMContentLoaded',function () {
     initModal();
 
     function initModal() {
-        if (btnAddComments) {
-            btnAddComments.addEventListener('click', showModal);
+        if (btnAddComment ) {
+            btnAddComment.addEventListener('click', showModal);
         }
 
         if (modalBtnClose) {
@@ -25,13 +25,13 @@ document.addEventListener('DOMContentLoaded',function () {
         modal.classList.remove('modal_show');
     }
 
-    function validate(field) {
-        field.classList.remove('validate_error');
-
-        if (field.value === '') {
-            field.classList.add('validate_error');
+    function validate (field) {
+        field.classList.remove('validate-error');
+        if (field.value ==='') {
+            field.classList.add('validate-error');
             return false;
         }
+        field.classList.add('validate-ready');
         return true;
     }
 
@@ -39,15 +39,16 @@ document.addEventListener('DOMContentLoaded',function () {
         const noticeTitle = notification.querySelector('.notification__title'),
             noticeText = notification.querySelector('.notification__text');
 
-        if(isSuccess) {
+        if (isSuccess) {
             noticeTitle.classList.add('success');
-            noticeTitle.textContent = 'Успешно';
-            noticeText.textContent = 'Успешно';
-        }
-        else {
-            noticeTitle.classList.add('failed');
-            noticeTitle.textContent = 'Ошибка';
-            noticeText.textContent = 'Ошибка';
+            noticeTitle.textContent = 'Успешно!';
+            noticeText.classList.add('success');
+            noticeText.textContent = 'Ваш комментарий сохранен!';
+        } else {
+            noticeTitle.classList.add('error');
+            noticeTitle.textContent = 'Ошибка!';
+            noticeText.classList.add('error');
+            noticeText.textContent = 'Что-то пошло не так, пожалуйста, повторите попытку позднее';
         }
     }
 
@@ -56,7 +57,7 @@ document.addEventListener('DOMContentLoaded',function () {
         xhr.responseType = "json";
 
         const formInput = [...document.querySelectorAll('[data-required]')]
-        let isValid = formInput.every(item => validation(item));
+        let isValid = formInput.every(item => validate(item));
 
         if (isValid) {
             xhr.send(new FormData(document.forms.comment));
@@ -70,7 +71,7 @@ document.addEventListener('DOMContentLoaded',function () {
             }
 
             setTimeout(function() {
-                hidemodal();
+                hideModal();
             }, 3000);
         }
     })
