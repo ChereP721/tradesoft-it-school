@@ -1,0 +1,47 @@
+<?php
+define('MY DOCUMENT_TITLE', 'Document title this project');
+
+$h2Title = "My best second title";
+
+//random view//
+$viewCount = 0;
+
+$useIncView = true;
+$viewCount += rand(10, 100);
+if ($useIncView && $viewCount < 50) {
+    $viewCount *= 10;
+} elseif ($viewCount < 10) {
+    $viewCount *= 1000;
+} else {
+
+}
+
+//random comments//
+$r = [
+    'привет',
+    'это tradesoft',
+    'web-программирование',
+    'it-школа',
+    'мы выводим рандомный комментарий',
+    'все просто',
+];
+$rand_comment = $r[array_rand($r)];
+
+//random_date//
+$rand_date =  date('d.m.Y', strtotime('+'.rand(0,90).' day'));
+
+//random_author
+$ra = [
+    'aNorin',
+    'dElkin',
+    'dDruzhko',
+    'sPupochkina',
+    'iIvanov',
+    'nPetrova',
+    'admin',
+];
+$rand_auth = $ra[array_rand($ra)];
+
+if ($rand_auth === 'dElkin') {
+        $rand_auth = "dElkinЭтоВы";
+}

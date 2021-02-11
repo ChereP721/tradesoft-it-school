@@ -74,8 +74,8 @@ include 'data.php';
             </div>
 
             <div>
-                <button class="comments_btn" type="button" data-cout="1">
-                    <span>Show comment</span>
+                <button class="comments_btn" type="button" data-cout="1" id="add-comment">
+                    <span>add comment</span>
                 </button>
             </div>
             <ul>
@@ -102,30 +102,30 @@ include 'data.php';
 
 <!---modal-->
 <div class="modal">
-    <form action="/" method="post" name="form-comment" enctype="multipart/form-data">
-        <fieldset>
-            <legend>Leave a comment</legend>
+    <button class="modal__btn-close">X</button>
+    <form class="modal__form" action="/" method="post" name="form-comment" enctype="multipart/form-data">
+        <legend class="modal__title">Leave a comment</legend>
             <p>
-                <label for="name">Name</label>
-            </p>
-            <input type="text" id="name" placeholder="name">
-            <p>
-                <label for="email">Email</label>
-                <input type="text" id="email" placeholder="e-mail">
+                <label class="modal__label" for="Name" >Name</label>
+                <input class="modal__input" type="text" id="name" placeholder="Name">
             </p>
             <p>
-                <label for="myfile">File</label>
-                <input type="file" name="myImage" id="myfile" accept="image/*"/>
+                <label class="modal__label" for="email" >E-mail</label>
+                <input class="modal__input" type="text" id="email" placeholder="E-mail" data-required>
             </p>
             <p>
-                <label for="comment">Comment</label>
-                <textarea name="comment " id="comment" cols="30" rows="10"></textarea>
+                <input class="modal__input" type="file" name="myImage" id="myfile" accept="image/*"/>
+                <label class="modal__label" for="myfile"></label>
             </p>
             <p>
-                <button class="modal_btn" type="button" data-cout="1">Show comment</button>
+                <label class="modal__label" for="" >Comment</label>
+                <textarea class="modal__input" name="comment " id="comment" cols="30" rows="10" placeholder="Comment"></textarea>
             </p>
-        </fieldset>
+            <p>
+                <button class="modal__btn" type="button" id="modal_btn" data-cout="1">Show comment</button>
+            </p>
     </form>
 </div>
+<script src="index.js"></script>
 </body>
 </html>
