@@ -123,8 +123,8 @@ include 'code.php';
     </footer>
 
     <div class="modal">
-        <button class="modal__btn-close">X</button>
         <form action="/" method="post" name="form-comment" enctype="multipart/form-data">
+            <button class="modal__btn-close">X</button>
             <fieldset>
                 <legend>Leave a comment</legend>
                 <div>
