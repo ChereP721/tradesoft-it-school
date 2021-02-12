@@ -1,0 +1,183 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.container {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.header {
+    padding: 32px 0;
+    background-color: #484846;
+}
+
+.header__nav {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.header__link {
+    color: #fff;
+    transition: color .3S;
+}
+
+.header__link_active {
+    color: #87d035;
+}
+
+.header__link:hover {
+    color: #87d035;
+}
+
+.header__link:not(last-child) {
+    margin-right: 16px;
+}
+
+.main {
+
+}
+
+.main__heading {
+
+}
+
+.post {
+
+}
+
+.post__header {
+    font-weight: 300;
+    padding: 8px;
+    margin-bottom: 16px;
+}
+
+.post__wrapper {
+    margin-bottom: 16px;
+}
+
+.modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+    margin-bottom: 200px;
+
+}
+
+.modal__form {
+    display: none;
+    width: 600px;
+    padding: 32px;
+    border-radius: 10px;
+    box-shadow: 0 4px 16px #ccc;
+    letter-spacing: 1px;
+    margin-top: 200px;
+}
+
+.modal__title {
+    text-align: center;
+    margin: 0 0 32px 0;
+    font-weight: bold;
+}
+
+.modal__input {
+    width: 100%;
+    padding: 0 0 15px 0;
+    border: none;
+    border-bottom: 1px solid #e0e0e0;
+    background-color: transparent;
+    transition: 0.3s;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+}
+
+.modal__input:focus {
+    border-bottom: 1px solid #87d035;
+}
+
+.modal__label::placeholder {
+    position: absolute;
+    margin-top: 2px;
+    z-index: -1;
+    color: #9e9e9e;
+    transition: 0.3s;
+}
+
+.modal__btn {
+    padding: 10px 20px;
+    position: relative;
+    left: 215px;
+    width: 145px;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    background-color: #87d035;
+    outline: none;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 10px;
+
+}
+
+.modal__btn:focus,
+.modal__btn:hover {
+    background-color: #87d035b8;
+}
+
+.modal_show {
+    display: block;
+}
+
+.validation {
+
+}
+
+
+.notification {
+
+}
+
+.notification__show {
+
+}
+
+.success {
+    color: #87d035;
+    text-align: center;
+}
+
+.error {
+    color: darkred;
+    text-align: center;
+
+}
+
+.validate-error[data-required] {
+}
+
+.validate-ready[data-required] {
+}
+
+.modal__btn-close {
+    position: absolute;
+    background: none;
+    outline: none;
+    border-radius: 20px;
+    border: none;
+    color: #000000;
+    cursor: pointer;
+    right: 0;
+    bottom: -70px;
+    width: 68%;
+    height: 0;
+
+}
+
+.modal__btn-close:hover {
+    cursor: pointer;
+}
