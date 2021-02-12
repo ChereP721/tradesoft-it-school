@@ -1,6 +1,6 @@
 
 <?php
-include 'php/scripts.php';
+include 'php/data.php';
 
 ?>
 
@@ -129,23 +129,23 @@ include 'php/scripts.php';
                         <p>
                             <label for="E-mail">
                                 <span>E-mail</span>
-                                <input type="text id=E-mail" placeholder="Введите ваш e-mail адрес">
+                                <input type="text id=email" placeholder="Введите ваш e-mail адрес">
                             </label>
                         </p>
                         <p>
-                            <label for="File">
+                            <label for="file">
                                 <span>File</span>
-                                <input type="File" id="File">
+                                <input type="File" id="file">
                             </label>
                         </p>
                         <p>
-                            <label for="content">
-                                <textarea name="content" id="content" cols="30" rows="10" placeholder="Напишите комментарий"></textarea>
-                                <button class="modal__btn" type="button" id="btnAddComment">Отправить комментарий</button>
+                            <label for="comment">
+                                <textarea name="comment" id="comment" cols="30" rows="10" placeholder="Напишите комментарий"></textarea>
                             </label>
+                            <button class="modal__btn" type="button" id="btnAddComment">Отправить комментарий</button>
                         </p>
-                        <div class="loader__wrapper">
-                        </div>
+                       <!-- <div class="loader__wrapper">
+                        </div> -->
                         <div class="notification">
                             <p class="notification__title"></p>
                             <p class="notification__text"></p>
