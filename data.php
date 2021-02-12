@@ -25,23 +25,23 @@ $r = [
     'мы выводим рандомный комментарий',
     'все просто',
 ];
-$rand_comment = $r[array_rand($r)];
+$randComment = $r[array_rand($r)];
 
 //random_date//
-$rand_date =  date('d.m.Y', strtotime('+'.rand(0,90).' day'));
+$randDate =  date('d.m.Y', strtotime('+'.rand(0,90).' day'));
 
 //random_author
 $ra = [
-    'aNorin',
-    'dElkin',
-    'dDruzhko',
-    'sPupochkina',
-    'iIvanov',
-    'nPetrova',
+    'a.Norin',
+    'd.Elkin',
+    'd.Druzhko',
+    's.Pupochkina',
+    'i.Ivanov',
+    'n.Petrova',
     'admin',
 ];
-$rand_auth = $ra[array_rand($ra)];
+$randAuth = $ra[array_rand($ra)];
 
-if ($rand_auth === 'dElkin') {
-        $rand_auth = "dElkinЭтоВы";
+if ($randAuth === 'admin') {
+        $randAuth = $randAuth . ' (это вы)';
 }
