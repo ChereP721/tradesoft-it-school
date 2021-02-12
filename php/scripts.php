@@ -38,7 +38,7 @@ $authorComments = array("Admin", "Сергей", "Ульяна", "Иван", "А
 $max_mas_auyor = count($authorComments, COUNT_RECURSIVE) - 1;
 $random_auyor = rand(0, $max_mas_auyor);
 
-
+/*
 function DateTime() 
 {
     $year = 2018 + rand(0,3);
@@ -47,3 +47,6 @@ function DateTime()
    return "{$year}-{$month}-{$day}";
 
 }
+*/
+
+$DateTime = date('d.m.Y H:i:s', strtotime('-'.rand(0,5000).' day'));

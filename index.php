@@ -51,7 +51,7 @@ include 'php/scripts.php';
                                         Свеча ручной работы "Сердце" от наших друзей.
                                         Состав - ароматный, высококачественный воск, хлопковый фитиль. 
                                     </p>    
-                                    <button type="button">Прочитать статью</button>             
+                                    <button type="button" clas = "main__articl__description" button>Прочитать статью</button>             
                                 </div>                 
                              <footer class="main__articl__footer"> <!--Подвал статьи-->
                                     <div>                       
@@ -83,11 +83,11 @@ include 'php/scripts.php';
                                     <hr>
                                     <!--Выводятся списком комментарии к статье-->
                                     <div class="comments" title="Комментарии">
-                                    <? echo $comments;?>
+                                    <?=$comments;?>
                                     </div>
                                     <div>
-                                        <button type="button">
-                                            <span>Показать комментарии</span>
+                                    <button class="comments_btn" type="button" id="add-comment">
+                                            <span>Добавить комментарии</span>
                                         </button>
                                         <ul>
                                             <li>
@@ -95,7 +95,7 @@ include 'php/scripts.php';
                                                 <div>
                                                     <div>
                                                         <span>Автор комментария: <?echo $authorComments [$random_auyor];?>, </span>
-                                                        <time>Дата создания: <?=DateTime();?></time>                                                        
+                                                        <time>Дата создания: <?=$DateTime?></time>                                                        
                                                     </div>
 
                                                 </div>
@@ -112,43 +112,53 @@ include 'php/scripts.php';
                 <span>Frion & Jane studio (Куклы и украшения ручной работы) 2021 © </span>
             </div> 
         </footer>
-    <!--заготовка формы комментария
+    <!--заготовка формы комментария-->
         <div class="modal">
-            <form action="#" method="POST" ="multipart/form-data" name="form-comment">
-            <fieldset> <!--Оборачивает в рамку, группирует элементы в форме
-                <legend>Форма комментария</legend>
-            <p>
-                    <label for="name">
-                        <span>Name</span>
-                        <input type="text id=name" placeholder="Введите ваше имя">
-                    </label>
-                </p>
-                <p>
-                    <label for="E-mail">
-                        <span>E-mail</span>
-                        <input type="text id=E-mail" placeholder="Введите ваш e-mail адрес">
-                    </label>
-                </p>
-                <p>
-                    <label for="File">
-                        <span>File</span>
-                        <input type="File" id="File">
-                    </label>
-                </p>
-                <p>
-                    <label for="content">
-                        <textarea name="content" id="content" cols="30" rows="10" placeholder="Добавьте комментарий"></textarea>
-                    </label>
-                </p>
-                <p>   
-                    <button class="main_btn" type="button">Submit Comment</button>
-                </p> 
-            </fieldset>
+        <form class="modal__form" action="/" method="post" name="form-comment" enctype="multipart/form-data">
+                <button type="button" class="modal__btn-close">
+                    <i class="fa fa-close"></i>
+                </button>
+                    <h3 class="form__comments__title">Оставить комментарий</h3>
+                    <div class="modal__form__comments__input"> 
+                        <p>
+                            <label for="name">
+                                <span>Name</span>
+                                <input type="text id=name" placeholder="Введите ваше имя">
+                            </label>
+                        </p>
+                        <p>
+                            <label for="E-mail">
+                                <span>E-mail</span>
+                                <input type="text id=E-mail" placeholder="Введите ваш e-mail адрес">
+                            </label>
+                        </p>
+                        <p>
+                            <label for="File">
+                                <span>File</span>
+                                <input type="File" id="File">
+                            </label>
+                        </p>
+                        <p>
+                            <label for="content">
+                                <textarea name="content" id="content" cols="30" rows="10" placeholder="Напишите комментарий"></textarea>
+                                <button class="modal__btn" type="button" id="btnAddComment">Отправить комментарий</button>
+                            </label>
+                        </p>
+                        <div class="loader__wrapper">
+                        </div>
+                        <div class="notification">
+                            <p class="notification__title"></p>
+                            <p class="notification__text"></p>
+                        </div>
+                    </div>  
             </form>
-        </div>-->
+        </div>
+   
     </div>
+
 
     
     <link rel="stylesheet" href="css/MyStyle.css" type = "text/css"> <!--Подключение стилей-->
+    <script src="js/index.js"></script>
 </body>
 </html>
