@@ -83,7 +83,7 @@
                                     </div>
                                     <div>
                                         <button type="button">
-                                            <span>Показать комментарии</span>
+                                            <span>Добавить комментарии</span>
                                         </button>
                                         <ul>
                                             <li>
