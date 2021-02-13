@@ -138,109 +138,112 @@ background-color: #18b5a4; контент
    
    .modal{
     /*border: 2px solid #b60155;*/
+    height: 100%;
+    width: 100%;
     position: absolute;
     display: flex;
     justify-content: center;
     align-items: center;
-}
+    }
 
-.modal__form {
-    display: none;
-    width: 300px;
-    padding: 1rem;
-    background: #ffffff;
-    border-radius: 5px;
-    box-shadow: rgba(0, 0, 0, 0.4) 2px 3px 5px 1px;
-}
+    .modal__form {
+        display: none;
+        width: 300px;
+        padding: 1rem;
+        background: #f0f0f0;
+        border-radius: 5px;
+        box-shadow: rgba(0, 0, 0, 0.4) 2px 3px 5px 1px;
+    }
 
-.modal__btn:focus,
-.modal__btn:hover {
-    background-color: #87d035b8;
-}
-
-
-.modal_show {
-    display: block;
-}
-
-.validation {
-}
+    .modal__btn:focus,
+    .modal__btn:hover {
+        background-color: #87d035b8;
+    }
 
 
-.notification {
-}
+    .modal_show {
+        display: block;
+    }
 
-.notification__show {
-}
-
-.success {
-    color: #87d035;
-    text-align: center;
-}
-
-.error {
-    color: darkred;
-    text-align: center;
-}
-
-.validate-error[data-required] {
-}
-
-.validate-ready[data-required] {
-}
+    .validation {
+    }
 
 
+    .notification {
+    }
 
-.modal__btn-close {
-    float: right;
-    margin: 0.2rem;
-}
-.modal__btn-close:hover {
-    cursor: pointer;
-}
+    .notification__show {
+    }
 
-.form__comments__title {
-    text-align: center;
-    margin-bottom: 1rem;
-    font-weight: bold;
-    font-size: x-large;
-}
+    .success {
+        color: #87d035;
+        text-align: center;
+    }
 
-.modal__form__comments__input {
-    width: 100%;
-    clear:both;
-    float:left;
-}
+    .error {
+        color: darkred;
+        text-align: center;
+    }
 
-.modal__form__comments__input p {
-    padding-bottom: 2rem;
-}
+    .validate-error[data-required] {
+    }
+
+    .validate-ready[data-required] {
+    }
 
 
-.modal__form__comments__input span {
-    float:left;
-    width: 20%;
-    font-weight: bold;
-}
 
-.modal__form__comments__input input {
-    float:left;
-    width: 75%;
-}
+    .modal__btn-close {
+        color: darkred;
+        float: right;
+        margin: 0.2rem;
+    }
+    .modal__btn-close:hover {
+        cursor: pointer;
+    }
 
-.modal__form__comments__input textarea {
-    width: 100%;
-    height: 150px;
-    padding: 0.5rem;
-    box-sizing: border-box;
-    border: 2px solid #afafaf;
-    border-radius: 4px;
-    background-color: #f8f8f8;
-    resize: none;
-}
-.modal__form__comments__input button {
-    float: right;
-    margin: 0.2rem;
-}
+    .form__comments__title {
+        text-align: center;
+        margin-bottom: 1rem;
+        font-weight: bold;
+        font-size: x-large;
+    }
+
+    .modal__form__comments__input {
+        width: 100%;
+        clear:both;
+        float:left;
+    }
+
+    .modal__form__comments__input p {
+        padding-bottom: 2rem;
+    }
+
+
+    .modal__form__comments__input span {
+        float:left;
+        width: 20%;
+        font-weight: bold;
+    }
+
+    .modal__form__comments__input input {
+        float:left;
+        width: 75%;
+    }
+
+    .modal__form__comments__input textarea {
+        width: 100%;
+        height: 150px;
+        padding: 0.5rem;
+        box-sizing: border-box;
+        border: 2px solid #afafaf;
+        border-radius: 4px;
+        background-color: #f8f8f8;
+        resize: none;
+    }
+    .modal__form__comments__input button {
+        float: right;
+        margin: 0.2rem;
+    }
 
 
