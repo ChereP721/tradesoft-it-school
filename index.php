@@ -25,15 +25,15 @@ include 'php/data.php';
                     <img src="img/Logo_FJS.jpg" alt="Logotip">
                 </div>
                 <Nav class="header__nav"><!--Навигация-->
-                    <a href="#">Блог</a>
-                    <a href="#">Категории</a>
+                    <a href="#"><?=$goods;?></a>
+                    <a href="#"><?=$categories;?></a>
                 </Nav>
             </header>
         </div>
 
             <main class="main"><!--Основной контент сайта-->
                 <div class="container">
-                    <h1>Изделия ручной работы</h1>
+                    <h1><?=$titleListGoods;?></h1>
                     <article class="main__articl"><!--Блок который можнобез проблем изъять из контента-->
                         <header class="main__articl__header">
                             <h2 title="first-theme">Подарочный Набор на День Всех Святых</h2>
@@ -57,11 +57,11 @@ include 'php/data.php';
                                     <div>                       
                                         <div>
                                             <i class="fa fa-calendar"></i>
-                                            <time datetime="2021-01-26T20:20:30">Январь 26, 2021gi</time>
+                                            <time datetime="2021-01-26T20:20:30">Январь 26, 2021</time>
                                         </div>
                                         <div>
                                             <i class="fa fa-user"></i>
-                                            <a href="#" title="Posts by Author">avshatov</a>
+                                            <a href="#" title="Posts by Author"><?echo $users [$random_auyor];?></a>
                                         </div>
                                     </div>
                                     <hr>
@@ -91,10 +91,10 @@ include 'php/data.php';
                                         </button>
                                         <ul>
                                             <li>
-                                                <img src="#" alt="Avatar">
+                                                <img src="#" alt="">
                                                 <div>
                                                     <div>
-                                                        <span>Автор комментария: <?echo $authorComments [$random_auyor];?>, </span>
+                                                        <span>Автор комментария: <?echo $users [$random_auyor];?>, </span>
                                                         <time>Дата создания: <?=$DateTime?></time>                                                        
                                                     </div>
 

@@ -52,6 +52,8 @@ document.addEventListener('DOMContentLoaded',function () {
                 noticeText.textContent = 'Что-то пошло не так, пожалуйста, повторите попытку позднее';
             }
         }
+
+
 /*
         function getComment(content) {
             const commentsList = document.querySelector('.comments__list');
