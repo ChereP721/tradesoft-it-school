@@ -43,13 +43,13 @@ include 'php/data.php';
                                 <figcaption></figcaption>
                             </figure>                               
                                 <div class="main__articl__description">  
-                                        <p> Необычный, уникальный набор не оставит никого равнодушным!
-                                        В набор входит кукла ручной работы, свеча ручной работы, подарочная коробка из фанеры.
-                                        Куколки все индивидуальны, могут отличаться от фото. При заказе все нюансы и пожелания обсуждаются с мастером
-                                        Размер примерно 16см.
-                                        Сделана из мешковины с отделкой из натуральной кожи.
-                                        Свеча ручной работы "Сердце" от наших друзей.
-                                        Состав - ароматный, высококачественный воск, хлопковый фитиль. 
+                                        <p> Необычный, уникальный набор не оставит никого равнодушным!</p> 
+                                        <p> В набор входит кукла ручной работы, свеча ручной работы, подарочная коробка из фанеры.</p> 
+                                        <p> Куколки все индивидуальны, могут отличаться от фото. При заказе все нюансы и пожелания обсуждаются с мастером</p> 
+                                        <p> Размер примерно 16см.</p> 
+                                        <p> Сделана из мешковины с отделкой из натуральной кожи.</p> 
+                                        <p> Свеча ручной работы "Сердце" от наших друзей.</p> 
+                                        <p> Состав - ароматный, высококачественный воск, хлопковый фитиль. </p> 
                                     </p>    
                                     <button type="button" clas = "main__articl__description" button>Прочитать статью</button>             
                                 </div>                 
@@ -64,9 +64,7 @@ include 'php/data.php';
                                             <i class="fa fa-user"></i>
                                             <a href="#" title="Posts by Author"><?echo $users [$random_auyor];?></a>
                                         </div>
-                                    </div>
 
-                                    <div class="main__articl__footer__items">   
                                         <div title="Показать все посты данной категории">
                                             <i class="fa fa-bookmark"></i>
                                             <a href="#">dolls</a>
@@ -82,24 +80,29 @@ include 'php/data.php';
                                     </div>
 
                                      <!--Выводятся списком комментарии к статье-->
-                                    <div class="comments" title="Комментарии">
-                                    <?=$comments;?>
-                                    </div>
-                                    <div>
-                                    <button class="comments_btn" type="button" id="add-comment">
-                                            <span>Добавить комментарии</span>
-                                        </button>
-                                        <ul>
-                                            <li>
-                                                <img src="#" alt="">
-                                                <div>
-                                                    <div>
-                                                        <span>Автор комментария: <?echo $users [$random_auyor];?>, </span>
-                                                        <time>Дата создания: <?=$DateTime?></time>                                                        
+                                    <div class="main__articl__footer__comments" title="Комментарии">
+                                        <div class="main__articl__footer__comments__title">Комментарии к посту</div>
+                                            <ul>
+                                                <li>
+                                                    <div class="main__articl__footer__comments__text">
+                                                    <?=$comments;?>
+                                                        <div class="main__articl__footer__comments__text_footer">                                                        
+                                                            <span><u>Автор комментария:</u> <?echo $users [$random_auyor];?> </span>
+                                                            <time><u>Дата создания:</u> <?=$DateTime?></time>                                                        
+                                                        </div>
                                                     </div>
-                                                </div>
-                                            </li>
-                                        </ul>
+                                                </li>
+                                                <li>
+                                                    <div class="main__articl__footer__comments__text">
+                                                    <?=$comments;?>
+                                                        <div class="main__articl__footer__comments__text_footer">                                                        
+                                                            <span><u>Автор комментария:</u> <?echo $users [$random_auyor];?> </span>
+                                                            <time><u>Дата создания:</u> <?=$DateTime?></time>                                                        
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        <button class="comments_btn" type="button" id="add-comment">Добавить комментарии</button>    
                                     </div>
                             </footer> 
                     </article>
