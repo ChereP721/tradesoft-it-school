@@ -1,49 +1,41 @@
-
-/*
-border: 5px solid #ece89d; блок
-border: 2px solid #5e5373; элемент
-background-color: #18b5a4; контент
-*/
-
-/* разобраться с логотипом на ширину экрана*/   
-
    
-    .wrapper {
-        border: 5px solid #ece89d; 
-        background-color: #edeef0;
-        min-height: 100%;
-        overflow: hidden;
+   .wrapper {
+       border: 5px solid #00fd22; 
+       background-color: #edeef0;
+       min-height: 100%;
+       overflow: hidden;
+       display: flex;
+       flex-direction: column;
 
-        display: flex;
-        flex-direction: column;
-
-
-
- }
+   }
    .container {
-    border: 2px solid #5e5373;
-       max-width: 800px;
+   /*border: 1px solid #5e5373;*/
+       width: 800px;
        margin: 0px auto;
 
+
+   }
+   .header {
+   /* border: 2px solid #aa11f1; */
+
    }
 
-   .header {
-   /*border: 5px solid #5e5373; */
-   
-   }
-   
    .header__logo {
        text-align: center;
+       width: 100%;
+       margin: 0;       
    }
    
    .header__nav {
-    background-color: #ffffff;
+       background: #ffffff;
+       border-radius: 5px;
+       box-shadow: rgba(0, 0, 0, 0.4) 2px 3px 5px 1px;
+       margin: 0.3rem 0;
        display: flex;
        justify-content: center;
        align-items: center;
        width: 100%;
-       height: 50px;
-       text-align: center;
+       height: 3rem;
      }
    
    .header__nav a {
@@ -53,10 +45,12 @@ background-color: #18b5a4; контент
        padding-left: 1rem;
        padding-right: 1rem;
    }
+
+   
    .header__nav a:hover {
-       border-bottom: 1.5px solid #afafaf; 
-       font-weight: bold;
-   }
+        border-bottom: 1.5px solid #afafaf; 
+        font-weight: bold;
+    }
    
    
    .main {
@@ -64,25 +58,24 @@ background-color: #18b5a4; контент
        flex: 1 1 auto;
        text-align: center;
    }
+   
 
    h1 {
-    font-weight: bold;
-    font-size: x-large;
-    margin: 0.5rem;
+        font-weight: bold;
+        font-size: x-large;
+        margin: 0.5rem;
    }
+
 
    .main__articl {
        padding: 0.5rem;
-       margin: 0.5rem;
        background: #ffffff;
        border-radius: 5px;
        box-shadow: rgba(0, 0, 0, 0.4) 2px 3px 5px 1px;
        font-weight: 100;
-       width: 750px;
+       width: 98%;
        display: flex;
        flex-direction: column;
- 
-
     }
    
    .main__articl__header {
@@ -119,31 +112,45 @@ background-color: #18b5a4; контент
 
    
     .main__articl__footer {
-        border: 2px solid #b60155;
+      /*  border: 2px solid #b60155;*/
         width: 100%;
-        border-top: 2px solid #afafaf;
         margin: 0 auto;
         padding-bottom: 0.5rem;
+        border: 1px solid #afafaf;
+    }
+    
+    .main__articl__footer__items {
+        display: flex;
+        justify-content: left;     
+        align-items: center;   
+        border-bottom: 1px solid #afafaf;
+    }
+    .main__articl__footer__items div {
+        margin: 0.5rem;
     }
    
-   
    .footer {
-       display: flex;    
-       justify-content: space-between;    
+       display: flex;
+       flex-direction: column;
        align-items: center;
-       /*border: 5px solid #5e5373; */
+       width: 100%;
+       padding: 0.5rem 0;
+       margin: 0.5rem 0;
+       background: #ffffff;
+       border-radius: 5px;
+       box-shadow: rgba(0, 0, 0, 0.4) 2px 3px 5px 1px;
+
    
    }
    
-   
-   .modal{
-    /*border: 2px solid #b60155;*/
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+      .modal{
+        /*border: 2px solid #b60155;*/
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     .modal__form {
@@ -157,22 +164,11 @@ background-color: #18b5a4; контент
 
     .modal__btn:focus,
     .modal__btn:hover {
-        background-color: #87d035b8;
+        background-color: #87d035;
     }
-
 
     .modal_show {
         display: block;
-    }
-
-    .validation {
-    }
-
-
-    .notification {
-    }
-
-    .notification__show {
     }
 
     .success {
@@ -185,15 +181,7 @@ background-color: #18b5a4; контент
         text-align: center;
     }
 
-    .validate-error[data-required] {
-    }
-
-    .validate-ready[data-required] {
-    }
-
-
-
-    .modal__btn-close {
+     .modal__btn-close {
         color: darkred;
         float: right;
         margin: 0.2rem;
@@ -246,4 +234,6 @@ background-color: #18b5a4; контент
         margin: 0.2rem;
     }
 
-
+    .notification p{
+        padding: 0;
+    }

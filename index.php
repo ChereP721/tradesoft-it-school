@@ -24,10 +24,10 @@ include 'php/data.php';
                 <div class="header__logo">
                     <img src="img/Logo_FJS.jpg" alt="Logotip">
                 </div>
-                <Nav class="header__nav"><!--Навигация-->
+                <nav class="header__nav"><!--Навигация-->
                     <a href="#"><?=$goods;?></a>
                     <a href="#"><?=$categories;?></a>
-                </Nav>
+                </nav>
             </header>
         </div>
 
@@ -40,7 +40,7 @@ include 'php/data.php';
                         </header>
                             <figure class="main__articl__figure"><!-- Блок в который оборачиваем контент, можно заменить дивом-->
                                 <img src="img/dolls/doll.jpg" alt="doll">
-                                <figcaption>Подарочный Набор на День Всех Святых</figcaption>
+                                <figcaption></figcaption>
                             </figure>                               
                                 <div class="main__articl__description">  
                                         <p> Необычный, уникальный набор не оставит никого равнодушным!
@@ -54,7 +54,8 @@ include 'php/data.php';
                                     <button type="button" clas = "main__articl__description" button>Прочитать статью</button>             
                                 </div>                 
                              <footer class="main__articl__footer"> <!--Подвал статьи-->
-                                    <div>                       
+
+                                    <div class="main__articl__footer__items">                       
                                         <div>
                                             <i class="fa fa-calendar"></i>
                                             <time datetime="2021-01-26T20:20:30">Январь 26, 2021</time>
@@ -64,8 +65,8 @@ include 'php/data.php';
                                             <a href="#" title="Posts by Author"><?echo $users [$random_auyor];?></a>
                                         </div>
                                     </div>
-                                    <hr>
-                                    <div>
+
+                                    <div class="main__articl__footer__items">   
                                         <div title="Показать все посты данной категории">
                                             <i class="fa fa-bookmark"></i>
                                             <a href="#">dolls</a>
@@ -74,14 +75,13 @@ include 'php/data.php';
                                             <i class="fa fa-comment"></i>
                                             <a href="#" title="Comment on Mauris posuere">No comments</a> 
                                         </div>
-                                    </div>
-                                    <hr>
-                                    <div title="Количество просмотров">
-                                        <i class="fa fa-eye"></i>
+                                        <div title="Количество просмотров">
+                                            <i class="fa fa-eye"></i>
                                         <span>2</span>
                                     </div>
-                                    <hr>
-                                    <!--Выводятся списком комментарии к статье-->
+                                    </div>
+
+                                     <!--Выводятся списком комментарии к статье-->
                                     <div class="comments" title="Комментарии">
                                     <?=$comments;?>
                                     </div>
@@ -97,24 +97,22 @@ include 'php/data.php';
                                                         <span>Автор комментария: <?echo $users [$random_auyor];?>, </span>
                                                         <time>Дата создания: <?=$DateTime?></time>                                                        
                                                     </div>
-
                                                 </div>
                                             </li>
                                         </ul>
                                     </div>
-                                </footer> 
+                            </footer> 
                     </article>
                 </div>    
             </main>
-
-        <footer class="footer"> <!--Подвал страницы-->
             <div class="container">
-                <span>Frion & Jane studio (Куклы и украшения ручной работы) 2021 © </span>
+                <footer class="footer"> <!--Подвал страницы-->
+                    <span>Frion & Jane studio (Куклы и украшения ручной работы) 2021 © </span>
+                </footer>
             </div> 
-        </footer>
     <!--заготовка формы комментария-->
         <div class="modal">
-        <form class="modal__form" action="/" method="post" name="form-comment" enctype="multipart/form-data">
+            <form class="modal__form" action="/" method="post" name="form-comment" enctype="multipart/form-data">
                 <button type="button" class="modal__btn-close">
                     <i class="fa fa-close"></i>
                 </button>
