@@ -102,7 +102,7 @@ include 'data.php';
 
 <!---modal-->
 <div class="modal">
-    <form class="modal__form" action="/" method="post" name="form-comment" enctype="multipart/form-data">
+    <form class="modal__form" action="data.php" method="POST" name="form-comment" enctype="multipart/form-data">
         <button type="button" class="modal__btn-close">
             <i class="fa fa-close"></i>
         </button>
@@ -116,7 +116,7 @@ include 'data.php';
                 <input class="modal__input" type="text" id="email" placeholder="E-mail" data-required>
             </p>
             <p>
-                <input class="modal__input" type="file" name="myImage" id="myfile" accept="image/*"/>
+                <input class="modal__input" type="file" name="image" id="file" accept="image/*"/>
                 <label class="modal__label" for="myfile"></label>
             </p>
             <p>
@@ -130,7 +130,7 @@ include 'data.php';
             <p class="notification__text"></p>
         </div>
             <p>
-                <button class="modal__btn" type="button" id="btnAddComment" data-cout="1">Show comment</button>
+                <button class="modal__btn" type="submit" id="btnAddComment" data-cout="1">Show comment</button>
             </p>
     </form>
 </div>
