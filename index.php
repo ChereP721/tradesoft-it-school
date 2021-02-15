@@ -48,11 +48,11 @@ include 'data.php';
             <div>
                 <div class="post_item">
                     <i class="post_icon fa fa-calendar"></i>
-                    <time datetime="2013-03-14T20:28:57" class="post_text"><?=$rand_date?></time>
+                    <time datetime="2013-03-14T20:28:57" class="post_text"><?=$randDate?></time>
                 </div>
                 <div class="post_item">
                     <i class="post_icon fa fa-user"></i>
-                    <a href="/" class="post_icon"><?=$rand_auth?></a>
+                    <a href="/" class="post_icon"><?=$randAuth?></a>
                 </div>
                 <div class="post_item" title="categories">
                     <i class="post_icon fa fa-bookmark"></i>
@@ -60,7 +60,7 @@ include 'data.php';
                 </div>
                 <div class="post_item">
                     <i class="post_icon fa fa-comment"></i>
-                    <a href="/" class="post_icon" title="Comment"><?=$rand_comment?></a>
+                    <a href="/" class="post_icon" title="Comment"><?=$randComment?></a>
                 </div>
             </div>
 
@@ -84,11 +84,11 @@ include 'data.php';
                          alt="Avatar admin"/>
                     <div class="comments_content">
                         <i class="post_icon fa fa-calendar"></i>
-                        <time datetime="2013-03-14T20:28:57" class="post_text"><?= $rand_date ?></time>
-                        <a href="/" class="post_icon"><?= $rand_auth ?></a>
+                        <time datetime="2013-03-14T20:28:57" class="post_text"><?= $randDate ?></time>
+                        <a href="/" class="post_icon"><?= $randAuth ?></a>
                     </div>
                     <p class="comment">
-                        <?= $rand_comment ?>
+                        <?= $randComment ?>
                     </p>
                 </li>
             </ul>
