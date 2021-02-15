@@ -1,7 +1,7 @@
 
 <?php
 include 'php/data.php';
-
+include 'php/post.php';
 ?>
 
 <!DOCTYPE html>
@@ -133,19 +133,19 @@ include 'php/data.php';
                         <p>
                             <label for="name">
                                 <span>Name</span>
-                                <input type="text" id="name" placeholder="Введите ваше имя">
+                                <input type="text" id="name" name="name" placeholder="Введите ваше имя">
                             </label>
                         </p>
                         <p>
                             <label for="E-mail">
                                 <span>E-mail</span>
-                                <input type="text" id="email" placeholder="Введите ваш e-mail адрес">
+                                <input type="text" id="email" name="email" placeholder="Введите ваш e-mail адрес">
                             </label>
                         </p>
                         <p>
                             <label for="file">
                                 <span>File</span>
-                                <input type="File" id="file">
+                                <input type="File" id="file" name="file">
                             </label>
                         </p>
                         <p>

@@ -217,7 +217,7 @@
     }
 
     .modal__form {
-        display: none;
+        display: block;
         width: 300px;
         padding: 1rem;
         background: #f0f0f0;
