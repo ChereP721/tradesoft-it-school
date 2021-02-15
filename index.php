@@ -62,7 +62,7 @@ include 'php/data.php';
                                         </div>
                                         <div>
                                             <i class="fa fa-user"></i>
-                                            <a href="#" title="Posts by Author"><?echo $users [$random_auyor];?></a>
+                                            <a href="#" title="Posts by Author"><?= $users;?></a>
                                         </div>
 
                                         <div title="Показать все посты данной категории">
@@ -85,22 +85,31 @@ include 'php/data.php';
                                             <ul>
                                                 <li>
                                                     <div class="main__articl__footer__comments__text">
-                                                    <?=$comments;?>
+                                                    <?echo $comments[$i]?>
                                                         <div class="main__articl__footer__comments__text_footer">                                                        
-                                                            <span><u>Автор комментария:</u> <?echo $users [$random_auyor];?> </span>
+                                                            <span><u>Автор комментария:</u> <?echo $users[$i];?> </span>
                                                             <time><u>Дата создания:</u> <?=$DateTime?></time>                                                        
                                                         </div>
                                                     </div>
-                                                </li>
+                                                </li>     
                                                 <li>
                                                     <div class="main__articl__footer__comments__text">
-                                                    <?=$comments;?>
+                                                    <?echo $comments[$i]?>
                                                         <div class="main__articl__footer__comments__text_footer">                                                        
-                                                            <span><u>Автор комментария:</u> <?echo $users [$random_auyor];?> </span>
+                                                            <span><u>Автор комментария:</u> <?echo $users[$i];?> </span>
                                                             <time><u>Дата создания:</u> <?=$DateTime?></time>                                                        
                                                         </div>
                                                     </div>
-                                                </li>
+                                                </li>   
+                                                <li>
+                                                    <div class="main__articl__footer__comments__text">
+                                                    <?echo $comments[$i]?>
+                                                        <div class="main__articl__footer__comments__text_footer">                                                        
+                                                            <span><u>Автор комментария:</u> <?echo $users[$i];?> </span>
+                                                            <time><u>Дата создания:</u> <?=$DateTime?></time>                                                        
+                                                        </div>
+                                                    </div>
+                                                </li>                                              
                                             </ul>
                                         <button class="comments_btn" type="button" id="add-comment">Добавить комментарии</button>    
                                     </div>

@@ -146,7 +146,7 @@
         padding: 0.5rem 0;
         font-weight: bold;        
         font-size:18px;
-        text-decoration: underline;
+        /*text-decoration: underline;*/
     }
 
 
@@ -209,6 +209,8 @@
         /*height: 100%;
         width: 100%;*/
         position: absolute;
+        left: 50%;
+        top: 50%;
         display: flex;
         justify-content: center;
         align-items: center;
