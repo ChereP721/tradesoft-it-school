@@ -124,7 +124,7 @@ include 'php/post.php';
             </div> 
     <!--заготовка формы комментария-->
         <div class="modal">
-            <form class="modal__form" action="/" method="post" name="form-comment" enctype="multipart/form-data">
+        <form class="modal__form" action="php/modal_post.php" method="post" name="form-comment" enctype="multipart/form-data">
                 <button type="button" class="modal__btn-close">
                     <i class="fa fa-close"></i>
                 </button>
@@ -145,7 +145,7 @@ include 'php/post.php';
                         <p>
                             <label for="file">
                                 <span>File</span>
-                                <input type="File" id="file" name="file">
+                                <input type="File" id="file" name="file" accept="data/comments/failes/" />
                             </label>
                         </p>
                         <p>
