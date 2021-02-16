@@ -1,7 +1,7 @@
 
 <?php
 include 'php/data.php';
-include 'php/post.php';
+//include 'php/post.php';
 ?>
 
 <!DOCTYPE html>
@@ -62,7 +62,7 @@ include 'php/post.php';
                                         </div>
                                         <div>
                                             <i class="fa fa-user"></i>
-                                            <a href="#" title="Posts by Author"><?= $users;?></a>
+                                            <a href="#" title="Posts by Author"><?=$users[$i];?></a>
                                         </div>
 
                                         <div title="Показать все посты данной категории">
@@ -83,29 +83,29 @@ include 'php/post.php';
                                     <div class="main__articl__footer__comments" title="Комментарии">
                                         <div class="main__articl__footer__comments__title">Комментарии к посту</div>
                                             <ul>
-                                                <li>
+                                            <li>
                                                     <div class="main__articl__footer__comments__text">
-                                                    <?echo $comments[$i]?>
+                                                    <?= $comments[$i];?>
                                                         <div class="main__articl__footer__comments__text_footer">                                                        
-                                                            <span><u>Автор комментария:</u> <?echo $users[$i];?> </span>
+                                                            <span><u>Автор комментария:</u> <?=$users[$i];?> </span>
                                                             <time><u>Дата создания:</u> <?=$DateTime?></time>                                                        
                                                         </div>
                                                     </div>
-                                                </li>     
+                                                </li>
                                                 <li>
                                                     <div class="main__articl__footer__comments__text">
-                                                    <?echo $comments[$i]?>
+                                                    <?= $comments[$i];?>
                                                         <div class="main__articl__footer__comments__text_footer">                                                        
-                                                            <span><u>Автор комментария:</u> <?echo $users[$i];?> </span>
+                                                            <span><u>Автор комментария:</u> <?=$users[$i];?> </span>
                                                             <time><u>Дата создания:</u> <?=$DateTime?></time>                                                        
                                                         </div>
                                                     </div>
-                                                </li>   
+                                                </li>
                                                 <li>
                                                     <div class="main__articl__footer__comments__text">
-                                                    <?echo $comments[$i]?>
+                                                    <?= $comments[$i];?>
                                                         <div class="main__articl__footer__comments__text_footer">                                                        
-                                                            <span><u>Автор комментария:</u> <?echo $users[$i];?> </span>
+                                                            <span><u>Автор комментария:</u> <?=$users[$i];?> </span>
                                                             <time><u>Дата создания:</u> <?=$DateTime?></time>                                                        
                                                         </div>
                                                     </div>
