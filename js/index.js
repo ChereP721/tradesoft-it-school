@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded',function () {
         function hideModal() {
             modal.classList.remove('modal_show');
         }
-/*
+
         function validate (field) {
             field.classList.remove('validate-error');
             if (field.value ==='') {
@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded',function () {
                 noticeText.textContent = 'Что-то пошло не так, пожалуйста, повторите попытку позднее';
             }
         }
-*/
+
 
 /*
         function getComment(content) {
@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded',function () {
 
 
         btnSubmit.addEventListener('click', function() {
-            xhr.open('POST', 'data.php');
+            xhr.open('POST', 'php/data.php');
             xhr.responseType = 'json';
 
             const formInput = [...document.querySelectorAll('[data-required]')]
