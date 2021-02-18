@@ -43,17 +43,17 @@ var_dump($isAuth);
 
 
 
-}
+
 
 function getAuth (?string $login, string $pass)
 {
     if($login === null || empty ($login))
-    return false
+    return false;
 }
 
 static $userArr = ['asdasd','asdasd','afsafas'];
 
-$login = getAuth()
+$login = getAuth();
 
 if (!isset ($userArr['login'])) {
     return null;
@@ -63,7 +63,7 @@ return $userArr[$login] === $pass;
 
 
 // Генерация комментария
-function genCom ():array
+function genCom()//:array
 
 static $songArr [];
     if (empty($songArr)) {
