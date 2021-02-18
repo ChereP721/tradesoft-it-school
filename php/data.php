@@ -1,5 +1,105 @@
 <?php
 
+//авторизация
+/*
+function checkAuth(?string $login, ?string $pass): bool
+{
+    if ($login === null || empty($login)) {
+       return false;
+   }
+
+   static $userArr = [
+       'admin' => 'admin',
+       'user' => 'qwerty',
+   ];
+   if (!isset($userArr[$login])) {
+       return null;
+   }
+
+   return $userArr[$login] === $pass;
+}
+
+$isAuth = false; 
+if (isset($_POST['login'])) {
+   $isAuth = checkAuth($_POST['login'], $_POST['Password']);
+   if ($isAuth) {
+       $_SESSION['user'] = $_POST['login'];
+   }
+} elseif (isset($_SESSION['user'])) {
+   $isAuth = true;
+   //проверка на то что 
+   if ($isAuth = !isset($_GET['out'])) {
+       $isAuth = false;
+       unset ({$_SESSION['user']);}
+   }
+
+}
+ed($_POST);
+ed($_SESSION);
+var_dump($isAuth);
+*/
+
+
+
+
+
+}
+
+function getAuth (?string $login, string $pass)
+{
+    if($login === null || empty ($login))
+    return false
+}
+
+static $userArr = ['asdasd','asdasd','afsafas'];
+
+$login = getAuth()
+
+if (!isset ($userArr['login'])) {
+    return null;
+}
+
+return $userArr[$login] === $pass;
+
+
+// Генерация комментария
+function genCom ():array
+
+static $songArr [];
+    if (empty($songArr)) {
+        $songArr = include "song.php";
+        //не дописано
+    }
+
+    $textAr = [];
+    for ($i= $i; $i,5 ; $i++) {
+        $keyWord = array 
+    }
+
+    return{
+        'text' => implode (glue ' ',$textAr ),
+        'date' => date (format: 'H m Y', $time )
+        'author' => $songArr ['author'] [array_rand($songArr['author'])]
+    }
+
+$commentCont = rand(5,10);
+for ($i = 0; $i< $commentCont; $i++) {
+    $commentAr[] =generateComment();
+}
+
+ed ($commentAr);
+$commentAr = array_filter ($commentAr, static function(array $elem) {
+    static $boobleArr = [];
+    $key = md5 ($elem['text']);
+    if () // Недописано
+}
+)
+
+
+
+
+
+
 // Общие моменты
 #Навигация
 $goods = 'Изделия';

@@ -20,6 +20,21 @@
 
    }
 
+
+.auth__form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 0.5rem 0;
+    margin: 1rem 0;
+    background: #ffffff;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.4) 2px 3px 5px 1px;  
+}
+
+
    .header__logo {
        text-align: center;
        width: 100%;

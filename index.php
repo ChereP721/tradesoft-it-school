@@ -1,7 +1,7 @@
 
 <?php
 include 'php/data.php';
-//include 'php/post.php';
+include 'php/song.php';
 ?>
 
 <!DOCTYPE html>
@@ -19,7 +19,22 @@ include 'php/data.php';
 </head>
 <body class="body">
     <div class="wrapper">
-        <div class="container">        
+        <div class="container">   
+
+                <form action="<?=$_SERVER['REQUEST_URI']?>" class="auth__form" method="post">
+                        <input type="hidden" name="form-name" value="form-auth" />
+                       <div class="auth__group">
+                           <label class="auth__label" for="phone">Login</label>
+                           <input class="auth__input" type="tel" id="login" name="login" placeholder="login">
+                       </div>
+                       <div class="auth__group">
+                           <label class="auth__label" for="Password">Password</label>
+                           <input class="auth__input" type="password" id="Password" name="Password" placeholder="password">
+                       </div>
+                       <button class="btn" type="submit">SIGN IN</button>
+                   </form>
+
+
             <header class="header"><!--Шапка-->
                 <div class="header__logo">
                     <img src="img/Logo_FJS.jpg" alt="Logotip">
