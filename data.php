@@ -52,14 +52,8 @@ if (isset($_FILES['image'])) {
     $fileName = $_FILES['image']['name'];
     $fileTmp = $_FILES['image']['tmp_name'];
 
-    $extension = 'jpg';
+    $extension = substr($fileName, strpos($fileName,'.'), strlen($fileName)-1);
     $fileName = uniqid() . '.' . $extension;
     move_uploaded_file($fileTmp, "uploads/" . $fileName);
-
-    echo "<script>
-             alert('Файл загружен'); 
-             window.history.go(-1);
-     </script>";
-
 
 }
