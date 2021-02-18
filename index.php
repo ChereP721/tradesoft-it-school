@@ -1,7 +1,7 @@
 
 <?php
 include 'php/data.php';
-include 'php/registration.php';
+/*include 'php/registration.php';*/
 
 ?>
 
@@ -19,21 +19,24 @@ include 'php/registration.php';
 
 </head>
 <body class="body">
+
     <div class="wrapper">
      
         <header class="header"><!--Шапка-->
             <div class="container">   
-                <form action="<?=$_SERVER['REQUEST_URI']?>" class="auth__form shadow" method="post">
+
+                <!--<form action="<?//=$_SERVER['REQUEST_URI']?>" class="auth__form shadow" method="post">-->
+                <form action="php/registration.php" class="auth__form shadow" method="post">
                     <input type="hidden" name="form-name" value="form-auth" />
                         <div class="auth__group">
                             <label class="auth__label" for="phone">Логин</label>
                             <input class="auth__input" type="tel" id="login" name="login" placeholder="login">
                         </div>
                         <div class="auth__group">
-                            <label class="auth__label" for="Password">Пароль</label>
-                            <input class="auth__input" type="password" id="Password" name="Password" placeholder="password">
+                            <label class="auth__label" for="password">Пароль</label>
+                            <input class="auth__input" type="password" id="password" name="password" placeholder="password">
                         </div>
-                        <button class="btn" type="submit">Войти</button>
+                        <button class="btn" type="submit">Войти/Зарегистрироваться</button>
                 </form>
 
                 <div class="header__logo">
