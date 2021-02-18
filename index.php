@@ -1,7 +1,8 @@
 
 <?php
 include 'php/data.php';
-//include 'php/post.php';
+include 'php/registration.php';
+
 ?>
 
 <!DOCTYPE html>
@@ -19,22 +20,37 @@ include 'php/data.php';
 </head>
 <body class="body">
     <div class="wrapper">
-        <div class="container">        
-            <header class="header"><!--Шапка-->
+     
+        <header class="header"><!--Шапка-->
+            <div class="container">   
+                <form action="<?=$_SERVER['REQUEST_URI']?>" class="auth__form shadow" method="post">
+                    <input type="hidden" name="form-name" value="form-auth" />
+                        <div class="auth__group">
+                            <label class="auth__label" for="phone">Логин</label>
+                            <input class="auth__input" type="tel" id="login" name="login" placeholder="login">
+                        </div>
+                        <div class="auth__group">
+                            <label class="auth__label" for="Password">Пароль</label>
+                            <input class="auth__input" type="password" id="Password" name="Password" placeholder="password">
+                        </div>
+                        <button class="btn" type="submit">Войти</button>
+                </form>
+
                 <div class="header__logo">
                     <img src="img/Logo_FJS.jpg" alt="Logotip">
                 </div>
-                <nav class="header__nav"><!--Навигация-->
+                <nav class="header__nav shadow"><!--Навигация-->
                     <a href="#"><?=$goods;?></a>
                     <a href="#"><?=$categories;?></a>
                 </nav>
-            </header>
-        </div>
+                </div>
+        </header>
+
 
             <main class="main"><!--Основной контент сайта-->
                 <div class="container">
-                    <h1><?=$titleListGoods;?></h1>
-                    <article class="main__articl"><!--Блок который можнобез проблем изъять из контента-->
+                    <h1 class="main__title__List shadow"><?=$titleListGoods;?></h1>
+                    <article class="main__articl shadow"><!--Блок который можнобез проблем изъять из контента-->
                         <header class="main__articl__header">
                             <h2 title="first-theme">Подарочный Набор на День Всех Святых</h2>
                         </header>
@@ -82,7 +98,7 @@ include 'php/data.php';
                                      <!--Выводятся списком комментарии к статье-->
                                     <div class="main__articl__footer__comments" title="Комментарии">
                                         <div class="main__articl__footer__comments__title">Комментарии к посту</div>
-                                            <ul>
+                                            <ul class="main__articl__footer__comments__container">
                                             <li>
                                                     <div class="main__articl__footer__comments__text">
                                                     <?= $comments[$i];?>
@@ -118,7 +134,7 @@ include 'php/data.php';
                 </div>    
             </main>
             <div class="container">
-                <footer class="footer"> <!--Подвал страницы-->
+                <footer class="footer shadow"> <!--Подвал страницы-->
                     <span>Frion & Jane studio (Куклы и украшения ручной работы) 2021 © </span>
                 </footer>
             </div> 

@@ -4,7 +4,7 @@
        background-color: #edeef0;
        min-height: 100%;
        overflow: hidden;
-     display: flex;
+       display: flex;
        flex-direction: column;
 
    }
@@ -12,24 +12,48 @@
    /*border: 1px solid #5e5373;*/
        width: 800px;
        margin: 0px auto;
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+   }
 
+
+   .shadow {
+    background: #ffffff;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.4) 2px 3px 5px 1px;  
 
    }
+ /*
    .header {
-   /* border: 2px solid #aa11f1; */
+   border: 2px solid #aa11f1; 
 
    }
+*/
+   .auth__form {
+ /*   border: 1px solid #f70c0c; */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    padding: 0.5rem 0;
+    margin: 1rem 0;
+   }
+
+   .auth__form label {
+    font-weight: bold;
+    margin: 0 0.5rem;
+    
+   }
+
 
    .header__logo {
-       text-align: center;
-       width: 100%;
+       width: auto;
        margin: 0;       
    }
    
    .header__nav {
-       background: #ffffff;
-       border-radius: 5px;
-       box-shadow: rgba(0, 0, 0, 0.4) 2px 3px 5px 1px;
        margin: 0.3rem 0;
        display: flex;
        justify-content: center;
@@ -45,7 +69,6 @@
        padding-left: 1rem;
        padding-right: 1rem;
    }
-
    
    .header__nav a:hover {
         border-bottom: 1.5px solid #afafaf; 
@@ -56,24 +79,22 @@
    .main {
        /*border: 5px solid #5e5373;*/
        flex: 1 1 auto;
-       text-align: center;
    }
    
 
-   h1 {
+   .main__title__List {
         font-weight: bold;
         font-size: x-large;
-        margin: 0.5rem;
-   }
+        text-align: center;
+        margin: 0.5rem 0;
+        padding: 0.5rem 0;
+        width: 100%;
 
+   }
 
    .main__articl {
        padding: 0.5rem;
-       background: #ffffff;
-       border-radius: 5px;
-       box-shadow: rgba(0, 0, 0, 0.4) 2px 3px 5px 1px;
-       font-weight: 100;
-       width: 98%;
+        /*width: 100%;по факту не 100, нужно разобраться*/
        display: flex;
        flex-direction: column;
     }
@@ -84,6 +105,7 @@
        }
 
     h2 {
+        text-align: center;
         font-weight: bold;
         font-size: large;
         font-style:italic;
@@ -143,16 +165,24 @@
     }
 
     .main__articl__footer__comments__title {
+        width: 100%;
+        text-align: center;
         padding: 0.5rem 0;
         font-weight: bold;        
         font-size:18px;
         /*text-decoration: underline;*/
     }
+/*
+    .main__articl__footer__comments__container {
+        border: 2px solid #ff0000;
+        display: flex;
+        justify-content: center;
+        }
 
+*/
 
-
-     li {
-        width: 98%;
+     li {/*не по центру*/
+        width: 90%; 
         display: inline-flex;
         justify-content: center;
         border: 1px solid #afafaf;
@@ -187,6 +217,7 @@
     }
 
     .comments_btn {
+        float: right;
         margin: 0.5rem 0;  
     }
   
@@ -199,9 +230,6 @@
        width: 100%;
        padding: 0.5rem 0;
        margin: 1rem 0;
-       background: #ffffff;
-       border-radius: 5px;
-       box-shadow: rgba(0, 0, 0, 0.4) 2px 3px 5px 1px;   
    }
    
     .modal{
@@ -209,7 +237,7 @@
         /*height: 100%;
         width: 100%;*/
         position: absolute;
-        left: 50%;
+        left: 45%;
         top: 50%;
         display: flex;
         justify-content: center;
@@ -217,7 +245,7 @@
     }
 
     .modal__form {
-        display: block;
+        display: none;
         width: 300px;
         padding: 1rem;
         background: #f0f0f0;
