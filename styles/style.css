@@ -41,7 +41,9 @@ body,div,header,article,main{
     font-weight: 300;
     margin-bottom: 16px;
 }
-
+.validate-error{
+    border:1px solid #f00;
+}
 .modal{
     position: static;
     width: 50%;
@@ -50,4 +52,8 @@ body,div,header,article,main{
     margin:0 auto;
     background-color: #eee;
 
+}
+
+.modal_show{
+    display:block;
 }
