@@ -14,6 +14,7 @@ include_once 'data.php';
           rel="stylesheet">
     <link href="styles/style.css" rel="stylesheet" />
 
+
 </head>
 <body>
 <header class="header">
@@ -21,6 +22,26 @@ include_once 'data.php';
         <a href="/" class="header__link">BLOG</a>
         <a href="/" class="header__link">Categiries</a>
     </nav>
+    <div class="auth">
+        <?php if($isAuth) { ?>
+            Привет, <?=$_SESSION['user']?>!
+        <a href="/?out=1">Выйти</a>
+        <?php } else { ?>
+    <form action="<?=$thisUrl?>" class="auth__form" method="post">
+        <input type="hidden" name="form-name" value="form-auth" />
+        <div class="auth__group">
+            <label class="auth__label" for="phone">Login</label>
+            <input class="auth__input" type="tel" id="login" name="login" placeholder="login">
+        </div>
+        <div class="auth__group">
+            <label class="auth__label" for="Password">Password</label>
+            <input class="auth__input" type="password" id="Password" name="Password" placeholder="password">
+        </div>
+        <button class="btn" type="submit">SIGN IN</button>
+    </form>
+        <? } ?>
+    </div>
+
 </header>
 <main class="main container">
     <h1 class="main__heading main__heading_level_1">Blog</h1>
@@ -73,7 +94,7 @@ include_once 'data.php';
                     <span><?=$viewCount?> Views</span>
                 </div>
                 <div>
-                    <a href="/">Add to comments</a>
+                    <button id="add-comment">Add comment</button>
                 </div>
 
             </div>
@@ -124,41 +145,46 @@ include_once 'data.php';
 
 <!-- modal form -->
 <div class="modal">
-    <form action="/index.php" method="post" name="form-comment" enctype="multipart/form-data">
+    <button class="model__btn-close">X</button>
+    <form action="/index.php" method="post" id="form-comment" name="formcomment" enctype="multipart/form-data">
         <fieldset>
             <legend>Leave a comment</legend>
             <p>
                 <label for="name">
                     <span>Name</span>
-                    <input type="text" id="name" placeholder="Your name"/>
+                    <input type="text" name="name" data-required="true" id="name" placeholder="Your name"/>
                 </label>
             </p>
             <p>
                 <label for="email">
                     <span>Email</span>
-                    <input type="email" id="email" placeholder="Your email"/>
+                    <input type="email" name="email" data-required="true" id="email" placeholder="Your email"/>
                 </label>
             </p>
             <p>
                 <label for="file">
                     <span>File</span>
-                    <input type="file" id="file" accept="image/*"/>
+                    <input type="file" name="file" id="file" accept="image/*"/>
                 </label>
             </p>
             <p>
                 <label for="comment">
                     <span>Your comment</span>
-                    <textarea name="comment" id="comment" cols="30" rows="10"></textarea>
+                    <textarea name="comment" data-required="true" id="comment" cols="30" rows="10"></textarea>
                 </label>
             </p>
             <p>
-                <button type="submit">Submit comment</button>
+                <button type="submit" class="modal__btn">Submit comment</button>
             </p>
         </fieldset>
 
     </form>
 </div>
 
-
+<div class="notice">
+    <div class="notice__title"></div>
+    <div class="notice__text"></div>
+</div>
+<script src="js.js"></script>
 </body>
 </html>
