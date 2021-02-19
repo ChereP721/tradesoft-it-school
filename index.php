@@ -2,7 +2,7 @@
 <?php
 include 'php/data.php';
 include 'php/registration.php';
-
+include 'php/sql.php';
 ?>
 
 <!DOCTYPE html>
