@@ -94,9 +94,10 @@
 
    .main__articl {
        padding: 0.5rem;
-        /*width: 100%;по факту не 100, нужно разобраться*/
+       width: 100%;по факту не 100, нужно разобраться
        display: flex;
        flex-direction: column;
+       box-sizing: border-box;
     }
    
    .main__articl__header {
@@ -124,19 +125,18 @@
    .main__articl__description p {
        text-align: justify;
        color: #4d4d4d;
-       margin: 0 0.5rem;
-   
+       margin: 0 0.5rem;   
        font-size: 16px;
    }
    
    .main__articl__description button {
-    float: right;
-    margin: 0.5rem;
+       float: right;
+       margin: 0.5rem;
     }
 
    
     .main__articl__footer {
-      /*  border: 2px solid #b60155;*/
+        /* border: 2px solid #b60155; */
         width: 100%;
         margin: 0 auto;
 
@@ -144,6 +144,7 @@
     
     .main__articl__footer__items {
         display: flex;
+        width: 100%;
         margin: 0.5rem 0;
         justify-content: space-around;     
         align-items: center;   
@@ -172,17 +173,19 @@
         font-size:18px;
         /*text-decoration: underline;*/
     }
-/*
+
     .main__articl__footer__comments__container {
-        border: 2px solid #ff0000;
+        /* border: 2px solid #ff0000; */
         display: flex;
+        flex-direction: column;
         justify-content: center;
+        align-items: center;
         }
 
-*/
+
 
      li {/*не по центру*/
-        width: 90%; 
+        width: 95%; 
         display: inline-flex;
         justify-content: center;
         border: 1px solid #afafaf;
