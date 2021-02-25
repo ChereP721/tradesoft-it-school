@@ -3,7 +3,7 @@ include_once "comments.php";
 
 $h2Title = "my best 2title";
 
-define('MY_DOCUMENT_TITLE', 'document title for thic project');
+define('MY_DOCUMENT_TITLE', 'блог');
 
 $viewCount = 0;
 $viewCount++;
@@ -34,6 +34,21 @@ $viewCount += rand(10, 100);
         <nav class="header__nav">
             <a href="/blog.php" class="header__link">BLOG</a>
             <a href="/categories.php" class="header__link">CATEGORIES</a>
+
+            <!--авторизация-->
+            <form action="<?= $_SERVER['REQUEST_URI'] ?>" class="auth__form" method="post">
+                <input type="hidden" name="form-name" value="form-auth" />
+                <div class="auth__group">
+                    <label class="auth__label" for="phone">Login</label>
+                    <input class="auth__input" type="tel" id="login" name="login" placeholder="login">
+                </div>
+                <div class="auth__group">
+                    <label class="auth__label" for="Password">Password</label>
+                    <input class="auth__input" type="password" id="Password" name="Password" placeholder="password">
+                </div>
+                <button class="btn" type="submit">SIGN IN</button>
+            </form>
+
         </nav>
     </header>
     <main class="main container">
@@ -88,19 +103,19 @@ $viewCount += rand(10, 100);
                         <span>Показать комментарии</span>
                     </button>
                     <?php
-                    $comments = createRandomComments(3, 15);
-                    for ($i = 0; $i < count($comments); $i++) {
+                    $comments = createRandomComments(3, 25);
+                    for ($i = 0; $i < count($comments['date']); $i++) {
                     ?>
-                        <ul>
+                        <ul id="comments__list">
                             <li>
                                 <!--<img src="/" alt="Avatar admin">-->
                                 <div>
                                     <div>
-                                        <time class="fa fa-calendar"><?= $comments[$i][0] ?></time>
-                                        <span class="comment_span_author fa fa-user"><?= $comments[$i][1] ?></span>
+                                        <time class="fa fa-calendar"><?= $comments['date'][$i] ?></time>
+                                        <span class="comment_span_author fa fa-user"><?= $comments['author'][$i] ?></span>
                                     </div>
                                     <p class="fa fa-comment">
-                                        <?= $comments[$i][2] ?>
+                                        <?= $comments['comment'][$i] ?>
                                     </p>
                                 </div>
                             </li>
@@ -117,20 +132,24 @@ $viewCount += rand(10, 100);
     </footer>
 
     <!-- Подготовка формы для добавления комментариев  -->
-    <div class="modal">
-        <form action="/" method="post" name="form-comment">
+    <div id="modal" class="modal">
+        <form method="post" name="commentForm" enctype="multipart/form-data">>
             <fieldset>
                 <p>
                     <label for="name" class="label_f">Имя</label>
-                    <input type="text" id="name" class="input_f" placeholder="name">
+                    <input data-required="true" name="name" type="text" id="name" class="input_f" placeholder="name">
                 </p>
                 <p>
                     <label for="email" class="label_f">E-mail</label>
-                    <input type="text" id="email" class="input_f" placeholder="e-mail">
+                    <input data-required="true" name="email" type="text" id="email" class="input_f" placeholder="e-mail">
                 </p>
                 <p>
-                    <label for="comment" class="label_f">Комментарий</label>
-                    <textarea name="comment" id="comment" class="input_f" cols="30" rows="10"></textarea>
+                    <label for="comm" class="label_f">Комментарий</label>
+                    <textarea data-required="true" name="comm" id="comm" class="input_f" cols="30" rows="10"></textarea>
+                </p>
+                <p>
+                    <label for="img" class="label_f">Выберите изображение</label>
+                    <input type='file' name="image" class="btn btn-primary" accept="image/*" value="прикрепить изображение">
                 </p>
                 <p>
                     <button id="btnSubm" type="submit" class="btn btn-primary">Отправить</button>
@@ -139,8 +158,8 @@ $viewCount += rand(10, 100);
         </form>
     </div>
 
+    <script src="script.js"></script>
 
-    <script src="scr2.js"></script>
 </body>
 
 </html>
