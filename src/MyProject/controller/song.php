@@ -1,4 +1,7 @@
 <?php
+
+namespace MyProject\controller;
+
 return [
     'author' => [
         'Admin',

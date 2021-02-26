@@ -1,5 +1,9 @@
 <?php
 
+namespace MyProject\controller;
+
+
+echo '132';
 // функция даты
 function timeComment() {
     date_default_timezone_set('UTC');
@@ -19,6 +23,7 @@ function nameUserGeneri() {
         echo "Admin";
     }
 }
+
 
 
 
