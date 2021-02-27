@@ -94,7 +94,8 @@
 
    .main__articl {
        padding: 0.5rem;
-        /*width: 100%;по факту не 100, нужно разобраться*/
+       width: 100%;
+       box-sizing: border-box;
        display: flex;
        flex-direction: column;
     }
@@ -172,18 +173,20 @@
         font-size:18px;
         /*text-decoration: underline;*/
     }
-/*
+
     .main__articl__footer__comments__container {
-        border: 2px solid #ff0000;
+        /* border: 2px solid #ff0000; */
         display: flex;
-        justify-content: center;
+        flex-direction: column;
+        /* justify-content: center; */
+        align-items: center;
         }
 
-*/
 
-     li {/*не по центру*/
-        width: 90%; 
-        display: inline-flex;
+
+     li {
+        width: 98%; 
+        display: flex;
         justify-content: center;
         border: 1px solid #afafaf;
         background: #eeeeee;

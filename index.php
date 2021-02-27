@@ -36,7 +36,8 @@ include 'php/data.php';
                             <label class="auth__label" for="password">Пароль</label>
                             <input class="auth__input" type="password" id="password" name="password" placeholder="password">
                         </div>
-                        <button class="btn" type="submit">Войти/Зарегистрироваться</button>
+                        <button class="btn" type="submit">Войти</button>
+                        <button class="btn" type="submit">Зарегистрироваться</button>                      
                 </form>
 
                 <div class="header__logo">
