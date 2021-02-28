@@ -1,8 +1,33 @@
 
-<?php
+<?php //Подключение PHP файлов
 include 'php/data.php';
-/*include 'php/registration.php';*/
+include 'php/connectBD.php';
+?>
 
+<?php //Проверка  и создание COOKIE
+$connectBD;
+if(!isset($_COOKIE['user_id'])) {
+	if(isset($_POST['authSubmit'])) {
+		$authlogin = mysqli_real_escape_string($connectBD, trim($_POST['login']));
+		$authPassword = mysqli_real_escape_string($connectBD, trim($_POST['password']));
+		if(!empty($authlogin) && !empty($authPassword)) {
+			$queryAuth = "SELECT `user_id` , `userLogin` FROM `users` WHERE userLogin = '$authlogin' AND userPassword = md5('$authPassword')";
+			$authData = mysqli_query($connectBD, $queryAuth);
+			if(mysqli_num_rows($authData) > 0 ) {
+				$row = mysqli_fetch_assoc($authData);
+				setcookie('user_id', $row['user_id'], time() + (60*60*24));
+				setcookie('userLogin', $row['userLogin'], time() + (60*60*24));
+                header('Location: ../');
+			}
+			else {
+				$messAuth =  'Неверный логин или пароль';
+			}
+		}
+		else {
+			$messAuth =  'Введите логин и пароль';
+		}
+	}
+}
 ?>
 
 <!DOCTYPE html>
@@ -23,23 +48,62 @@ include 'php/data.php';
     <div class="wrapper">
      
         <header class="header"><!--Шапка-->
-            <div class="container">   
+            <div class="container">
 
-                <!--<form action="<?//=$_SERVER['REQUEST_URI']?>" class="auth__form shadow" method="post">-->
-                <form action="php/registration.php" class="auth__form shadow" method="post">
-                    <input type="hidden" name="form-name" value="form-auth" />
-                        <div class="auth__group">
-                            <label class="auth__label" for="phone">Логин</label>
-                            <input class="auth__input" type="tel" id="login" name="login" placeholder="login">
-                        </div>
-                        <div class="auth__group">
-                            <label class="auth__label" for="password">Пароль</label>
-                            <input class="auth__input" type="password" id="password" name="password" placeholder="password">
-                        </div>
-                        <button class="btn" type="submit">Войти</button>
-                        <button class="btn" type="submit">Зарегистрироваться</button>                      
-                </form>
+<?php
+    $connectBD;
+    if(isset($_POST['regSubmit'])){
+        // Отправляем значения которые передаём
+        $login = mysqli_real_escape_string($connectBD, trim($_POST['login']));
+        $password = mysqli_real_escape_string($connectBD, trim($_POST['password']));
+        if(!empty($login) && !empty($password)) {
+            $query = "SELECT * FROM `users` WHERE userLogin = '$login'";
+            $data = mysqli_query($connectBD, $query);
+            if(mysqli_num_rows($data) == 0) {
+                $query = "INSERT INTO `users` (userLogin, userPassword) VALUES ('$login', md5('$password'))";
+                mysqli_query($connectBD,$query);
+                $messAuth = 'Вы зарегистрированы';
+                mysqli_close($connectBD);
+                exit();
+            }
+            else {
+                $messAuth = 'Логин уже существует';
+            }
+        }
+    }
+?>
 
+<?php
+	if(empty($_COOKIE['username'])) {
+?>
+
+    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" class="auth__form shadow" method="post">
+            <input type="hidden" name="form-name" value="form-auth" />
+                <div class="auth__group">
+                    <label class="auth__label" for="login">Логин</label>
+                    <input class="auth__input" type="tel" id="login" name="login" placeholder="login">
+                </div>
+                <div class="auth__group">
+                    <label class="auth__label" for="password">Пароль</label>
+                    <input class="auth__input" type="password" id="password" name="password" placeholder="password">
+                </div>
+                <button class="btn" type="submit" name="authSubmit">Войти</button>                        
+                <button class="btn" type="submit" name="regSubmit">Зарегистрироваться</button>
+                                                        
+    </form>
+<?php
+    }
+    else {
+        ?>
+        <p>Пользователь<?= $_COOKIE['userLogin'];?></p>
+        <p><a href="php/exitAuth.php">Выйти(<?php echo $_COOKIE['userLogin'];?>)</a></p>
+    <?php	
+    }
+    ?>
+
+    
+    <div class="messAuth"><?= $messAuth?></div>  
+                
                 <div class="header__logo">
                     <img src="img/Logo_FJS.jpg" alt="Logotip">
                 </div>

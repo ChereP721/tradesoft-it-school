@@ -43,10 +43,17 @@
 
    .auth__form label {
     font-weight: bold;
-    margin: 0 0.5rem;
-    
+    margin: 0 0.5rem;    
    }
 
+   .messAuth {
+       width: auto;
+       margin-bottom: 0.5rem;
+       font-weight: bold;
+       text-align: center;
+
+
+   }
 
    .header__logo {
        width: auto;
