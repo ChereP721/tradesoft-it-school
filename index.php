@@ -1,7 +1,6 @@
-<?php //Подключение PHP файлов
+<?php
 include 'php/data.php';
 include 'php/connectBD.php';
-//include 'addComments.php';
 ?>
 <?php
 $connectBD;
@@ -14,8 +13,8 @@ if(!isset($_COOKIE['user_id'])) {
 			$authData = mysqli_query($connectBD, $queryAuth);
 			if(mysqli_num_rows($authData) > 0 ) {
 				$row = mysqli_fetch_assoc($authData);
-				setcookie('user_id', $row['user_id'], time() + (11));
-				setcookie('userLogin', $row['userLogin'], time() + (11));
+				setcookie('user_id', $row['user_id'], time() + (5));
+				setcookie('userLogin', $row['userLogin'], time() + (5));
                 $home_url = 'http://' . $_SERVER['HTTP_HOST']. '/tradesoft-it-school/';
                 header('Location: ' . $home_url);
 			}
@@ -36,7 +35,6 @@ if(!isset($_COOKIE['user_id'])) {
        <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
 	    <link rel="stylesheet" href="css/styleReset.css" type = "text/css"> <!--Очистка стилей-->
-
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet"> <!--подключение иконок-->
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap" rel="stylesheet">
         
