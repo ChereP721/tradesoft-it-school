@@ -1,10 +1,9 @@
-
 <?php //Подключение PHP файлов
 include 'php/data.php';
 include 'php/connectBD.php';
+//include 'addComments.php';
 ?>
-
-<?php //Проверка  и создание COOKIE
+<?php
 $connectBD;
 if(!isset($_COOKIE['user_id'])) {
 	if(isset($_POST['authSubmit'])) {
@@ -15,9 +14,10 @@ if(!isset($_COOKIE['user_id'])) {
 			$authData = mysqli_query($connectBD, $queryAuth);
 			if(mysqli_num_rows($authData) > 0 ) {
 				$row = mysqli_fetch_assoc($authData);
-				setcookie('user_id', $row['user_id'], time() + (60*60*24));
-				setcookie('userLogin', $row['userLogin'], time() + (60*60*24));
-                header('Location: ../');
+				setcookie('user_id', $row['user_id'], time() + (11));
+				setcookie('userLogin', $row['userLogin'], time() + (11));
+                $home_url = 'http://' . $_SERVER['HTTP_HOST']. '/tradesoft-it-school/';
+                header('Location: ' . $home_url);
 			}
 			else {
 				$messAuth =  'Неверный логин или пароль';
@@ -49,61 +49,59 @@ if(!isset($_COOKIE['user_id'])) {
      
         <header class="header"><!--Шапка-->
             <div class="container">
+            
+                <?php
+                    $connectBD;
+                    if(isset($_POST['regSubmit'])){
+                        $login = mysqli_real_escape_string($connectBD, trim($_POST['login']));
+                        $password = mysqli_real_escape_string($connectBD, trim($_POST['password']));
+                        if(!empty($login) && !empty($password)) {
+                            $query = "SELECT * FROM `users` WHERE userLogin = '$login'";
+                            $data = mysqli_query($connectBD, $query);
+                            if(mysqli_num_rows($data) == 0) {
+                                $query = "INSERT INTO `users` (userLogin, userPassword) VALUES ('$login', md5('$password'))";
+                                mysqli_query($connectBD,$query);
+                                $messAuth = 'Вы зарегистрированы';
+                                mysqli_close($connectBD);
+                                exit();
+                            }
+                            else {
+                                $messAuth = 'Логин уже существует';
+                            }
+                        }
+                    }
+                ?>
 
-<?php
-    $connectBD;
-    if(isset($_POST['regSubmit'])){
-        // Отправляем значения которые передаём
-        $login = mysqli_real_escape_string($connectBD, trim($_POST['login']));
-        $password = mysqli_real_escape_string($connectBD, trim($_POST['password']));
-        if(!empty($login) && !empty($password)) {
-            $query = "SELECT * FROM `users` WHERE userLogin = '$login'";
-            $data = mysqli_query($connectBD, $query);
-            if(mysqli_num_rows($data) == 0) {
-                $query = "INSERT INTO `users` (userLogin, userPassword) VALUES ('$login', md5('$password'))";
-                mysqli_query($connectBD,$query);
-                $messAuth = 'Вы зарегистрированы';
-                mysqli_close($connectBD);
-                exit();
-            }
-            else {
-                $messAuth = 'Логин уже существует';
-            }
-        }
-    }
-?>
-
-<?php
-	if(empty($_COOKIE['username'])) {
-?>
-
-    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" class="auth__form shadow" method="post">
-            <input type="hidden" name="form-name" value="form-auth" />
-                <div class="auth__group">
-                    <label class="auth__label" for="login">Логин</label>
-                    <input class="auth__input" type="tel" id="login" name="login" placeholder="login">
-                </div>
-                <div class="auth__group">
-                    <label class="auth__label" for="password">Пароль</label>
-                    <input class="auth__input" type="password" id="password" name="password" placeholder="password">
-                </div>
-                <button class="btn" type="submit" name="authSubmit">Войти</button>                        
-                <button class="btn" type="submit" name="regSubmit">Зарегистрироваться</button>
-                                                        
-    </form>
-<?php
-    }
-    else {
-        ?>
-        <p>Пользователь<?= $_COOKIE['userLogin'];?></p>
-        <p><a href="php/exitAuth.php">Выйти(<?php echo $_COOKIE['userLogin'];?>)</a></p>
-    <?php	
-    }
-    ?>
-
-    
-    <div class="messAuth"><?= $messAuth?></div>  
+                <?php
+                    if(empty($_COOKIE['userLogin'])) {
+                ?>
+                    <form method="POST" action="<?php echo $_SERVER['PHP_SELF'];?>" class="auth__form shadow" method="post">
+                            <input type="hidden" name="form-name" value="form-auth" >
+                                <div class="auth__group">
+                                    <label class="auth__label" for="login">Логин</label>
+                                    <input class="auth__input" type="tel" id="login" name="login" placeholder="login">
+                                </div>
+                                <div class="auth__group">
+                                    <label class="auth__label" for="password">Пароль</label>
+                                    <input class="auth__input" type="password" id="password" name="password" placeholder="password">
+                                </div>
+                                <button class="btn" type="submit" name="authSubmit">Войти</button>                        
+                                <button class="btn" type="submit" name="regSubmit">Зарегистрироваться</button>                                                       
+                    </form>
+                <?php
+                }
+                else {
+                    ?>
+                    <form method="POST" action="<?php echo $_SERVER['PHP_SELF'];?>" class="auth__form shadow" method="post">
+                    <label> Пользователь (<?php echo  $_COOKIE['userLogin'];?>) </label>       
+                    <button class="btn" type="submit" action="php/exitAuth.php" name="exitAuth">Выйти из (<?php echo $_COOKIE['userLogin'];?>)</button> 
+                    </form>  
+                <?php	
+                }
+                ?>
+                <div class="messAuth"><?= $messAuth?></div>  
                 
+            
                 <div class="header__logo">
                     <img src="img/Logo_FJS.jpg" alt="Logotip">
                 </div>
@@ -113,7 +111,6 @@ if(!isset($_COOKIE['user_id'])) {
                 </nav>
                 </div>
         </header>
-
 
             <main class="main"><!--Основной контент сайта-->
                 <div class="container">
@@ -206,6 +203,8 @@ if(!isset($_COOKIE['user_id'])) {
                     <span>Frion & Jane studio (Куклы и украшения ручной работы) 2021 © </span>
                 </footer>
             </div> 
+
+
     <!--заготовка формы комментария-->
         <div class="modal">
         <form class="modal__form" action="php/modal_post.php" method="post" name="form-comment" enctype="multipart/form-data">
@@ -229,14 +228,14 @@ if(!isset($_COOKIE['user_id'])) {
                         <p>
                             <label for="file">
                                 <span>File</span>
-                                <input type="File" id="file" name="file" accept="data/comments/failes/" />
+                                <input type="File" id="file" name="file">
                             </label>
                         </p>
                         <p>
                             <label for="comment">
                                 <textarea name="comment" id="comment" cols="30" rows="10" placeholder="Напишите комментарий"></textarea>
                             </label>
-                            <button class="modal__btn" type="button" id="btnAddComment">Отправить комментарий</button>
+                            <button class="modal__btn" type="button" id="btnAddComment" name="btnAddComment">Отправить комментарий</button>
                         </p>
                        <!-- <div class="loader__wrapper">
                         </div> -->
@@ -249,10 +248,8 @@ if(!isset($_COOKIE['user_id'])) {
         </div>
    
     </div>
-
-
-    
+   
     <link rel="stylesheet" href="css/MyStyle.css" type = "text/css"> <!--Подключение стилей-->
-    <script src="js/index.js"></script>
+    <script src="js/index.jsss"></script>
 </body>
 </html>
