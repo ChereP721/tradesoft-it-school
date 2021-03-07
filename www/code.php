@@ -36,3 +36,20 @@ function genTime(): string
     $randDate = rand(946674000,time());
     return date("Y-m-d", $randDate);
 }
+
+if (isset($_FILES['file']) && (int)$_FILES['file']['error'] === 0) {
+    $uploadDir = __DIR__ . DIRECTORY_SEPARATOR . 'images' . DIRECTORY_SEPARATOR;
+
+    $filename = explode('.', $_FILES['file']['name']);
+    $ext = array_pop($filename);
+
+    $filename = md5(microtime() . implode('.', $filename));
+    for ($i = 0; $i < 3; $i++) {
+        $uploadDir .= mb_substr($filename, $i * 2, 2) . DIRECTORY_SEPARATOR;
+    }
+    if (!is_dir($uploadDir)) {
+        mkdir($uploadDir, 0777, true);
+    }
+
+    move_uploaded_file($_FILES['file']['tmp_name'], $uploadDir . $filename . '.' . $ext);
+}
