@@ -8,6 +8,8 @@ document.addEventListener('DOMContentLoaded', function() {
  //const btnAddComment = document.getElementById('');
  const xhr = new XMLHttpRequest();
 
+    initModal();
+    
     function initModal() {
         if (btnAddComment) {
             btnAddComment.addEventListener('click', showModal);
@@ -57,7 +59,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
         if (isValid) {
              xhr.send(new FormData(document.forms.comment));
-        }
+        } 
+        xhr.send(new FormData(document.forms.comment));
+         });
     
         xhr.onload = function() {
             if (xhr.status !==200) {
@@ -74,7 +78,4 @@ document.addEventListener('DOMContentLoaded', function() {
         xhr.onerror = function() {
             alert('фигня какая-то случилась');
         }
-    });
-    
-    initModal();
 })
