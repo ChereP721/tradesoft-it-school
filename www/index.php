@@ -73,6 +73,12 @@ include 'code.php';
 
                 </div>
                 <div>
+                    <button id='add-comment'>
+                        <span>Add comments</span>
+                    </button>
+
+                </div>
+                <div>
                 <p>Comments</p>
                     <ul>
                         <li>
@@ -118,6 +124,7 @@ include 'code.php';
 
     <div class="modal">
         <form action="/" method="post" name="form-comment" enctype="multipart/form-data">
+            <button class="modal__btn-close">X</button>
             <fieldset>
                 <legend>Leave a comment</legend>
                 <div>
@@ -145,9 +152,10 @@ include 'code.php';
                             <textarea name="textarea" id="textarea" cols="30" rows="2"></textarea>
                         </label>
                     </div>
-                    <button class="modal_btn" type="button">Send comment</button>
+                    <button class="modal__btn-submit modalBtnSubmit" type="button">Send comment</button>
                 </div>
             </fieldset>
         </form>
     </div>
+    <script src="index.js"></script>
 </body>
