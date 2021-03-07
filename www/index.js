@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     modalBtnSubmit.addEventListener('click', function() {
-        xhr.open('POST', 'data.php');
+        xhr.open('POST', 'index.php');
         xhr.responseType = 'json';
         const formInput = [...document.querySelectorAll('[data-required]')];
         let isValid = formInput.every(itrem => validate(item));
