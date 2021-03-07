@@ -143,7 +143,7 @@ include 'code.php';
                     <div>
                         <label for="file">
                             <span>Add a file</span>
-                            <input type="file" id="file" accept="image/*">
+                            <input type="file" name="file" id="file" accept="image/*">
                         </label>
                     </div>
                     <div>
