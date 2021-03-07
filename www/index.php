@@ -1,30 +1,9 @@
 <?php 
-$h2Title = 'Some title';
-
-define('MY_DOC_TITLE', 'title from const');
-
-$h3title='3 title';
-
-$viewcount=0;
-$viewcount++;
-
-$viewcount--;
-$viewcount +=  rand(10,100);
-
-
-/*if ($viewcount < 50) {
-    echo 'мало!!!!!!!!!!!!!!!!';
-    $viewcount *= 2;
-}*/
-//some comment
-# 1 more comment
-/*
-* long comment
-*/
+include 'code.php'; 
 ?>
 
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" class="font">
 <head>
 	<meta charset="utf-8">
 	<title>Blog</title>
@@ -42,47 +21,49 @@ $viewcount +=  rand(10,100);
 	<main class="main container">
 		<h1 class="main__heading main__heading_level_1">Blog</h1>
 		<article class="post">
-        <div class="post__wrapper">
-            <header class="post__header">
-				<h2 class="post_title"><? echo $h2Title ?> / <?=$h2Title?> / <?=MY_DOC_TITLE?> / Mauris posuere</h2>
-			</header>
-			<figure>
-				<img src="https://livedemo00.template-help.com/wordpress_50742/wp-content/uploads/2014/07/Depositphotos_12240275_original-200x150.jpg" alt="Mauris posuere">
-			</figure>
-			<div>Some text
-                <div>
-                    <p>Some more text</p>
-                    <a href="">read more</a>
-                </div>
-            </div>
-            <hr>
-			<footer class="main__footer>">
-                <div> 
+            <div class="post__wrapper">
+                <header class="post__header">
+				    <h2 class="post__title">Mauris posuere</h2>
+			    </header>
+                <div class="main__post__content"> 
+                    <figure class="main__post__figure">
+                        <img class="main__post__figure__image" src="https://livedemo00.template-help.com/wordpress_50742/wp-content/uploads/2014/07/Depositphotos_12240275_original-200x150.jpg" alt="Mauris posuere">
+			        </figure>
                     <div>
-					    <i class="fa fa-calendar"></i>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed blandit massa vel mauris sollicitudin dignissim. Phasellus ultrices tellus eget ipsum ornare molestie scelerisque eros dignissim. Phasellus fringilla hendrerit lectus nec vehicula. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In faucibus, risus eu volutpat pellentesque, massa felis feugiat velit, nec...
+                    </div>
+                    
+                </div>
+                <div>
+                <div><a href="">Read more</a></div>
+                <hr>
+            </div>
+            <footer class="main__footer>">
+                <div> 
+                    <div class="main__footer__div">
+					    <i class="fa fa-calendar main__footer__icon"></i>
 					    <time datetime="2021-01-01">2021-01-01</time>
 				    </div>
-				    <div>
-                        <i class="fa fa-user"></i>
+				    <div class="main__footer__div">
+                        <i class="fa fa-user main__footer__icon"></i>
 					    <a href="" title="">Admin</a>
                     </div>
                 </div>
                 <hr>
-                <div>
-                    <i class="fa fa-bookmark"></i>
+                <div class="main__footer__div">
+                    <i class="fa fa-bookmark main__footer__icon"></i>
                     Uncategorized
                 </div>
-                <div>
-                    <i class="fa fa-tag"></i>No tags
+                <div class="main__footer__div">
+                    <i class="fa fa-tag main__footer__icon"></i>No tags
                 </div>
                 <hr>
-                <div>
-                    <i class="fa fa-comment"></i>
+                <div class="main__footer__div">
+                    <i class="fa fa-comment main__footer__icon"></i>
 					<a href="" title=""></a>Comments</a>
                 </div>
-
-                <div>
-                    <i class="fa fa-eye"></i><?=$viewcount?>
+                <div class="main__footer__div">
+                    <i class="fa fa-eye main__footer__icon"></i><?=$viewcount?>
                 </div>
                 
                 <div>
@@ -97,24 +78,36 @@ $viewcount +=  rand(10,100);
                         <li>
                             <img src="" alt="No IMG">
                             <div>
-                                <span>Admin</span>
-                                <time>2021-01-02</time>
+                                <span><?=genName($arrayNames);?></span>
+                                <time><?=genTime();?></time>
                             </div>
-                            <p>good</p>
+                            <p>
+                            <?=genComment(); ?>
+                            </p>
                         </li>
                         <li>
                             <img src="" alt="No IMG">
                             <div>
-                                <span>NotAdmin</span>
-                                <time>2021-01-03</time>
+                                <span><?=genName($arrayNames); ?></span>
+                                <time><?=genTime();?></time>
                             </div>
-                            <p>no good</p>
+                            <p>
+                            <?=GenComment(); ?>
+                            </p>
                         </li>
-                        <li></li>
+                        <li>
+                            <img src="" alt="No IMG">
+                            <div>
+                                <span><?=genName($arrayNames); ?></span>
+                                <time><?=genTime();?></time>
+                            </div>
+                            <p>
+                            <?=genComment(); ?>
+                            </p>
+                        </li>
                     </ul>
                 </div>
             </footer>
-            </div>    
 		</article>
 	</main>
 	<footer>
@@ -128,16 +121,16 @@ $viewcount +=  rand(10,100);
             <fieldset>
                 <legend>Leave a comment</legend>
                 <div>
-                    <div>
+                    <div class="modal__form__field">
                         <label for="name">
-                            <span>  Name</span>
-                            <input type="text" id="name" placeholder="input name">
+                            <!-- <span>  Name</span> -->
+                            <input type="text" id="name" placeholder="Input name">
                         </label>
                     </div>
                     <div>
                         <label for="email">
-                            <span>email</span>
-                            <input type="email" id="email" placeholder="input email">
+                            <!-- <span>email</span> -->
+                            <input type="text" id="email" placeholder="Input email">
                         </label>
                     </div>
                     <div>
@@ -148,7 +141,7 @@ $viewcount +=  rand(10,100);
                     </div>
                     <div>
                         <label for="textarea">
-                            <span>Your text</span>
+                            <!-- <span>Your text</span> -->
                             <textarea name="textarea" id="textarea" cols="30" rows="2"></textarea>
                         </label>
                     </div>
