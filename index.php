@@ -205,7 +205,7 @@ if(!isset($_COOKIE['user_id'])) {
 
     <!--заготовка формы комментария-->
         <div class="modal">
-        <form class="modal__form" action="php/modal_post.php" method="post" name="form-comment" enctype="multipart/form-data">
+        <form class="modal__form" action="php/comments.php" method="post" name="form-comment" enctype="multipart/form-data">
                 <button type="button" class="modal__btn-close">
                     <i class="fa fa-close"></i>
                 </button>
@@ -214,7 +214,7 @@ if(!isset($_COOKIE['user_id'])) {
                         <p>
                             <label for="name">
                                 <span>Name</span>
-                                <input type="text" id="name" name="name" placeholder="Введите ваше имя">
+                                <input type="text" id="name" name="name" required placeholder="Введите ваше имя">
                             </label>
                         </p>
                         <p>
@@ -226,14 +226,14 @@ if(!isset($_COOKIE['user_id'])) {
                         <p>
                             <label for="file">
                                 <span>File</span>
-                                <input type="File" id="file" name="file">
+                                <input type="File" id="image" name="image">
                             </label>
                         </p>
                         <p>
                             <label for="comment">
-                                <textarea name="comment" id="comment" cols="30" rows="10" placeholder="Напишите комментарий"></textarea>
+                                <textarea name="comment" id="comment" cols="30" rows="10" required placeholder="Напишите комментарий"></textarea>
                             </label>
-                            <button class="modal__btn" type="button" id="btnAddComment" name="btnAddComment">Отправить комментарий</button>
+                            <button class="modal__btn" type="submit" id="btnAddComment" name="btnAddComment">Отправить комментарий</button>
                         </p>
                        <!-- <div class="loader__wrapper">
                         </div> -->
@@ -248,6 +248,6 @@ if(!isset($_COOKIE['user_id'])) {
     </div>
    
     <link rel="stylesheet" href="css/MyStyle.css" type = "text/css"> <!--Подключение стилей-->
-    <script src="js/index.jsss"></script>
+    <script src="js/index.js"></script>
 </body>
 </html>
