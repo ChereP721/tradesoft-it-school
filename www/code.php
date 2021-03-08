@@ -10,6 +10,8 @@ $viewcount +=  rand(10,100);
 
 $arrayNames = ["Petya", "Vasya", "Siroja", "Maniasha", "ZlojAdmin"];
 
+$uploadDir = __DIR__ . DIRECTORY_SEPARATOR . 'images' . DIRECTORY_SEPARATOR;
+
 function genComment(): string
 {
     $string = "";
@@ -38,7 +40,7 @@ function genTime(): string
 }
 
 if (isset($_FILES['file']) && (int)$_FILES['file']['error'] === 0) {
-    $uploadDir = __DIR__ . DIRECTORY_SEPARATOR . 'images' . DIRECTORY_SEPARATOR;
+    
 
     $filename = explode('.', $_FILES['file']['name']);
     $ext = array_pop($filename);
@@ -53,3 +55,23 @@ if (isset($_FILES['file']) && (int)$_FILES['file']['error'] === 0) {
 
     move_uploaded_file($_FILES['file']['tmp_name'], $uploadDir . $filename . '.' . $ext);
 }
+
+function scanOldFiles($uploadDir)
+{
+    $scanlist = [];
+    $scanlist = array_diff(scandir($uploadDir), array('..', '.'));
+    foreach ($scanlist as $item) {
+        $itempath = $uploadDir . DIRECTORY_SEPARATOR . $item; 
+        if (is_dir($itempath)) {
+            scanOldFiles($itempath);
+        } else {
+            $stat = stat($itempath);
+            $interval = (int)((time() - $stat['mtime'])/3600/365);
+            if ($interval > 1) {
+                unlink($itempath); //удаляем файл, если он старее 1 года
+            }
+        }
+    }
+}
+
+scanOldFiles($uploadDir);
