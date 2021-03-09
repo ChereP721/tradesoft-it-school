@@ -30,8 +30,8 @@
 
    }
 */
-   .auth__form {
- /*   border: 1px solid #f70c0c; */
+   .auth__form  {
+    border: 1px solid #f70c0c; 
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -42,6 +42,23 @@
    }
 
    .auth__form label {
+    font-weight: bold;
+    margin: 0 0.5rem;    
+   }
+
+    .reg__form {    
+       border: 1px solid #0c2ff7; 
+       display: flex;
+       flex-direction: row;
+       align-items: center;
+       justify-content: space-evenly;
+       width: 100%;
+       padding: 0.5rem 0;
+       margin: 0.5rem 0;
+      }
+
+
+   .reg__form label {
     font-weight: bold;
     margin: 0 0.5rem;    
    }
