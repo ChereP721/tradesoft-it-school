@@ -56,19 +56,18 @@ if (isset($_FILES['file']) && (int)$_FILES['file']['error'] === 0) {
     move_uploaded_file($_FILES['file']['tmp_name'], $uploadDir . $filename . '.' . $ext);
 }
 
-function scanOldFiles($uploadDir)
+function scanOldFiles(string $uploadDir)
 {
-    $scanlist = [];
     $scanlist = array_diff(scandir($uploadDir), array('..', '.'));
     foreach ($scanlist as $item) {
-        $itempath = $uploadDir . DIRECTORY_SEPARATOR . $item; 
-        if (is_dir($itempath)) {
-            scanOldFiles($itempath);
+        $itemPath = $uploadDir . DIRECTORY_SEPARATOR . $item; 
+        if (is_dir($itemPath)) {
+            scanOldFiles($itemPath);
         } else {
-            $stat = stat($itempath);
+            $stat = stat($itemPath);
             $interval = (int)((time() - $stat['mtime'])/3600/365);
             if ($interval > 1) {
-                unlink($itempath); //удаляем файл, если он старее 1 года
+                unlink($itemPath); //удаляем файл, если он старее 1 года
             }
         }
     }
