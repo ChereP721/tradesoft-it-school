@@ -12,6 +12,25 @@ $arrayNames = ["Petya", "Vasya", "Siroja", "Maniasha", "ZlojAdmin"];
 
 $uploadDir = __DIR__ . DIRECTORY_SEPARATOR . 'images' . DIRECTORY_SEPARATOR;
 
+scanOldFiles($uploadDir);
+
+if (isset($_FILES['file']) && (int)$_FILES['file']['error'] === 0) {
+    
+
+    $filename = explode('.', $_FILES['file']['name']);
+    $ext = array_pop($filename);
+
+    $filename = md5(microtime() . implode('.', $filename));
+    for ($i = 0; $i < 3; $i++) {
+        $uploadDir .= mb_substr($filename, $i * 2, 2) . DIRECTORY_SEPARATOR;
+    }
+    if (!is_dir($uploadDir)) {  
+        mkdir($uploadDir, 0777, true);
+    }
+
+    move_uploaded_file($_FILES['file']['tmp_name'], $uploadDir . $filename . '.' . $ext);
+}
+
 function genComment(): string
 {
     $string = "";
@@ -39,23 +58,6 @@ function genTime(): string
     return date("Y-m-d", $randDate);
 }
 
-if (isset($_FILES['file']) && (int)$_FILES['file']['error'] === 0) {
-    
-
-    $filename = explode('.', $_FILES['file']['name']);
-    $ext = array_pop($filename);
-
-    $filename = md5(microtime() . implode('.', $filename));
-    for ($i = 0; $i < 3; $i++) {
-        $uploadDir .= mb_substr($filename, $i * 2, 2) . DIRECTORY_SEPARATOR;
-    }
-    if (!is_dir($uploadDir)) {
-        mkdir($uploadDir, 0777, true);
-    }
-
-    move_uploaded_file($_FILES['file']['tmp_name'], $uploadDir . $filename . '.' . $ext);
-}
-
 function scanOldFiles(string $uploadDir)
 {
     $scanlist = array_diff(scandir($uploadDir), array('..', '.'));
@@ -73,5 +75,3 @@ function scanOldFiles(string $uploadDir)
         }
     }
 }
-
-scanOldFiles($uploadDir);
