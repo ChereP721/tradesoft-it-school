@@ -63,12 +63,13 @@ function scanOldFiles(string $uploadDir)
         $itemPath = $uploadDir . DIRECTORY_SEPARATOR . $item; 
         if (is_dir($itemPath)) {
             scanOldFiles($itemPath);
-        } else {
-            $stat = stat($itemPath);
-            $interval = (int)((time() - $stat['mtime'])/3600/365);
-            if ($interval > 1) {
-                unlink($itemPath); //удаляем файл, если он старее 1 года
-            }
+            continue;
+        }
+        $stat = stat($itemPath);
+        $interval = (int)((time() - $stat['mtime'])/3600/365);
+        if ($interval > 1) {
+           unlink($itemPath); //удаляем файл, если он старее 1 года
+        }
         }
     }
 }
