@@ -80,37 +80,12 @@ include 'code.php';
                 </div>
                 <div>
                 <p>Comments</p>
-                    <ul>
-                        <li>
-                            <img src="" alt="No IMG">
-                            <div>
-                                <span><?=genName($arrayNames);?></span>
-                                <time><?=genTime();?></time>
-                            </div>
-                            <p>
-                            <?=genComment(); ?>
-                            </p>
-                        </li>
-                        <li>
-                            <img src="" alt="No IMG">
-                            <div>
-                                <span><?=genName($arrayNames); ?></span>
-                                <time><?=genTime();?></time>
-                            </div>
-                            <p>
-                            <?=GenComment(); ?>
-                            </p>
-                        </li>
-                        <li>
-                            <img src="" alt="No IMG">
-                            <div>
-                                <span><?=genName($arrayNames); ?></span>
-                                <time><?=genTime();?></time>
-                            </div>
-                            <p>
-                            <?=genComment(); ?>
-                            </p>
-                        </li>
+                     <ul class="comments__list">
+                        <?php
+                        foreach ($songCommentsAr as $comment) {
+                            echo printComment($comment, 'Admin');
+                        }
+                        ?>
                     </ul>
                 </div>
             </footer>
